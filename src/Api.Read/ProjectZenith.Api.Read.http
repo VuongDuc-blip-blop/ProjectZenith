@@ -1,0 +1,6 @@
+@ProjectZenith.Api.Read_HostAddress = http://localhost:5193
+
+GET {{ProjectZenith.Api.Read_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

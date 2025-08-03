@@ -1,0 +1,45 @@
+# This is a modern, Zookeeper-less Kafka setup that connects to a
+# pre-existing external Docker network.
+version: '3.8'
+
+services:
+  kafka:
+    image: docker.io/bitnami/kafka:3.7
+    container_name: kafka
+    # The container joins your external network.
+    networks:
+      - mydockernetwork
+    ports:
+      # We still expose port 9093 to the host machine so your .NET app,
+      # which runs outside of Docker, can connect to it.
+      - "9093:9093"
+    volumes:
+      - "kafka_data:/bitnami/kafka"
+    environment:
+      # KRaft settings - this replaces Zookeeper
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9094
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+
+      # Listener settings
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9094,EXTERNAL://:9093
+      # Correct advertised listeners:
+      # - PLAINTEXT uses the service name 'kafka' for communication *within* the Docker network.
+      # - EXTERNAL uses 'localhost' for communication from your host machine.
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9093
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
+
+      # Other settings
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+      - ALLOW_PLAINTEXT_LISTENER=yes
+
+volumes:
+  kafka_data:
+    driver: local
+
+# This section declares that we are using an existing network.
+# Docker Compose will not try to create it, but will fail if it doesn't exist.
+networks:
+  mydockernetwork:
+    external: true
