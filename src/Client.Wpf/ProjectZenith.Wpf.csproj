@@ -3,7 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Contracts\ProjectZenith.Contracts.csproj" />
   </ItemGroup>
-
+	
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>

@@ -1,45 +1,87 @@
-# This is a modern, Zookeeper-less Kafka setup that connects to a
-# pre-existing external Docker network.
-version: '3.8'
+# This is a complete local development infrastructure for Project Zenith.
+# It includes Kafka, two separate MSSQL databases for CQRS, and a Redis cache.
+version: "3.8"
 
 services:
+  # --- MESSAGING BRIDGE ---
   kafka:
     image: docker.io/bitnami/kafka:3.7
     container_name: kafka
-    # The container joins your external network.
     networks:
       - mydockernetwork
     ports:
-      # We still expose port 9093 to the host machine so your .NET app,
-      # which runs outside of Docker, can connect to it.
+      # Port for your .NET app on the host to connect
       - "9093:9093"
     volumes:
       - "kafka_data:/bitnami/kafka"
     environment:
-      # KRaft settings - this replaces Zookeeper
+      # KRaft settings (replaces Zookeeper)
       - KAFKA_CFG_NODE_ID=0
       - KAFKA_CFG_PROCESS_ROLES=controller,broker
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9094
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
-
       # Listener settings
       - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9094,EXTERNAL://:9093
-      # Correct advertised listeners:
-      # - PLAINTEXT uses the service name 'kafka' for communication *within* the Docker network.
-      # - EXTERNAL uses 'localhost' for communication from your host machine.
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9093
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
-
       # Other settings
       - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
       - ALLOW_PLAINTEXT_LISTENER=yes
 
+  # --- WRITE DATABASE (Source of Truth) ---
+  write-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: write-db
+    networks:
+      - mydockernetwork
+    ports:
+      # Expose on host port 1401 to avoid conflict with other local SQL instances
+      - "1401:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      # Use a strong password in a real project!
+      - SA_PASSWORD=yourStrong(!)Password
+    volumes:
+      - write_db_data:/var/opt/mssql
+
+  # --- READ DATABASE (Optimized for Queries) ---
+  read-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: read-db
+    networks:
+      - mydockernetwork
+    ports:
+      # Expose on host port 1402
+      - "1402:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong(!)Password
+    volumes:
+      - read_db_data:/var/opt/mssql
+
+  # --- CACHING LAYER ---
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    networks:
+      - mydockernetwork
+    ports:
+      # Standard Redis port
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
 volumes:
   kafka_data:
     driver: local
+  # Define the new volumes for data persistence
+  write_db_data:
+    driver: local
+  read_db_data:
+    driver: local
+  redis_data:
+    driver: local
 
-# This section declares that we are using an existing network.
-# Docker Compose will not try to create it, but will fail if it doesn't exist.
 networks:
   mydockernetwork:
     external: true

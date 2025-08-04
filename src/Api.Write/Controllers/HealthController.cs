@@ -6,14 +6,25 @@ namespace ProjectZenith.Api.Write.Controllers
     [ApiController]
     public class HealthController : ControllerBase
     {
+        private readonly ConfigService _configService;
+
+        public HealthController(ConfigService configService)
+        {
+            _configService = configService;
+        }
+
         /// <summary>
-        /// Checks the health of the API.
+        /// Returns a simple health check response.
         /// </summary>
-        /// <returns>A simple OK response.</returns>
+        /// <returns>A string indicating the service is healthy.</returns>
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new { Status = "Healthy" });
+            return Ok(new
+            {
+                Status = "Healthy",
+                Configuration = _configService.GetConfigSummary()
+            });
         }
     }
 }

@@ -6,6 +6,13 @@ namespace ProjectZenith.Api.Read.Controllers
     [ApiController]
     public class HealthController : ControllerBase
     {
+        private readonly ConfigService _configService;
+
+        public HealthController(ConfigService configService)
+        {
+            _configService = configService;
+        }
+
         /// <summary>
         /// Returns a simple health check response.
         /// </summary>
@@ -13,7 +20,11 @@ namespace ProjectZenith.Api.Read.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new { Status = "Healthy" });
+            return Ok(new
+            {
+                Status = "Healthy",
+                Configuration = _configService.GetConfigSummary()
+            });
         }
     }
 }

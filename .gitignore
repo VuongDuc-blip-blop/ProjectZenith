@@ -22,3 +22,9 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
+
+# Enviroment files
+.env
+
+# Docker related artifacts
+docker-compose.override.yml
