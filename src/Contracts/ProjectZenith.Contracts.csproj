@@ -13,5 +13,19 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Events\AppSubmittedEvent.cs" />
+		<Compile Include="Events\UserRegisteredEvent.cs" />
+		<Compile Include="Events\ReviewPostedEvent.cs" />
+		<Compile Include="DTOs\UserProfileDto.cs" />
+		<Compile Include="DTOs\AppSummaryDto.cs" />
+		<Compile Include="Configuration\DatabaseOptions.cs" />
+		<Compile Include="Configuration\KafkaOptions.cs" />
+		<Compile Include="Configuration\RedisOptions.cs" />
+		<Compile Include="Models\User.cs" />
+		<Compile Include="Models\Role.cs" />
+		<Compile Include="Models\UserRole.cs" />
+		<Compile Include="Models\Credential.cs" />
+	</ItemGroup>
 
 </Project>

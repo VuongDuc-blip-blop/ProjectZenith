@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ProjectZenith.Contracts.Events;
 
 
@@ -27,14 +29,23 @@ public enum Platform
 /// <param name="SubmittedAt">The UTC timestamp of the submission.</param>
 public record AppSubmittedEvent
 {
+  [Required]
   public Guid AppId { get; init; }
+  [Required]
   public Guid DeveloperId { get; init; }
+  [Required]
   public string AppName { get; init; }
+  [Required]
   public string Description { get; init; }
+  [Required]
   public string Category { get; init; }
+  [Required]
+  [EnumDataType(typeof(Platform), ErrorMessage = "Invalid platform specified.")]
   public Platform Platform { get; init; }
+  [Required]
   public decimal Price { get; init; }
+  [Required]
   public string Version { get; init; }
-  public Guid FieldId { get; init; }
+  [Required]
   public DateTime SubmittedAt { get; init; }
 }
