@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -46,6 +47,6 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// A list of applications created by the developer.
         /// </summary>
-        public List<App> Apps { get; set; } = new List<App>();
+        public ICollection<App> Apps { get; set; } = new List<App>();
     }
 }

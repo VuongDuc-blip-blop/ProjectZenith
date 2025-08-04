@@ -9,12 +9,19 @@ using System.Threading.Tasks;
 
 namespace ProjectZenith.Contracts.Models
 {
+    /// <summary>
+    /// Represents the status of an abuse report.
+    /// </summary>
     public enum AbuseReportStatus
     {
         New,
         UnderReview,
         Resolved,
     }
+
+    /// <summary>
+    /// Represents an abuse report in the system.
+    /// </summary>
     public class AbuseReport
     {
         /// <summary>

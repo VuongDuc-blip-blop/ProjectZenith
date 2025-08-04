@@ -19,13 +19,21 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         [Key, Column(Order = 1)]
         public Guid UserId { get; set; }
-        public User User { get; set; }
+
+        /// <summary>
+        /// Navigation property to the user associated with this role.
+        /// </summary>
+        public User User { get; set; } = null!;
 
         /// <summary>
         /// The unique identifier for the role.
         /// </summary>
         [Key, Column(Order = 2)]
         public Guid RoleId { get; set; }
-        public Role Role { get; set; }
+
+        /// <summary>
+        /// Navigation property to the role associated with this user.
+        /// </summary>
+        public Role Role { get; set; } = null!;
     }
 }

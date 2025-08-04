@@ -34,18 +34,18 @@ public record AppSubmittedEvent
   [Required]
   public Guid DeveloperId { get; init; }
   [Required]
-  public string AppName { get; init; }
+  public string AppName { get; init; } = null!;
   [Required]
-  public string Description { get; init; }
+  public string Description { get; init; } = null!;
   [Required]
-  public string Category { get; init; }
+  public string Category { get; init; } = null!;
   [Required]
   [EnumDataType(typeof(Platform), ErrorMessage = "Invalid platform specified.")]
   public Platform Platform { get; init; }
   [Required]
   public decimal Price { get; init; }
   [Required]
-  public string Version { get; init; }
+  public string Version { get; init; } = null!;
   [Required]
   public DateTime SubmittedAt { get; init; }
 }

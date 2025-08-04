@@ -9,6 +9,7 @@
 		<Compile Include="Events\AppSubmittedEvent.cs" />
 		<Compile Include="Events\UserRegisteredEvent.cs" />
 		<Compile Include="Events\ReviewPostedEvent.cs" />
+		<Compile Include="Events\AppPurchasedEvent.cs" />
 		<Compile Include="DTOs\UserProfileDto.cs" />
 		<Compile Include="DTOs\AppSummaryDto.cs" />
 		<Compile Include="Configuration\DatabaseOptions.cs" />
@@ -24,6 +25,9 @@
 		<Compile Include="Models\File.cs" />
 		<Compile Include="Models\Review.cs" />
 		<Compile Include="Models\AbuseReport.cs" />
+		<Compile Include="Models\Purchase.cs" />
+		<Compile Include="Models\Transaction.cs" />
+		<Compile Include="Models\Payout.cs" />
 	</ItemGroup>
 
 </Project>

@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProjectZenith.Contracts.Models
 {
+
+    /// <summary>
+    /// Represents a version of an application.
+    /// </summary>
     public class Version
     {
         /// <summary>
@@ -26,7 +30,7 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         [Required]
         [StringLength(50, ErrorMessage = "Version number cannot be longer than 50 characters.")]
-        public string VersionNumber { get; set; } = string.Empty;
+        public string VersionNumber { get; set; } = null!;
 
         /// <summary>
         /// the changelog for this version.

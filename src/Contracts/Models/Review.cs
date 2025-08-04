@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjectZenith.Contracts.Models
 {
+    /// <summary>
+    /// Represents a review for an application made by a user.
+    /// </summary>
     public class Review
     {
         /// <summary>
@@ -36,7 +39,7 @@ namespace ProjectZenith.Contracts.Models
         /// The optional comment provided in the review.
         /// </summary>
         [StringLength(1000, ErrorMessage = "Comment cannot be longer than 1000 characters.")]
-        public string? Comment { get; set; } = string.Empty;
+        public string? Comment { get; set; }
 
         /// <summary>
         /// Indicates whether the review has been edited.
@@ -67,6 +70,11 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         [ForeignKey("AppId")]
         public App App { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation property to the abuse report associated with this review.
+        /// </summary>
+        public ICollection<AbuseReport> AbuseReports { get; set; } = new List<AbuseReport>();
 
     }
 }

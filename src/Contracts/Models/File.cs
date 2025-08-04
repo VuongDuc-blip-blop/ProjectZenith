@@ -19,8 +19,8 @@ namespace ProjectZenith.Contracts.Models
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(2083, ErrorMessage = "File path cannot be longer than 2083 characters.")]
-        public string Path { get; set; } = string.Empty;
+        [StringLength(1024, ErrorMessage = "File path cannot be longer than 1024 characters.")]
+        public string Path { get; set; } = null!;
 
         /// <summary>
         /// The size of the file in bytes.
@@ -30,7 +30,7 @@ namespace ProjectZenith.Contracts.Models
 
         [Required]
         [StringLength(64, ErrorMessage = "Checksum cannot be longer than 64 characters.")]
-        public string Checksum { get; set; } = string.Empty;
+        public string Checksum { get; set; } = null!;
 
         /// <summary>
         /// The date and time when the file was created.

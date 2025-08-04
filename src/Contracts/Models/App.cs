@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,6 +9,9 @@ using ProjectZenith.Contracts.Events;
 
 namespace ProjectZenith.Contracts.Models
 {
+    /// <summary>
+    /// Represent the status of an application.
+    /// </summary>
     public enum Status
     {
         Draft,
@@ -90,6 +94,16 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// A list of versions associated with the application.
         /// </summary>
-        public List<Version> Versions { get; set; } = new List<Version>();
+        public ICollection<Version> Versions { get; set; } = new List<Version>();
+
+        /// <summary>
+        /// A list of abuse reports associated with the application.
+        /// </summary>
+        public ICollection<AbuseReport> AbuseReports { get; set; } = new List<AbuseReport>();
+
+        /// <summary>
+        /// A list of reviews associated with the application.
+        /// </summary>
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
     }
 }

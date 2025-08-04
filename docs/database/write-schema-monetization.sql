@@ -91,30 +91,25 @@ GO
 -- the transfer of funds from the platform to the developer.
 -- =============================================================================
 CREATE TABLE dbo.Payouts (
-    -- The primary key for the payout record.
     Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
-
-    -- Foreign key linking this payout to a specific developer.
     DeveloperId UNIQUEIDENTIFIER NOT NULL,
-
-    -- The total amount to be paid out to the developer.
     Amount DECIMAL(18, 2) NOT NULL,
-
-    -- The current status of the payout.
     Status NVARCHAR(50) NOT NULL DEFAULT 'Scheduled',
-
-    -- The unique reference ID from the external payment provider for this payout.
-    -- Can be null until the payout is actually processed.
-    PaymentId NVARCHAR(256) NULL,
-
-    -- Timestamp for auditing when the payout was processed.
-    PayoutDate DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    
+    -- Timestamps to track the lifecycle
+    ScheduledAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(), -- When was this payout created/scheduled?
+    ProcessAt DATETIME2 NULL,                             -- When is this payout INTENDED to be processed? (Optional)
+    CompletedAt DATETIME2 NULL,                           -- When was the payout confirmed as successful?
+    
+    -- Payment reference
+    PaymentProvider NVARCHAR(100) NULL,                   -- Which provider was used? (e.g., "Stripe", "BankTransfer")
+    PaymentId NVARCHAR(256) NULL,                         -- The external reference ID. Null until processed.
 
     -- Constraints
     CONSTRAINT FK_Payouts_Developers FOREIGN KEY (DeveloperId) REFERENCES dbo.Developers(UserId),
-    -- Ensures the Status column only contains valid values.
-    CONSTRAINT CK_Payouts_Status CHECK (Status IN ('Scheduled', 'Processed', 'Cancelled', 'Failed'))
+    CONSTRAINT CK_Payouts_Status CHECK (Status IN ('Scheduled', 'Processing', 'Processed', 'Cancelled', 'Failed'))
 );
+GO
 GO
 
 PRINT 'Monetization schema created successfully.';

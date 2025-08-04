@@ -25,7 +25,7 @@ namespace ProjectZenith.Contracts.Models
         [Required]
         [EmailAddress]
         [StringLength(256, ErrorMessage = "Email cannot be longer than 256 characters.")]
-        public string Email { get; set; } = string.Empty;
+        public string Email { get; set; } = null!;
 
         /// <summary>
         /// The optional username chosen by the user.
@@ -73,10 +73,31 @@ namespace ProjectZenith.Contracts.Models
         public List<UserRole> Roles { get; set; } = new List<UserRole>();
 
         /// <summary>
+        /// Navigation property to the user's credential.
+        /// </summary>
+        public Credential Credential { get; set; } = null!;
+
+        /// <summary>
         /// A list of reviews written by the user.
         /// </summary>
         public List<Review> Reviews { get; set; } = new List<Review>();
 
+        /// <summary>
+        /// A collection of all the abuse reports this user has FILED.
+        /// This corresponds to the "Reporter" relationship.
+        /// </summary>
+        public ICollection<AbuseReport> FiledAbuseReports { get; set; } = new List<AbuseReport>();
+
+        /// <summary>
+        /// A collection of all the abuse reports FILED AGAINST this user.
+        /// This corresponds to the "ReportedUser" relationship.
+        /// </summary>
+        public ICollection<AbuseReport> AbuseReportsAgainstUser { get; set; } = new List<AbuseReport>();
+
+        /// <summary>
+        /// A collection of all purchases made by the user.
+        /// </summary>
+        public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
 
     }
 }
