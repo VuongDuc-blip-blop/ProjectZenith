@@ -25,7 +25,7 @@ namespace ProjectZenith.Contracts.Models
         [Required]
         [EmailAddress]
         [StringLength(256, ErrorMessage = "Email cannot be longer than 256 characters.")]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         /// <summary>
         /// The optional username chosen by the user.

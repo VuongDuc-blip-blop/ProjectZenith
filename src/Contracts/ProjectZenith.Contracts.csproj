@@ -5,14 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-	
-	<ItemGroup>
-		<!-- This copies the .env file from the solution root to the output directory -->
-		<!-- so Env.Load() can always find it when the app runs. -->
-		<Content Include="..\..\.env">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="Events\AppSubmittedEvent.cs" />
 		<Compile Include="Events\UserRegisteredEvent.cs" />
@@ -26,6 +18,10 @@
 		<Compile Include="Models\Role.cs" />
 		<Compile Include="Models\UserRole.cs" />
 		<Compile Include="Models\Credential.cs" />
+		<Compile Include="Models\Developer.cs" />
+		<Compile Include="Models\App.cs" />
+		<Compile Include="Models\Version.cs" />
+		<Compile Include="Models\File.cs" />
 	</ItemGroup>
 
 </Project>
