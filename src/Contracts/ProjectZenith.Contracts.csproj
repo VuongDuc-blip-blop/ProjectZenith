@@ -22,6 +22,8 @@
 		<Compile Include="Models\App.cs" />
 		<Compile Include="Models\Version.cs" />
 		<Compile Include="Models\File.cs" />
+		<Compile Include="Models\Review.cs" />
+		<Compile Include="Models\AbuseReport.cs" />
 	</ItemGroup>
 
 </Project>

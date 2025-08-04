@@ -71,5 +71,12 @@ namespace ProjectZenith.Contracts.Models
         /// A list of roles assigned to the user.
         /// </summary>
         public List<UserRole> Roles { get; set; } = new List<UserRole>();
+
+        /// <summary>
+        /// A list of reviews written by the user.
+        /// </summary>
+        public List<Review> Reviews { get; set; } = new List<Review>();
+
+
     }
 }

@@ -25,7 +25,7 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         [Required]
         [StringLength(256, ErrorMessage = "Password hash cannot be longer than 256 characters.")]
-        public string PasswordHash { get; set; }
+        public string PasswordHash { get; set; } = null!;
 
         /// <summary>
         /// The date and time when the credential was created.
@@ -33,6 +33,9 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public User User { get; set; }
+        /// <summary>
+        /// Navigation property to the user associated with this credential.
+        /// </summary>
+        public User User { get; set; } = null!;
     }
 }
