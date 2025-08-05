@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -70,12 +71,17 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// A list of roles assigned to the user.
         /// </summary>
-        public List<UserRole> Roles { get; set; } = new List<UserRole>();
+        public ICollection<UserRole> Roles { get; set; } = new List<UserRole>();
 
         /// <summary>
         /// Navigation property to the user's credential.
         /// </summary>
         public Credential Credential { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation property to the developer profile associated with this user.
+        /// </summary>
+        public Developer? Developer { get; set; }
 
         /// <summary>
         /// A list of reviews written by the user.

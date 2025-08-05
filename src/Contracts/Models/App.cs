@@ -94,7 +94,7 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// A list of versions associated with the application.
         /// </summary>
-        public ICollection<Version> Versions { get; set; } = new List<Version>();
+        public ICollection<AppVersion> Versions { get; set; } = new List<AppVersion>();
 
         /// <summary>
         /// A list of abuse reports associated with the application.

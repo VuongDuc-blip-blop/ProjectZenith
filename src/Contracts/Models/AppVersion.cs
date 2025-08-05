@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -11,7 +6,7 @@ namespace ProjectZenith.Contracts.Models
     /// <summary>
     /// Represents a version of an application.
     /// </summary>
-    public class Version
+    public class AppVersion
     {
         /// <summary>
         /// The unique identifier for the version.
@@ -57,6 +52,6 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// The file associated with this version.
         /// </summary>
-        public File File { get; set; } = null!;
+        public AppFile File { get; set; } = null!;
     }
 }

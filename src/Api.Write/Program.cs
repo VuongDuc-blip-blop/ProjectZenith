@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using ProjectZenith.Api.Write.Data;
 using ProjectZenith.Contracts.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,13 @@ builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka
 builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
 
 builder.Services.AddSingleton<ConfigService>();
+builder.Services.AddDbContext<WriteDbContext>(options =>
+{
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("WriteDb"),
+        b => b.MigrationsAssembly("ProjectZenith.Api.Write")
+    );
+});
 
 var app = builder.Build();
 

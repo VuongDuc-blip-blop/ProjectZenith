@@ -16,8 +16,7 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// The unique identifier for the role.
         /// </summary>
-        [Key]
-        public Guid RoleId { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// The name of the role.

@@ -10,7 +10,7 @@ namespace ProjectZenith.Contracts.Models
     /// <summary>
     /// Represents a file in the system.
     /// </summary>
-    public class File
+    public class AppFile
     {
         /// <summary>
         /// The unique identifier for the file.
