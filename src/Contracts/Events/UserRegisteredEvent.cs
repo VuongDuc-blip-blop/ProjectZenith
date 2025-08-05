@@ -14,7 +14,7 @@ namespace ProjectZenith.Contracts.Events
     [Required]
     public Guid UserId { get; init; }
     [Required]
-    public string Email { get; init; }
+    public string Email { get; init; } = null!;
 
     public string? Username { get; init; }
     [Required]

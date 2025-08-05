@@ -1,0 +1,4922 @@
+--- BEGIN: ./.vs/ProjectSettings.json ---
+{
+  "CurrentProjectSetting": null
+}
+--- END: ./.vs/ProjectSettings.json ---
+
+
+--- BEGIN: ./.vs/ProjectZenith/v17/DocumentLayout.backup.json ---
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\api.write\\data\\writedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|solutionrelative:src\\api.write\\data\\writedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\api.write\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|solutionrelative:src\\api.write\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\contracts\\projectzenith.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|solutionrelative:src\\contracts\\projectzenith.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\contracts\\models\\appversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|solutionrelative:src\\contracts\\models\\appversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Api.Write\\Program.cs",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Program.cs",
+              "RelativeToolTip": "src\\Api.Write\\Program.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAC0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T03:02:50.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppVersion.cs",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\Models\\AppVersion.cs",
+              "RelativeDocumentMoniker": "src\\Contracts\\Models\\AppVersion.cs",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\Models\\AppVersion.cs",
+              "RelativeToolTip": "src\\Contracts\\Models\\AppVersion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T02:19:48.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProjectZenith.Contracts",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "RelativeDocumentMoniker": "src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "RelativeToolTip": "src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-05T02:16:52.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WriteDbContext.cs",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Data\\WriteDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Api.Write\\Data\\WriteDbContext.cs",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Data\\WriteDbContext.cs",
+              "RelativeToolTip": "src\\Api.Write\\Data\\WriteDbContext.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAwGsAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T02:13:02.637Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+--- END: ./.vs/ProjectZenith/v17/DocumentLayout.backup.json ---
+
+
+--- BEGIN: ./.vs/ProjectZenith/v17/DocumentLayout.json ---
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Vuongvipp\\AppData\\Roaming\\Microsoft\\UserSecrets\\a8428ea6-cdfd-402b-8e68-29d03a70f87e\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\api.write\\data\\writedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|solutionrelative:src\\api.write\\data\\writedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\api.write\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8ED8F4-C5C2-4078-A09A-92C6D6F80A6B}|src\\Api.Write\\ProjectZenith.Api.Write.csproj|solutionrelative:src\\api.write\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\contracts\\projectzenith.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|solutionrelative:src\\contracts\\projectzenith.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|d:\\hay cho toi rac\\c shark\\development\\projectzenith\\src\\contracts\\models\\appversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833D0402-945B-4DBD-8C16-F2828F4BEF91}|src\\Contracts\\ProjectZenith.Contracts.csproj|solutionrelative:src\\contracts\\models\\appversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\Vuongvipp\\AppData\\Roaming\\Microsoft\\UserSecrets\\a8428ea6-cdfd-402b-8e68-29d03a70f87e\\secrets.json",
+              "ToolTip": "C:\\Users\\Vuongvipp\\AppData\\Roaming\\Microsoft\\UserSecrets\\a8428ea6-cdfd-402b-8e68-29d03a70f87e\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-05T08:20:42.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Api.Write\\Program.cs",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Program.cs",
+              "RelativeToolTip": "src\\Api.Write\\Program.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAC0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T03:02:50.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppVersion.cs",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\Models\\AppVersion.cs",
+              "RelativeDocumentMoniker": "src\\Contracts\\Models\\AppVersion.cs",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\Models\\AppVersion.cs",
+              "RelativeToolTip": "src\\Contracts\\Models\\AppVersion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T02:19:48.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProjectZenith.Contracts",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "RelativeDocumentMoniker": "src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "RelativeToolTip": "src\\Contracts\\ProjectZenith.Contracts.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-05T02:16:52.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WriteDbContext.cs",
+              "DocumentMoniker": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Data\\WriteDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Api.Write\\Data\\WriteDbContext.cs",
+              "ToolTip": "D:\\Hay cho toi rac\\C Shark\\Development\\ProjectZenith\\src\\Api.Write\\Data\\WriteDbContext.cs",
+              "RelativeToolTip": "src\\Api.Write\\Data\\WriteDbContext.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAwGsAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T02:13:02.637Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+--- END: ./.vs/ProjectZenith/v17/DocumentLayout.json ---
+
+
+--- BEGIN: ./.vs/VSWorkspaceState.json ---
+{
+  "ExpandedNodes": [
+    ""
+  ],
+  "SelectedNode": "\\ProjectZenith.sln",
+  "PreviewInSolutionExplorer": false
+}
+--- END: ./.vs/VSWorkspaceState.json ---
+
+
+--- BEGIN: ./src/Api.Read/appsettings.Development.json ---
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}
+
+--- END: ./src/Api.Read/appsettings.Development.json ---
+
+
+--- BEGIN: ./src/Api.Read/appsettings.json ---
+{
+  "ConnectionStrings": {
+    "ReadDb": ""
+  },
+  "Kafka": {
+    "Brokers": [
+      "localhost:9093"
+    ]
+  },
+  "Redis": {
+    "ConnectionString": ""
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+--- END: ./src/Api.Read/appsettings.json ---
+
+
+--- BEGIN: ./src/Api.Read/Controllers/HealthController.cs ---
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ProjectZenith.Api.Read.Controllers
+{
+    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
+    [ApiController]
+    public class HealthController : ControllerBase
+    {
+        private readonly ConfigService _configService;
+
+        public HealthController(ConfigService configService)
+        {
+            _configService = configService;
+        }
+
+        /// <summary>
+        /// Returns a simple health check response.
+        /// </summary>
+        /// <returns>A string indicating the service is healthy.</returns>
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(new
+            {
+                Status = "Healthy",
+                Configuration = _configService.GetConfigSummary()
+            });
+        }
+    }
+}
+
+--- END: ./src/Api.Read/Controllers/HealthController.cs ---
+
+
+--- BEGIN: ./src/Api.Read/Program.cs ---
+using Microsoft.Extensions.Options;
+using ProjectZenith.Contracts.Configuration;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+
+// 1. Configure DatabaseOptions to use the "ReadDb" connection string from User Secrets.
+// We are using the simple .Configure<T>() method which is perfect when you only need one
+// instance of a particular options type.
+builder.Services.Configure<DatabaseOptions>(options =>
+{
+    options.ConnectionString = builder.Configuration.GetConnectionString("ReadDb")
+        ?? throw new InvalidOperationException("CRITICAL ERROR: Connection string 'ReadDb' not found. Have you set it using 'dotnet user-secrets set' for this project?");
+});
+
+builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka"));
+builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
+
+builder.Services.AddSingleton<ConfigService>();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
+app.MapControllers();
+
+var summaries = new[]
+{
+    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+};
+
+
+
+app.Run();
+
+public class ConfigService
+{
+    private readonly DatabaseOptions _dbOptions;
+    private readonly KafkaOptions _kafkaOptions;
+    private readonly RedisOptions _redisOptions;
+
+    public ConfigService(IOptions<DatabaseOptions> dbOptions, IOptions<KafkaOptions> kafkaOptions, IOptions<RedisOptions> redisOptions)
+    {
+        _dbOptions = dbOptions.Value ?? throw new ArgumentNullException(nameof(dbOptions));
+        _kafkaOptions = kafkaOptions.Value ?? throw new ArgumentNullException(nameof(kafkaOptions));
+        _redisOptions = redisOptions.Value ?? throw new ArgumentNullException(nameof(redisOptions));
+    }
+
+    public string GetConfigSummary()
+    {
+        return $"Database Connection: {_dbOptions.ConnectionString}, " +
+               $"Kafka Brokers: {string.Join(", ", _kafkaOptions.Brokers)}, " +
+               $"Redis Connection: {_redisOptions.ConnectionString}";
+    }
+}
+
+
+--- END: ./src/Api.Read/Program.cs ---
+
+
+--- BEGIN: ./src/Api.Read/ProjectZenith.Api.Read.csproj ---
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a4dab8b3-2222-4bc7-8360-640948aaf48b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\ProjectZenith.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
+
+--- END: ./src/Api.Read/ProjectZenith.Api.Read.csproj ---
+
+
+--- BEGIN: ./src/Api.Read/Properties/launchSettings.json ---
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5193",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:7187;http://localhost:5193",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+--- END: ./src/Api.Read/Properties/launchSettings.json ---
+
+
+--- BEGIN: ./src/Api.Write/appsettings.Development.json ---
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}
+
+--- END: ./src/Api.Write/appsettings.Development.json ---
+
+
+--- BEGIN: ./src/Api.Write/appsettings.json ---
+{
+  "ConnectionStrings": {
+    "WriteDb": "" // This will be overridden by User Secrets
+  },
+  "Kafka": {
+    "Brokers": [
+      "localhost:9093"
+    ]
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+--- END: ./src/Api.Write/appsettings.json ---
+
+
+--- BEGIN: ./src/Api.Write/Controllers/HealthController.cs ---
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ProjectZenith.Api.Write.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HealthController : ControllerBase
+    {
+        private readonly ConfigService _configService;
+
+        public HealthController(ConfigService configService)
+        {
+            _configService = configService;
+        }
+
+        /// <summary>
+        /// Returns a simple health check response.
+        /// </summary>
+        /// <returns>A string indicating the service is healthy.</returns>
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(new
+            {
+                Status = "Healthy",
+                Configuration = _configService.GetConfigSummary()
+            });
+        }
+    }
+}
+
+--- END: ./src/Api.Write/Controllers/HealthController.cs ---
+
+
+--- BEGIN: ./src/Api.Write/Data/WriteDbContext.cs ---
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectZenith.Contracts.Models;
+
+namespace ProjectZenith.Api.Write.Data
+{
+    public class WriteDbContext : DbContext
+    {
+        // --- DbSets ---
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Role> Roles { get; set; } = null!;
+        public DbSet<UserRole> UserRoles { get; set; } = null!;
+        public DbSet<Credential> Credentials { get; set; } = null!;
+        public DbSet<Developer> Developers { get; set; } = null!;
+        public DbSet<App> Apps { get; set; } = null!;
+        public DbSet<AppVersion> AppVersions { get; set; } = null!;
+        public DbSet<AppFile> AppFiles { get; set; } = null!;
+        public DbSet<Review> Reviews { get; set; } = null!;
+        public DbSet<AbuseReport> AbuseReports { get; set; } = null!;
+        public DbSet<Purchase> Purchases { get; set; } = null!;
+        public DbSet<Transaction> Transactions { get; set; } = null!;
+        public DbSet<Payout> Payouts { get; set; } = null!;
+        public DbSet<ModerationAction> ModerationActions { get; set; } = null!;
+        public DbSet<SystemLog> SystemLogs { get; set; } = null!;
+
+        public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // === Entity Configurations ===
+
+            // --- User ---
+            modelBuilder.Entity<User>(e =>
+            {
+                e.HasIndex(u => u.Email).IsUnique();
+                e.HasIndex(u => u.Username).IsUnique();
+
+                // 1-to-1 with Credential
+                e.HasOne(u => u.Credential)
+                 .WithOne(c => c.User)
+                 .HasForeignKey<Credential>(c => c.UserId)
+                 .OnDelete(DeleteBehavior.Cascade);
+
+                // 1-to-1 with Developer
+                e.HasOne(u => u.Developer)
+                 .WithOne(d => d.User)
+                 .HasForeignKey<Developer>(d => d.UserId)
+                 .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.ToTable("Roles");
+                entity.HasIndex(r => r.Name).IsUnique();
+                entity.HasData(
+                    new Role { Id = Guid.Parse("00000000-0000-0000-0000-000000000001"), Name = "User" },
+                    new Role { Id = Guid.Parse("00000000-0000-0000-0000-000000000002"), Name = "Developer" },
+                    new Role { Id = Guid.Parse("00000000-0000-0000-0000-000000000003"), Name = "Admin" }
+                );
+            });
+
+            modelBuilder.Entity<UserRole>(entity =>
+            {
+                entity.ToTable("UserRoles");
+                entity.HasKey(ur => new { ur.UserId, ur.RoleId });
+            });
+
+            modelBuilder.Entity<App>(entity =>
+            {
+                entity.ToTable("Apps");
+                entity.Property(a => a.Price).HasColumnType("decimal(18, 2)");
+
+                // Configure the enum-to-string conversion for the Status property
+                entity.Property(a => a.Status).HasConversion<string>().HasMaxLength(50);
+
+                // --- NEW, CORRECT SYNTAX FOR CHECK CONSTRAINT ---
+                // Apply the constraint to the table itself
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_Apps_Status", "[Status] IN ('Draft', 'Pending', 'Published', 'Rejected', 'Banned')"));
+            });
+
+            modelBuilder.Entity<AppVersion>(entity =>
+            {
+                entity.ToTable("AppVersions");
+                entity.HasIndex(v => new { v.AppId, v.VersionNumber }).IsUnique();
+            });
+
+            modelBuilder.Entity<AppFile>(entity =>
+            {
+                entity.ToTable("AppFiles");
+                entity.HasIndex(f => f.Checksum).IsUnique();
+            });
+
+            modelBuilder.Entity<Review>(entity =>
+            {
+                entity.ToTable("Reviews");
+                entity.HasIndex(r => new { r.AppId, r.UserId }).IsUnique();
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_Reviews_Rating", "[Rating] >= 1 AND [Rating] <= 5"));
+
+                entity.HasOne(r => r.App)
+                      .WithMany(a => a.Reviews)
+                      .HasForeignKey(r => r.AppId)
+                      .OnDelete(DeleteBehavior.Cascade); // Cascade delete reviews when an App is deleted
+
+                entity.HasOne(r => r.User)
+                      .WithMany(u => u.Reviews)
+                      .HasForeignKey(r => r.UserId)
+                      .OnDelete(DeleteBehavior.Restrict); // Set UserId to null if User is deleted
+            });
+
+            modelBuilder.Entity<Purchase>(entity =>
+            {
+                entity.ToTable("Purchases");
+                entity.HasIndex(p => new { p.UserId, p.AppId }).IsUnique();
+                entity.Property(p => p.Price).HasColumnType("decimal(18, 2)");
+                entity.Property(p => p.Status).HasConversion<string>().HasMaxLength(50);
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_Purchases_Status", "[Status] IN ('Pending', 'Completed', 'Refunded')"));
+
+                // If a User is deleted, DO NOT automatically delete their purchases.
+                // This preserves the financial audit trail.
+                entity.HasOne(p => p.User)
+                      .WithMany(u => u.Purchases)
+                      .HasForeignKey(p => p.UserId)
+                      .OnDelete(DeleteBehavior.Restrict); // CHANGE FROM CASCADE (default) TO RESTRICT
+
+                // Also, if an App is deleted, we should preserve the purchase history.
+                entity.HasOne(p => p.App)
+                      .WithMany() // App might not have a direct navigation back to Purchases
+                      .HasForeignKey(p => p.AppId)
+                      .OnDelete(DeleteBehavior.Restrict); // CHANGE FROM CASCADE TO RESTRICT
+            });
+
+            modelBuilder.Entity<Transaction>(entity =>
+            {
+                entity.ToTable("Transactions");
+                entity.HasIndex(t => new { t.PaymentProvider, t.PaymentId }).IsUnique();
+                entity.Property(t => t.Amount).HasColumnType("decimal(18, 2)");
+                entity.Property(t => t.Status).HasConversion<string>().HasMaxLength(50);
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_Transactions_Status", "[Status] IN ('Pending', 'Completed', 'Failed')"));
+            });
+
+            modelBuilder.Entity<Payout>(entity =>
+            {
+                entity.ToTable("Payouts");
+                entity.Property(p => p.Amount).HasColumnType("decimal(18, 2)");
+                entity.Property(p => p.Status).HasConversion<string>().HasMaxLength(50);
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_Payouts_Status", "[Status] IN ('Scheduled', 'Processing', 'Processed', 'Cancelled', 'Failed')"));
+            });
+
+            modelBuilder.Entity<AbuseReport>(entity =>
+            {
+                entity.ToTable("AbuseReports");
+                entity.Property(ar => ar.Status).HasConversion<string>().HasMaxLength(50);
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_AbuseReports_Status", "[Status] IN ('New', 'UnderReview', 'Resolved')"));
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_AbuseReports_HasTarget", "[ReviewId] IS NOT NULL OR [AppId] IS NOT NULL OR [UserId] IS NOT NULL"));
+
+                entity.HasOne(ar => ar.Reporter) // Each AbuseReport has one Reporter...
+                    .WithMany(u => u.FiledAbuseReports) // ...and a User can file many reports.
+                    .HasForeignKey(ar => ar.ReporterId) // The link is via the ReporterId foreign key.
+                    .OnDelete(DeleteBehavior.Restrict); // Prevent a user from being deleted if they have filed reports.
+
+                // Configure the "Reported User" relationship
+                entity.HasOne(ar => ar.ReportedUser) // Each AbuseReport has one (or zero) ReportedUser...
+                    .WithMany(u => u.AbuseReportsAgainstUser) // ...and a User can have many reports against them.
+                    .HasForeignKey(ar => ar.UserId) // The link is via the UserId foreign key.
+                    .IsRequired(false) // This foreign key is optional/nullable.
+                    .OnDelete(DeleteBehavior.Restrict); // Prevent a user from being deleted if they are the subject of a report.
+            });
+
+            modelBuilder.Entity<ModerationAction>(entity =>
+            {
+                entity.ToTable("ModerationActions");
+                entity.Property(ma => ma.Status).HasConversion<string>().HasMaxLength(50);
+                entity.Property(ma => ma.TargetType).HasConversion<string>().HasMaxLength(50);
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_ModerationActions_Status", "[Status] IN ('Pending', 'Completed', 'Reversed')"));
+            });
+
+            // === Relationship Configurations (It's often clearer to group these) ===
+
+            // --- One-to-One Relationships ---
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Credential).WithOne(c => c.User).HasForeignKey<Credential>(c => c.UserId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Developer).WithOne(d => d.User).HasForeignKey<Developer>(d => d.UserId).OnDelete(DeleteBehavior.Cascade);
+
+            // --- One-to-Many Relationships ---
+            modelBuilder.Entity<App>()
+                .HasMany(a => a.Versions).WithOne(v => v.App).HasForeignKey(v => v.AppId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<App>()
+                .HasMany(a => a.Reviews).WithOne(r => r.App).HasForeignKey(r => r.AppId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Purchase>()
+                .HasMany(p => p.Transactions).WithOne(t => t.Purchase).HasForeignKey(t => t.PurchaseId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<SystemLog>()
+                .HasOne(sl => sl.User).WithMany().HasForeignKey(sl => sl.UserId).OnDelete(DeleteBehavior.SetNull);
+
+            // --- Many-to-Many 
+            // --- ADD THIS BLOCK INSTEAD ---
+            modelBuilder.Entity<UserRole>(entity =>
+            {
+                entity.ToTable("UserRoles");
+
+                // Define the composite primary key
+                entity.HasKey(ur => new { ur.UserId, ur.RoleId });
+
+                // Define the relationship to User
+                entity.HasOne(ur => ur.User)
+                    .WithMany(u => u.Roles)
+                    .HasForeignKey(ur => ur.UserId)
+                    .OnDelete(DeleteBehavior.Cascade); // Or Restrict if you prefer
+
+                // Define the relationship to Role
+                entity.HasOne(ur => ur.Role)
+                    .WithMany(r => r.UsersOfRole)
+                    .HasForeignKey(ur => ur.RoleId)
+                    .OnDelete(DeleteBehavior.Cascade); // Or Restrict
+            });
+        }
+    }
+}
+
+--- END: ./src/Api.Write/Data/WriteDbContext.cs ---
+
+
+--- BEGIN: ./src/Api.Write/Migrations/20250805081754_InitialCreate.cs ---
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
+namespace ProjectZenith.Api.Write.Migrations
+{
+    /// <inheritdoc />
+    public partial class InitialCreate : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "AppFiles",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Path = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false),
+                    Size = table.Column<long>(type: "bigint", nullable: false),
+                    Checksum = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppFiles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Bio = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    AvatarUrl = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Credentials",
+                columns: table => new
+                {
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Credentials", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_Credentials_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Developers",
+                columns: table => new
+                {
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ContactEmail = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Developers", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_Developers_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ModerationActions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AdminId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ActionType = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Reason = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ActionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TargetType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TargetId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ModerationActions", x => x.Id);
+                    table.CheckConstraint("CK_ModerationActions_Status", "[Status] IN ('Pending', 'Completed', 'Reversed')");
+                    table.ForeignKey(
+                        name: "FK_ModerationActions_Users_AdminId",
+                        column: x => x.AdminId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SystemLogs",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Action = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Details = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    IpAddress = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: true),
+                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SystemLogs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SystemLogs_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_UserRoles_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserRoles_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Apps",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DeveloperId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    Category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Platform = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Apps", x => x.Id);
+                    table.CheckConstraint("CK_Apps_Status", "[Status] IN ('Draft', 'Pending', 'Published', 'Rejected', 'Banned')");
+                    table.ForeignKey(
+                        name: "FK_Apps_Developers_DeveloperId",
+                        column: x => x.DeveloperId,
+                        principalTable: "Developers",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Payouts",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ScheduledAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProcessAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CompletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PaymentProvider = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    PaymentId = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    DeveloperId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Payouts", x => x.Id);
+                    table.CheckConstraint("CK_Payouts_Status", "[Status] IN ('Scheduled', 'Processing', 'Processed', 'Cancelled', 'Failed')");
+                    table.ForeignKey(
+                        name: "FK_Payouts_Developers_DeveloperId",
+                        column: x => x.DeveloperId,
+                        principalTable: "Developers",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppVersions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AppId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VersionNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Changelog = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: true),
+                    FiledId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FileId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppVersions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AppVersions_AppFiles_FileId",
+                        column: x => x.FileId,
+                        principalTable: "AppFiles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AppVersions_Apps_AppId",
+                        column: x => x.AppId,
+                        principalTable: "Apps",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Purchases",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AppId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Purchases", x => x.Id);
+                    table.CheckConstraint("CK_Purchases_Status", "[Status] IN ('Pending', 'Completed', 'Refunded')");
+                    table.ForeignKey(
+                        name: "FK_Purchases_Apps_AppId",
+                        column: x => x.AppId,
+                        principalTable: "Apps",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Purchases_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reviews",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    AppId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    IsEdited = table.Column<bool>(type: "bit", nullable: false),
+                    PostedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reviews", x => x.Id);
+                    table.CheckConstraint("CK_Reviews_Rating", "[Rating] >= 1 AND [Rating] <= 5");
+                    table.ForeignKey(
+                        name: "FK_Reviews_Apps_AppId",
+                        column: x => x.AppId,
+                        principalTable: "Apps",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reviews_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Transactions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PurchaseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PaymentProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PaymentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transactions", x => x.Id);
+                    table.CheckConstraint("CK_Transactions_Status", "[Status] IN ('Pending', 'Completed', 'Failed')");
+                    table.ForeignKey(
+                        name: "FK_Transactions_Purchases_PurchaseId",
+                        column: x => x.PurchaseId,
+                        principalTable: "Purchases",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AbuseReports",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Reason = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ReportedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReporterId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ReviewId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    AppId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AbuseReports", x => x.Id);
+                    table.CheckConstraint("CK_AbuseReports_HasTarget", "[ReviewId] IS NOT NULL OR [AppId] IS NOT NULL OR [UserId] IS NOT NULL");
+                    table.CheckConstraint("CK_AbuseReports_Status", "[Status] IN ('New', 'UnderReview', 'Resolved')");
+                    table.ForeignKey(
+                        name: "FK_AbuseReports_Apps_AppId",
+                        column: x => x.AppId,
+                        principalTable: "Apps",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_AbuseReports_Reviews_ReviewId",
+                        column: x => x.ReviewId,
+                        principalTable: "Reviews",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_AbuseReports_Users_ReporterId",
+                        column: x => x.ReporterId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AbuseReports_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("00000000-0000-0000-0000-000000000001"), "User" },
+                    { new Guid("00000000-0000-0000-0000-000000000002"), "Developer" },
+                    { new Guid("00000000-0000-0000-0000-000000000003"), "Admin" }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AbuseReports_AppId",
+                table: "AbuseReports",
+                column: "AppId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AbuseReports_ReporterId",
+                table: "AbuseReports",
+                column: "ReporterId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AbuseReports_ReviewId",
+                table: "AbuseReports",
+                column: "ReviewId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AbuseReports_UserId",
+                table: "AbuseReports",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppFiles_Checksum",
+                table: "AppFiles",
+                column: "Checksum",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apps_DeveloperId",
+                table: "Apps",
+                column: "DeveloperId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppVersions_AppId_VersionNumber",
+                table: "AppVersions",
+                columns: new[] { "AppId", "VersionNumber" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppVersions_FileId",
+                table: "AppVersions",
+                column: "FileId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ModerationActions_AdminId",
+                table: "ModerationActions",
+                column: "AdminId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Payouts_DeveloperId",
+                table: "Payouts",
+                column: "DeveloperId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Purchases_AppId",
+                table: "Purchases",
+                column: "AppId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Purchases_UserId_AppId",
+                table: "Purchases",
+                columns: new[] { "UserId", "AppId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_AppId_UserId",
+                table: "Reviews",
+                columns: new[] { "AppId", "UserId" },
+                unique: true,
+                filter: "[UserId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_UserId",
+                table: "Reviews",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Roles_Name",
+                table: "Roles",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SystemLogs_UserId",
+                table: "SystemLogs",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_PaymentProvider_PaymentId",
+                table: "Transactions",
+                columns: new[] { "PaymentProvider", "PaymentId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_PurchaseId",
+                table: "Transactions",
+                column: "PurchaseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRoles_RoleId",
+                table: "UserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Username",
+                table: "Users",
+                column: "Username",
+                unique: true,
+                filter: "[Username] IS NOT NULL");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "AbuseReports");
+
+            migrationBuilder.DropTable(
+                name: "AppVersions");
+
+            migrationBuilder.DropTable(
+                name: "Credentials");
+
+            migrationBuilder.DropTable(
+                name: "ModerationActions");
+
+            migrationBuilder.DropTable(
+                name: "Payouts");
+
+            migrationBuilder.DropTable(
+                name: "SystemLogs");
+
+            migrationBuilder.DropTable(
+                name: "Transactions");
+
+            migrationBuilder.DropTable(
+                name: "UserRoles");
+
+            migrationBuilder.DropTable(
+                name: "Reviews");
+
+            migrationBuilder.DropTable(
+                name: "AppFiles");
+
+            migrationBuilder.DropTable(
+                name: "Purchases");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Apps");
+
+            migrationBuilder.DropTable(
+                name: "Developers");
+
+            migrationBuilder.DropTable(
+                name: "Users");
+        }
+    }
+}
+
+--- END: ./src/Api.Write/Migrations/20250805081754_InitialCreate.cs ---
+
+
+--- BEGIN: ./src/Api.Write/Migrations/20250805081754_InitialCreate.Designer.cs ---
+﻿// <auto-generated />
+using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using ProjectZenith.Api.Write.Data;
+
+#nullable disable
+
+namespace ProjectZenith.Api.Write.Migrations
+{
+    [DbContext(typeof(WriteDbContext))]
+    [Migration("20250805081754_InitialCreate")]
+    partial class InitialCreate
+    {
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        {
+#pragma warning disable 612, 618
+            modelBuilder
+                .HasAnnotation("ProductVersion", "8.0.19")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AbuseReport", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("ReportedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ReporterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ReviewId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppId");
+
+                    b.HasIndex("ReporterId");
+
+                    b.HasIndex("ReviewId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AbuseReports", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_AbuseReports_HasTarget", "[ReviewId] IS NOT NULL OR [AppId] IS NOT NULL OR [UserId] IS NOT NULL");
+
+                            t.HasCheckConstraint("CK_AbuseReports_Status", "[Status] IN ('New', 'UnderReview', 'Resolved')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.App", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<Guid>("DeveloperId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Platform")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeveloperId");
+
+                    b.ToTable("Apps", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Apps_Status", "[Status] IN ('Draft', 'Pending', 'Published', 'Rejected', 'Banned')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Checksum")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Checksum")
+                        .IsUnique();
+
+                    b.ToTable("AppFiles", (string)null);
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppVersion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Changelog")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("FileId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FiledId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("VersionNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FileId");
+
+                    b.HasIndex("AppId", "VersionNumber")
+                        .IsUnique();
+
+                    b.ToTable("AppVersions", (string)null);
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Credential", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Credentials");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Developer", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ContactEmail")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Developers");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.ModerationAction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ActionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ActionType")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid>("AdminId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Reason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid>("TargetId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TargetType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.ToTable("ModerationActions", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_ModerationActions_Status", "[Status] IN ('Pending', 'Completed', 'Reversed')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Payout", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DeveloperId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PaymentId")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PaymentProvider")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("ProcessAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ScheduledAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeveloperId");
+
+                    b.ToTable("Payouts", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Payouts_Status", "[Status] IN ('Scheduled', 'Processing', 'Processed', 'Cancelled', 'Failed')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Purchase", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppId");
+
+                    b.HasIndex("UserId", "AppId")
+                        .IsUnique();
+
+                    b.ToTable("Purchases", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Purchases_Status", "[Status] IN ('Pending', 'Completed', 'Refunded')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<bool>("IsEdited")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("PostedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("AppId", "UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
+
+                    b.ToTable("Reviews", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Reviews_Rating", "[Rating] >= 1 AND [Rating] <= 5");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Roles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("00000000-0000-0000-0000-000000000001"),
+                            Name = "User"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-0000-0000-0000-000000000002"),
+                            Name = "Developer"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-0000-0000-0000-000000000003"),
+                            Name = "Admin"
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.SystemLog", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Details")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("IpAddress")
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SystemLogs");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Transaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PaymentProvider")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("PurchaseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("TransactionDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PurchaseId");
+
+                    b.HasIndex("PaymentProvider", "PaymentId")
+                        .IsUnique();
+
+                    b.ToTable("Transactions", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Transactions_Status", "[Status] IN ('Pending', 'Completed', 'Failed')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AvatarUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Bio")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Username")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("Username")
+                        .IsUnique()
+                        .HasFilter("[Username] IS NOT NULL");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.UserRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(1);
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AbuseReport", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("AbuseReports")
+                        .HasForeignKey("AppId");
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "Reporter")
+                        .WithMany("FiledAbuseReports")
+                        .HasForeignKey("ReporterId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.Review", "Review")
+                        .WithMany("AbuseReports")
+                        .HasForeignKey("ReviewId");
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "ReportedUser")
+                        .WithMany("AbuseReportsAgainstUser")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("App");
+
+                    b.Navigation("ReportedUser");
+
+                    b.Navigation("Reporter");
+
+                    b.Navigation("Review");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.App", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Developer", "Developer")
+                        .WithMany("Apps")
+                        .HasForeignKey("DeveloperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Developer");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppVersion", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("Versions")
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.AppFile", "File")
+                        .WithMany()
+                        .HasForeignKey("FileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("App");
+
+                    b.Navigation("File");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Credential", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithOne("Credential")
+                        .HasForeignKey("ProjectZenith.Contracts.Models.Credential", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Developer", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithOne("Developer")
+                        .HasForeignKey("ProjectZenith.Contracts.Models.Developer", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.ModerationAction", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Admin");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Payout", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Developer", "Developer")
+                        .WithMany()
+                        .HasForeignKey("DeveloperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Developer");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Purchase", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany()
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany("Purchases")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("App");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("Reviews")
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("App");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.SystemLog", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Transaction", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Purchase", "Purchase")
+                        .WithMany("Transactions")
+                        .HasForeignKey("PurchaseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Purchase");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.UserRole", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Role", "Role")
+                        .WithMany("UsersOfRole")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany("Roles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.App", b =>
+                {
+                    b.Navigation("AbuseReports");
+
+                    b.Navigation("Reviews");
+
+                    b.Navigation("Versions");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Developer", b =>
+                {
+                    b.Navigation("Apps");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Purchase", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
+                {
+                    b.Navigation("AbuseReports");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Role", b =>
+                {
+                    b.Navigation("UsersOfRole");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.User", b =>
+                {
+                    b.Navigation("AbuseReportsAgainstUser");
+
+                    b.Navigation("Credential")
+                        .IsRequired();
+
+                    b.Navigation("Developer");
+
+                    b.Navigation("FiledAbuseReports");
+
+                    b.Navigation("Purchases");
+
+                    b.Navigation("Reviews");
+
+                    b.Navigation("Roles");
+                });
+#pragma warning restore 612, 618
+        }
+    }
+}
+
+--- END: ./src/Api.Write/Migrations/20250805081754_InitialCreate.Designer.cs ---
+
+
+--- BEGIN: ./src/Api.Write/Migrations/WriteDbContextModelSnapshot.cs ---
+﻿// <auto-generated />
+using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using ProjectZenith.Api.Write.Data;
+
+#nullable disable
+
+namespace ProjectZenith.Api.Write.Migrations
+{
+    [DbContext(typeof(WriteDbContext))]
+    partial class WriteDbContextModelSnapshot : ModelSnapshot
+    {
+        protected override void BuildModel(ModelBuilder modelBuilder)
+        {
+#pragma warning disable 612, 618
+            modelBuilder
+                .HasAnnotation("ProductVersion", "8.0.19")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AbuseReport", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("ReportedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ReporterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ReviewId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppId");
+
+                    b.HasIndex("ReporterId");
+
+                    b.HasIndex("ReviewId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AbuseReports", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_AbuseReports_HasTarget", "[ReviewId] IS NOT NULL OR [AppId] IS NOT NULL OR [UserId] IS NOT NULL");
+
+                            t.HasCheckConstraint("CK_AbuseReports_Status", "[Status] IN ('New', 'UnderReview', 'Resolved')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.App", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<Guid>("DeveloperId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Platform")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeveloperId");
+
+                    b.ToTable("Apps", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Apps_Status", "[Status] IN ('Draft', 'Pending', 'Published', 'Rejected', 'Banned')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Checksum")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Checksum")
+                        .IsUnique();
+
+                    b.ToTable("AppFiles", (string)null);
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppVersion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Changelog")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("FileId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FiledId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("VersionNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FileId");
+
+                    b.HasIndex("AppId", "VersionNumber")
+                        .IsUnique();
+
+                    b.ToTable("AppVersions", (string)null);
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Credential", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Credentials");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Developer", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ContactEmail")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Developers");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.ModerationAction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ActionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ActionType")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid>("AdminId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Reason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid>("TargetId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TargetType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.ToTable("ModerationActions", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_ModerationActions_Status", "[Status] IN ('Pending', 'Completed', 'Reversed')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Payout", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DeveloperId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PaymentId")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PaymentProvider")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("ProcessAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ScheduledAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeveloperId");
+
+                    b.ToTable("Payouts", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Payouts_Status", "[Status] IN ('Scheduled', 'Processing', 'Processed', 'Cancelled', 'Failed')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Purchase", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppId");
+
+                    b.HasIndex("UserId", "AppId")
+                        .IsUnique();
+
+                    b.ToTable("Purchases", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Purchases_Status", "[Status] IN ('Pending', 'Completed', 'Refunded')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<bool>("IsEdited")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("PostedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("AppId", "UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
+
+                    b.ToTable("Reviews", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Reviews_Rating", "[Rating] >= 1 AND [Rating] <= 5");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Roles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("00000000-0000-0000-0000-000000000001"),
+                            Name = "User"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-0000-0000-0000-000000000002"),
+                            Name = "Developer"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-0000-0000-0000-000000000003"),
+                            Name = "Admin"
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.SystemLog", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Details")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("IpAddress")
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SystemLogs");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Transaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PaymentProvider")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("PurchaseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("TransactionDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PurchaseId");
+
+                    b.HasIndex("PaymentProvider", "PaymentId")
+                        .IsUnique();
+
+                    b.ToTable("Transactions", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Transactions_Status", "[Status] IN ('Pending', 'Completed', 'Failed')");
+                        });
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AvatarUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Bio")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Username")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("Username")
+                        .IsUnique()
+                        .HasFilter("[Username] IS NOT NULL");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.UserRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(1);
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AbuseReport", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("AbuseReports")
+                        .HasForeignKey("AppId");
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "Reporter")
+                        .WithMany("FiledAbuseReports")
+                        .HasForeignKey("ReporterId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.Review", "Review")
+                        .WithMany("AbuseReports")
+                        .HasForeignKey("ReviewId");
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "ReportedUser")
+                        .WithMany("AbuseReportsAgainstUser")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("App");
+
+                    b.Navigation("ReportedUser");
+
+                    b.Navigation("Reporter");
+
+                    b.Navigation("Review");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.App", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Developer", "Developer")
+                        .WithMany("Apps")
+                        .HasForeignKey("DeveloperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Developer");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppVersion", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("Versions")
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.AppFile", "File")
+                        .WithMany()
+                        .HasForeignKey("FileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("App");
+
+                    b.Navigation("File");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Credential", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithOne("Credential")
+                        .HasForeignKey("ProjectZenith.Contracts.Models.Credential", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Developer", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithOne("Developer")
+                        .HasForeignKey("ProjectZenith.Contracts.Models.Developer", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.ModerationAction", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Admin");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Payout", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Developer", "Developer")
+                        .WithMany()
+                        .HasForeignKey("DeveloperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Developer");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Purchase", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany()
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany("Purchases")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("App");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("Reviews")
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("App");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.SystemLog", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Transaction", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Purchase", "Purchase")
+                        .WithMany("Transactions")
+                        .HasForeignKey("PurchaseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Purchase");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.UserRole", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.Role", "Role")
+                        .WithMany("UsersOfRole")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
+                        .WithMany("Roles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.App", b =>
+                {
+                    b.Navigation("AbuseReports");
+
+                    b.Navigation("Reviews");
+
+                    b.Navigation("Versions");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Developer", b =>
+                {
+                    b.Navigation("Apps");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Purchase", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
+                {
+                    b.Navigation("AbuseReports");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Role", b =>
+                {
+                    b.Navigation("UsersOfRole");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.User", b =>
+                {
+                    b.Navigation("AbuseReportsAgainstUser");
+
+                    b.Navigation("Credential")
+                        .IsRequired();
+
+                    b.Navigation("Developer");
+
+                    b.Navigation("FiledAbuseReports");
+
+                    b.Navigation("Purchases");
+
+                    b.Navigation("Reviews");
+
+                    b.Navigation("Roles");
+                });
+#pragma warning restore 612, 618
+        }
+    }
+}
+
+--- END: ./src/Api.Write/Migrations/WriteDbContextModelSnapshot.cs ---
+
+
+--- BEGIN: ./src/Api.Write/Program.cs ---
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Contracts.Configuration;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// 1. Configure DatabaseOptions to use the "ReadDb" connection string from User Secrets.
+// We are using the simple .Configure<T>() method which is perfect when you only need one
+// instance of a particular options type.
+builder.Services.Configure<DatabaseOptions>(options =>
+{
+    options.ConnectionString = builder.Configuration.GetConnectionString("WriteDb")
+        ?? throw new InvalidOperationException("CRITICAL ERROR: Connection string 'WriteDb' not found. Have you set it using 'dotnet user-secrets set' for this project?");
+});
+
+builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka"));
+builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
+
+builder.Services.AddSingleton<ConfigService>();
+builder.Services.AddDbContext<WriteDbContext>(options =>
+{
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("WriteDb"),
+        b => b.MigrationsAssembly("ProjectZenith.Api.Write")
+    );
+});
+
+var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<WriteDbContext>();
+    // Ensure the database is created and apply any pending migrations.
+    try
+    {
+        dbContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Migration failed: {ex.Message}");
+        throw;
+    }
+}
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
+app.MapControllers();
+
+
+
+app.Run();
+
+
+public class ConfigService
+{
+    private readonly DatabaseOptions _dbOptions;
+    private readonly KafkaOptions _kafkaOptions;
+    private readonly RedisOptions _redisOptions;
+
+    public ConfigService(IOptions<DatabaseOptions> dbOptions, IOptions<KafkaOptions> kafkaOptions, IOptions<RedisOptions> redisOptions)
+    {
+        _dbOptions = dbOptions.Value ?? throw new ArgumentNullException(nameof(dbOptions));
+        _kafkaOptions = kafkaOptions.Value ?? throw new ArgumentNullException(nameof(kafkaOptions));
+        _redisOptions = redisOptions.Value ?? throw new ArgumentNullException(nameof(redisOptions));
+    }
+
+    public string GetConfigSummary()
+    {
+        return $"Database Connection: {_dbOptions.ConnectionString}, " +
+               $"Kafka Brokers: {string.Join(", ", _kafkaOptions.Brokers)}, " +
+               $"Redis Connection: {_redisOptions.ConnectionString}";
+    }
+}
+
+--- END: ./src/Api.Write/Program.cs ---
+
+
+--- BEGIN: ./src/Api.Write/ProjectZenith.Api.Write.csproj ---
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a8428ea6-cdfd-402b-8e68-29d03a70f87e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.19" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\ProjectZenith.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
+
+--- END: ./src/Api.Write/ProjectZenith.Api.Write.csproj ---
+
+
+--- BEGIN: ./src/Api.Write/Properties/launchSettings.json ---
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5296",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:7073;http://localhost:5296",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+--- END: ./src/Api.Write/Properties/launchSettings.json ---
+
+
+--- BEGIN: ./src/Client.Wpf/App.xaml ---
+﻿<Application x:Class="ProjectZenith.Wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProjectZenith.Wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
+
+--- END: ./src/Client.Wpf/App.xaml ---
+
+
+--- BEGIN: ./src/Client.Wpf/App.xaml.cs ---
+﻿using System.Configuration;
+using System.Data;
+using System.Windows;
+
+namespace ProjectZenith.Wpf;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
+{
+}
+
+
+--- END: ./src/Client.Wpf/App.xaml.cs ---
+
+
+--- BEGIN: ./src/Client.Wpf/AssemblyInfo.cs ---
+using System.Windows;
+
+[assembly:ThemeInfo(
+    ResourceDictionaryLocation.None,            //where theme specific resource dictionaries are located
+                                                //(used if a resource is not found in the page,
+                                                // or application resource dictionaries)
+    ResourceDictionaryLocation.SourceAssembly   //where the generic resource dictionary is located
+                                                //(used if a resource is not found in the page,
+                                                // app, or any theme specific resource dictionaries)
+)]
+
+--- END: ./src/Client.Wpf/AssemblyInfo.cs ---
+
+
+--- BEGIN: ./src/Client.Wpf/MainWindow.xaml ---
+﻿<Window x:Class="ProjectZenith.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectZenith.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="Welcome to Project Zenith" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+    </Grid>
+</Window>
+
+--- END: ./src/Client.Wpf/MainWindow.xaml ---
+
+
+--- BEGIN: ./src/Client.Wpf/MainWindow.xaml.cs ---
+﻿using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace ProjectZenith.Wpf;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+}
+--- END: ./src/Client.Wpf/MainWindow.xaml.cs ---
+
+
+--- BEGIN: ./src/Client.Wpf/ProjectZenith.Wpf.csproj ---
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\ProjectZenith.Contracts.csproj" />
+  </ItemGroup>
+	
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+</Project>
+
+--- END: ./src/Client.Wpf/ProjectZenith.Wpf.csproj ---
+
+
+--- BEGIN: ./src/Contracts/Configuration/DatabaseOptions.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Configuration
+{
+    /// <summary>
+    /// Configuration settings for the MSSQL connection.
+    /// </summary>
+    public class DatabaseOptions
+    {
+        /// <summary>
+        /// Connnection string for the Write or Read database.  
+        /// </summary>
+        [Required]
+        public string ConnectionString { get; set; } = string.Empty;
+
+    }
+}
+
+--- END: ./src/Contracts/Configuration/DatabaseOptions.cs ---
+
+
+--- BEGIN: ./src/Contracts/Configuration/KafkaOptions.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Configuration
+{
+    /// <summary>
+    /// Configuration settings for Kafka.
+    /// </summary>
+    public class KafkaOptions
+    {
+        /// <summary>
+        /// The Kafka brokers address.
+        /// </summary>
+        [Required]
+        public List<string> Brokers { get; set; } = new List<string>();
+    }
+}
+
+--- END: ./src/Contracts/Configuration/KafkaOptions.cs ---
+
+
+--- BEGIN: ./src/Contracts/Configuration/RedisOptions.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Configuration
+{
+    /// <summary>
+    /// Configuration settings for the Redis connection.
+    /// </summary>
+    public class RedisOptions
+    {
+        /// <summary>
+        /// The Redis connection string (e.g., "localhost:6379").
+        /// </summary>
+        [Required]
+        public string ConnectionString { get; set; } = string.Empty;
+    }
+}
+--- END: ./src/Contracts/Configuration/RedisOptions.cs ---
+
+
+--- BEGIN: ./src/Contracts/DTOs/AppSummaryDto.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+using ProjectZenith.Contracts.Events;
+
+namespace ProjectZenith.Contracts.DTOs
+{
+    /// <summary>
+    /// Represents a summary of an application for browsing or seach result.
+    /// This DTO is used to transfer basic application data between layers of the application.
+    /// </summary>
+    /// <param name="AppId">The unique identifier of the application.</param>
+    /// <param name="Name">The name of the application.</param>
+    /// <param name="Description">A brief description of the application.</param>
+    /// <param name="Category">The primary category of the application.</param>
+    /// <param name="Platform">The target platform for the application.</param>
+    /// <param name="Price">The price of the application.</param>
+    /// <param name="AverageRating">The average rating of the application, if available.</param>
+    public record AppSummaryDto
+    {
+        [Required]
+        public Guid AppId { get; init; }
+        [Required]
+        public string Name { get; init; }
+        [Required]
+        public string Description { get; init; }
+        [Required]
+        public string Category { get; init; }
+        [Required]
+        public Platform Platform { get; init; }
+        [Required]
+        public decimal Price { get; init; }
+        public double? AverageRating { get; init; }
+    }
+}
+
+--- END: ./src/Contracts/DTOs/AppSummaryDto.cs ---
+
+
+--- BEGIN: ./src/Contracts/DTOs/UserProfileDto.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.DTOs
+{
+    /// <summary>
+    /// Represents a user's profile information.
+    /// This DTO is used to transfer user profile data between layers of the application.
+    /// </summary>
+    /// <param name="UserId">The unique identifier of the user.</param>
+    /// <param name="Email">The email address of the user.</param>
+    /// <param name="Username">The optional username chosen by the user.</param>
+    /// <param name="Bio">An optional biography or description of the user.</param>
+    /// <param name="AvatarUrl">An optional URL to the user's avatar image.</param>
+    public record UserProfileDto
+    {
+        [Required]
+        public Guid UserId { get; init; }
+        [Required]
+        public string Email { get; init; }
+        public string? Username { get; init; }
+        public string? Bio { get; init; }
+        public string? AvatarUrl { get; init; }
+    }
+}
+
+--- END: ./src/Contracts/DTOs/UserProfileDto.cs ---
+
+
+--- BEGIN: ./src/Contracts/Events/AppBannedEvent.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Events
+{
+    public record AppBannedEvent
+    {
+        [Required]
+        public Guid ActionId { get; init; }
+        [Required]
+        public Guid AppId { get; init; }
+        [Required]
+        public Guid AdminId { get; init; }
+        [Required]
+        public string Reason { get; init; } = null!;
+        [Required]
+        public DateTime ActionDate { get; init; }
+    }
+}
+
+--- END: ./src/Contracts/Events/AppBannedEvent.cs ---
+
+
+--- BEGIN: ./src/Contracts/Events/AppPurchasedEvent.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Events
+{
+    /// <summary>
+    /// Represents an event that is published when a user purchases an application.
+    /// </summary>
+    public record AppPurchasedEvent
+    {
+        /// <summary>
+        /// Unique identifier for the purchase.
+        /// </summary>
+        [Required]
+        public Guid PurchaseId { get; init; }
+
+        /// <summary>
+        /// The ID of the user who made the purchase.
+        /// </summary>
+        [Required]
+        public Guid UserId { get; init; }
+
+        /// <summary>
+        /// The ID of the application that was purchased.
+        /// </summary>
+        [Required]
+        public Guid AppId { get; init; }
+
+        /// <summary>
+        /// The price at which the application was purchased.
+        /// </summary>
+        [Required]
+        public decimal Price { get; init; }
+
+        /// <summary>
+        /// The date and time when the purchase was made.
+        /// </summary>
+        [Required]
+        public DateTime PurchaseDate { get; init; }
+    }
+}
+
+--- END: ./src/Contracts/Events/AppPurchasedEvent.cs ---
+
+
+--- BEGIN: ./src/Contracts/Events/AppSubmittedEvent.cs ---
+using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Events;
+
+
+/// <summary>
+/// Represents the platform on which an application runs.
+/// This will likely be moved to its own file later (e.g., Enums/Platform.cs).
+/// </summary>
+public enum Platform
+{
+  Android,
+  Windows
+}
+
+/// <summary>
+/// Published when a developer successfully submits a new application for review.
+/// This is an immutable record representing a fact that has occurred in the system.
+/// </summary>
+/// <param name="AppId">The unique identifier for the submitted application.</param>
+/// <param name="DeveloperId">The ID of the developer who submitted the app.</param>
+/// <param name="AppName">The initial name of the submitted application.</param>
+/// <param name="Description">A brief description of the application.</param>
+/// <param name="Category">The primary category of the application.</param>
+/// <param name="Platform">The target platform for this app version.</param>
+/// <param name="Price">The initial price of the application.</param>
+/// <param name="Version">The initial version string (e.g., "1.0.0").</param>
+/// <param name="FieldId">The ID of the field to which this application belongs.</param>
+/// <param name="SubmittedAt">The UTC timestamp of the submission.</param>
+public record AppSubmittedEvent
+{
+  [Required]
+  public Guid AppId { get; init; }
+  [Required]
+  public Guid DeveloperId { get; init; }
+  [Required]
+  public string AppName { get; init; } = null!;
+  [Required]
+  public string Description { get; init; } = null!;
+  [Required]
+  public string Category { get; init; } = null!;
+  [Required]
+  [EnumDataType(typeof(Platform), ErrorMessage = "Invalid platform specified.")]
+  public Platform Platform { get; init; }
+  [Required]
+  public decimal Price { get; init; }
+  [Required]
+  public string Version { get; init; } = null!;
+  [Required]
+  public DateTime SubmittedAt { get; init; }
+}
+
+--- END: ./src/Contracts/Events/AppSubmittedEvent.cs ---
+
+
+--- BEGIN: ./src/Contracts/Events/ReviewPostedEvent.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Events
+{
+    /// <summary>
+    /// Published when a user posted a revire for an applicatiion
+    /// </summary>
+    /// <param name="ReviewId">The unique identifier for the review.</param>
+    /// <param name="AppId">The ID of the the app being reviewed.</param>
+    /// <param name="UserId">The ID of the user.</param>
+    /// <param name="Rating">The rating point for the app.</param>
+    /// <param name="Comment">The optional comment of the review.</param>
+    /// <param name="PostedAt">The date and time when user posted the review.</param>
+    public record ReviewPostedEvent
+    {
+        [Required]
+        public Guid ReviewId { get; init; }
+        [Required]
+        public Guid AppId { get; init; }
+        [Required]
+        public Guid UserId { get; init; }
+        [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
+        public int Rating { get; init; }
+
+        public string? Comment { get; init; }
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime PostedAt { get; init; }
+    }
+}
+
+--- END: ./src/Contracts/Events/ReviewPostedEvent.cs ---
+
+
+--- BEGIN: ./src/Contracts/Events/UserRegisteredEvent.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Events
+{
+  /// <summary>
+  /// Published when a user sucessfully registers in the system.
+  /// </summary>
+  /// <param name="UserId">The unique identifier of the user.</param>
+  /// <param name="Email">The email address of the user.</param>
+  /// <param name="Username">The optional username chosen by the user.</param>
+  /// <param name="RegisteredAt">The date and time when the user registered.</param
+  public record UserRegisteredEvent
+  {
+    [Required]
+    public Guid UserId { get; init; }
+    [Required]
+    public string Email { get; init; }
+
+    public string? Username { get; init; }
+    [Required]
+    [DataType(DataType.DateTime)]
+    public DateTime RegisteredAt { get; init; }
+
+  }
+}
+
+--- END: ./src/Contracts/Events/UserRegisteredEvent.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/AbuseReport.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents the status of an abuse report.
+    /// </summary>
+    public enum AbuseReportStatus
+    {
+        New,
+        UnderReview,
+        Resolved,
+    }
+
+    /// <summary>
+    /// Represents an abuse report in the system.
+    /// </summary>
+    public class AbuseReport
+    {
+        /// <summary>
+        /// The unique identifier for the abuse report.
+        /// </summary>
+        public Guid Id { get; private set; }
+
+        /// <summary>
+        /// The reason for the abuse report.
+        /// </summary>
+        [Required, MaxLength(500)]
+        public string Reason { get; private set; } = string.Empty;
+
+        /// <summary>
+        /// The status of the abuse report.
+        /// </summary>
+        public AbuseReportStatus Status { get; private set; }
+
+        /// <summary>
+        /// The date and time when the abuse report was created.
+        /// This is set to the current UTC time when the report is created.
+        /// </summary>
+        public DateTime ReportedAt { get; private set; }
+
+        // --- Relationships ---
+        /// <summary>
+        /// The unique identifier for the user who reported the abuse.
+        /// </summary>
+        public Guid ReporterId { get; private set; }
+
+        /// <summary>
+        /// Navigation property to the user who reported the abuse.
+        /// </summary>
+        [ForeignKey("ReporterId")]
+        public User Reporter { get; private set; } = null!;
+
+        // --- Report Targets (Nullable Foreign Keys) ---
+        /// <summary>
+        /// The unique identifier for the review this report is associated with.
+        /// </summary>
+        public Guid? ReviewId { get; private set; }
+
+        /// <summary>
+        /// Navigation property to the review this report is associated with.
+        /// </summary>
+        [ForeignKey("ReviewId")]
+        public Review? Review { get; private set; }
+
+        /// <summary>
+        /// The unique identifier for the application this report is associated with.
+        /// </summary>
+
+        public Guid? AppId { get; private set; }
+
+        /// <summary>
+        /// Navigation property to the application this report is associated with.
+        /// </summary>
+        [ForeignKey("AppId")]
+        public App? App { get; private set; }
+
+        /// <summary>
+        /// The unique identifier for the user this report is associated with.
+        /// </summary>
+        public Guid? UserId { get; private set; }
+
+        /// <summary>
+        /// Navigation property to the user this report is associated with.
+        /// </summary>
+        [ForeignKey("UserId")]
+        public User? ReportedUser { get; private set; }
+
+        // Private constructor for EF Core
+        private AbuseReport() { }
+
+        // Public "Factory" constructor that ENFORCES the business rule
+        public AbuseReport(Guid reporterId, string reason, Guid? reviewId, Guid? appId, Guid? userId)
+        {
+            // This is the C# equivalent of your CHECK constraint
+            if (!reviewId.HasValue && !appId.HasValue && !userId.HasValue)
+            {
+                throw new ArgumentException("An abuse report must have at least one target (ReviewId, AppId, or UserId).");
+            }
+
+            Id = Guid.NewGuid();
+            ReporterId = reporterId;
+            Reason = reason;
+            ReviewId = reviewId;
+            AppId = appId;
+            UserId = userId;
+            Status = AbuseReportStatus.New;
+            ReportedAt = DateTime.UtcNow;
+        }
+    }
+}
+
+--- END: ./src/Contracts/Models/AbuseReport.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/App.cs ---
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ProjectZenith.Contracts.Events;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represent the status of an application.
+    /// </summary>
+    public enum Status
+    {
+        Draft,
+        Pending,
+        Published,
+        Rejected,
+        Banned
+    }
+
+    /// <summary>
+    /// Represents an application in the system.
+    /// </summary>
+    public class App
+    {
+        /// <summary>
+        /// The unique identifier for the application.
+        /// </summary>
+        [Key]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the developer who created the application.
+        /// </summary>
+        [Required]
+        public Guid DeveloperId { get; set; }
+        [Required]
+        [StringLength(100, ErrorMessage = "Applicatioin's name cannot be longer than 100 characters.")]
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The description of the application.
+        /// </summary>
+        [Required]
+        [StringLength(1000, ErrorMessage = "Application's description cannot be longer than 1000 characters.")]
+        public string Description { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The category of the application.
+        /// </summary>
+        [Required]
+        [StringLength(50, ErrorMessage = "Application's category cannot be longer than 50 characters.")]
+        public string Category { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The platform on which the application is available.
+        /// </summary>
+        [Required]
+        public Platform Platform { get; set; }
+
+        /// <summary>
+        /// The price of the application.
+        /// </summary>
+        [Required]
+        [Range(0, double.MaxValue, ErrorMessage = "Price must be a non-negative value.")]
+        public decimal Price { get; set; }
+
+        /// <summary>
+        /// The application's status.
+        /// </summary>
+        [Required]
+        public Status Status { get; set; } = Status.Draft;
+
+        /// <summary>
+        /// The date and time when the application was created.
+        /// This is automatically set to the current UTC time when the application is created.
+        /// </summary>
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// The date and time when the application was last updated.
+        /// </summary>
+        public DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// The app's developer.
+        /// </summary>
+        public Developer Developer { get; set; } = null!;
+
+        /// <summary>
+        /// A list of versions associated with the application.
+        /// </summary>
+        public ICollection<AppVersion> Versions { get; set; } = new List<AppVersion>();
+
+        /// <summary>
+        /// A list of abuse reports associated with the application.
+        /// </summary>
+        public ICollection<AbuseReport> AbuseReports { get; set; } = new List<AbuseReport>();
+
+        /// <summary>
+        /// A list of reviews associated with the application.
+        /// </summary>
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+    }
+}
+
+--- END: ./src/Contracts/Models/App.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/AppFile.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a file in the system.
+    /// </summary>
+    public class AppFile
+    {
+        /// <summary>
+        /// The unique identifier for the file.
+        /// </summary>
+        [Key]
+        public Guid Id { get; set; }
+
+        [Required]
+        [StringLength(1024, ErrorMessage = "File path cannot be longer than 1024 characters.")]
+        public string Path { get; set; } = null!;
+
+        /// <summary>
+        /// The size of the file in bytes.
+        /// </summary>
+        [Required]
+        public long Size { get; set; }
+
+        [Required]
+        [StringLength(64, ErrorMessage = "Checksum cannot be longer than 64 characters.")]
+        public string Checksum { get; set; } = null!;
+
+        /// <summary>
+        /// The date and time when the file was created.
+        /// </summary>
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    }
+}
+
+--- END: ./src/Contracts/Models/AppFile.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/AppVersion.cs ---
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectZenith.Contracts.Models
+{
+
+    /// <summary>
+    /// Represents a version of an application.
+    /// </summary>
+    public class AppVersion
+    {
+        /// <summary>
+        /// The unique identifier for the version.
+        /// </summary>
+        [Key]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the application this version belongs to.
+        /// </summary>
+        [Required]
+        public Guid AppId { get; set; }
+
+        /// <summary>
+        /// The version number of the application.
+        /// </summary>
+        [Required]
+        [StringLength(50, ErrorMessage = "Version number cannot be longer than 50 characters.")]
+        public string VersionNumber { get; set; } = null!;
+
+        /// <summary>
+        /// the changelog for this version.
+        /// </summary>
+        [StringLength(2000, ErrorMessage = "Changelog cannot be longer than 2000 characters.")]
+        public string? Changelog { get; set; } = string.Empty;
+        /// <summary>
+        /// The unique identifier for the field this version belongs to.
+        /// </summary>
+        [Required]
+        public Guid FiledId { get; set; }
+
+        /// <summary>
+        /// The date and time when this version was created.
+        /// </summary>
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// the application this version belongs to.
+        /// </summary>
+        public App App { get; set; } = null!;
+
+        /// <summary>
+        /// The file associated with this version.
+        /// </summary>
+        public AppFile File { get; set; } = null!;
+    }
+}
+
+--- END: ./src/Contracts/Models/AppVersion.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/Credential.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a credential for a user in the system.
+    /// A credential typically includes a password hash and the user it belongs to.
+    /// </summary>
+    public class Credential
+    {
+        /// <summary>
+        /// The unique identifier of the user this credential belongs to.
+        /// </summary>
+        [Key]
+        public Guid UserId { get; set; }
+
+        /// <summary>
+        /// The password hash for the user.
+        /// This is used for authentication purposes and should be securely stored.
+        /// </summary>
+        [Required]
+        [StringLength(256, ErrorMessage = "Password hash cannot be longer than 256 characters.")]
+        public string PasswordHash { get; set; } = null!;
+
+        /// <summary>
+        /// The date and time when the credential was created.
+        /// This is automatically set to the current UTC time when the credential is created.
+        /// </summary>
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Navigation property to the user associated with this credential.
+        /// </summary>
+        public User User { get; set; } = null!;
+    }
+}
+
+--- END: ./src/Contracts/Models/Credential.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/Developer.cs ---
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a developer profile in the system.
+    /// </summary>
+    public class Developer
+    {
+        /// <summary>
+        /// The unique identifier for the developer.
+        /// </summary>
+        [Key]
+        public Guid UserId { get; set; }
+
+        /// <summary>
+        /// The optional description of the developer.
+        /// </summary>
+        [StringLength(1000, ErrorMessage = "Description cannot be longer than 1000 characters.")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// The optional contact email for the developer.
+        /// </summary>
+        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        [StringLength(255, ErrorMessage = "Contact Email cannot be longer than 255 characters.")]
+        public string? ContactEmail { get; set; }
+
+        /// <summary>
+        /// The date and time when the developer profile was created.
+        /// This is automatically set to the current UTC time when the profile is created.
+        /// </summary>
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Navigation property to the user associated with this developer profile.
+        /// </summary>
+        public User User { get; set; } = null!;
+
+        /// <summary>
+        /// A list of applications created by the developer.
+        /// </summary>
+        public ICollection<App> Apps { get; set; } = new List<App>();
+    }
+}
+
+--- END: ./src/Contracts/Models/Developer.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/ModerationAction.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents the status of a moderation action.
+    /// </summary>
+    public enum ModerationActionStatus
+    {
+        Pending,
+        Completed,
+        Reversed
+    }
+
+    /// <summary>
+    /// Represents target types for moderation actions.
+    /// </summary>
+    public enum ModerationActionTargetType
+    {
+        User,
+        App,
+        Review,
+        AbuseReport
+    }
+
+    /// <summary>
+    /// Represents a moderation action taken by an admin.
+    /// </summary>
+    public class ModerationAction
+    {
+        /// <summary>
+        /// the unique identifier for the moderation action.
+        /// </summary>
+        [Key]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the admin who performed the action.
+        /// </summary>
+        public Guid AdminId { get; set; }
+
+        /// <summary>
+        /// The type of moderation action performed, such as banning a user or removing an app.
+        /// </summary>
+        [Required]
+        [StringLength(100, ErrorMessage = "Action type cannot be longer than 100 characters.")]
+        public string ActionType { get; set; } = null!;
+
+        /// <summary>
+        /// The reason for the moderation action, if applicable.
+        /// </summary>
+        [StringLength(500, ErrorMessage = "Reason cannot be longer than 500 characters.")]
+        public string? Reason { get; set; }
+
+        /// <summary>
+        /// The status of the moderation action, indicating whether it is pending, completed, or reversed.
+        /// </summary>
+        public ModerationActionStatus Status { get; set; } = ModerationActionStatus.Completed;
+
+        /// <summary>
+        /// The date and time when the moderation action was performed.
+        /// </summary>
+        public DateTime ActionDate { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// The type of target affected by the moderation action (e.g., User, App, Review).
+        /// </summary>
+        [Required]
+        public ModerationActionTargetType TargetType { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the target affected by the moderation action.
+        /// </summary>
+        public Guid TargetId { get; set; }
+
+        /// <summary>
+        /// Navigation property to the admin who performed the action.
+        /// </summary>
+        [ForeignKey("AdminId")]
+        public User Admin { get; set; } = null!;
+    }
+}
+
+--- END: ./src/Contracts/Models/ModerationAction.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/Payout.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents the status of a payout.
+    /// </summary>
+    public enum PayoutStatus
+    {
+        Scheduled,
+        Processing,
+        Processed,
+        Cancelled,
+        Failed
+    }
+
+    /// <summary>
+    /// Represents a payout to a developer for their earnings from app sales.
+    /// </summary>
+    public class Payout
+    {
+        /// <summary>
+        /// Unique identifier for the payout.
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The amount to be paid out to the developer.
+        /// </summary>
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal Amount { get; set; }
+
+        /// <summary>
+        /// the currently status of the payout.
+        /// </summary>
+        public PayoutStatus Status { get; set; } = PayoutStatus.Scheduled;
+
+        // --- Timestamps Tracking the Payout Lifecycle ---
+
+        /// <summary>
+        /// The timestamp when this payout was created and scheduled.
+        /// </summary>
+        public DateTime ScheduledAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// The target date for when this payout should be processed. Can be null.
+        /// </summary>
+        public DateTime? ProcessAt { get; set; }
+
+        /// <summary>
+        /// The timestamp when the payout was confirmed as completed by the payment provider.
+        /// </summary>
+        public DateTime? CompletedAt { get; set; }
+
+
+        // --- Payment Provider Details ---
+
+        /// <summary>
+        /// The name of the external payment provider (e.g., "Stripe"). Null until processing.
+        /// </summary>
+        [MaxLength(100)]
+        public string? PaymentProvider { get; set; }
+
+        /// <summary>
+        /// The unique reference ID from the external payment provider. Null until processed.
+        /// </summary>
+        [MaxLength(256)]
+        public string? PaymentId { get; set; }
+
+
+        // --- Relationships ---
+        /// <summary>
+        /// The unique identifier of the developer this payout is for.
+        /// </summary>
+        public Guid DeveloperId { get; set; }
+
+        /// <summary>
+        /// navigation property to the developer this payout is for.
+        /// </summary>
+        [ForeignKey("DeveloperId")]
+        public Developer Developer { get; set; } = null!;
+    }
+}
+
+--- END: ./src/Contracts/Models/Payout.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/Purchase.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents the status of a purchase.
+    /// </summary>
+    public enum PurchaseStatus
+    {
+        Pending,
+        Completed,
+        Refunded
+    }
+
+    /// <summary>
+    /// Represents a purchase made by a user for an application.
+    /// </summary>
+    public class Purchase
+    {
+        /// <summary>
+        /// The unique identifier for the purchase.
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the user who made the purchase.
+        /// </summary>
+        public Guid UserId { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the application that was purchased.
+        /// </summary>
+        public Guid AppId { get; set; }
+
+        /// <summary>
+        /// The price of the purchase.
+        /// This is stored as a decimal with a maximum of 18 digits and 2 decimal
+        /// </summary>
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        [Range(0, 9999999999999999.99,
+        ErrorMessage = "Price must be a positive value and cannot exceed 18 digits with 2 decimal places.")]
+        public decimal Price { get; set; }
+
+        /// <summary>
+        /// The status of the purchase.
+        /// </summary>
+        public PurchaseStatus Status { get; set; } = PurchaseStatus.Pending;
+
+        /// <summary>
+        /// The date and time when the purchase was made.
+        /// This is set to the current UTC time when the purchase is created.
+        /// </summary>
+        public DateTime PurchaseDate { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Navigation property to the user who made the purchase.
+        /// </summary>
+        [ForeignKey("UserId")]
+        public User User { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation property to the application that was purchased.
+        /// </summary>
+        [ForeignKey("AppId")]
+        public App App { get; set; } = null!;
+
+        /// <summary>
+        /// A list of transactions associated with the purchase.
+        /// Each purchase can have multiple transactions, especially in cases of failed attempts or partial payments.
+        /// </summary>
+        public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+
+    }
+}
+
+--- END: ./src/Contracts/Models/Purchase.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/Review.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a review for an application made by a user.
+    /// </summary>
+    public class Review
+    {
+        /// <summary>
+        /// The unique identifier for the review.
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the user who posted the review.
+        /// </summary>
+        public Guid? UserId { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the application this review belongs to.
+        /// </summary>
+        public Guid AppId { get; set; }
+
+        /// <summary>
+        /// The rating given in the review, on a scale of 1 to 5.
+        /// </summary>
+        [Required]
+        [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
+        public int Rating { get; set; }
+
+        /// <summary>
+        /// The optional comment provided in the review.
+        /// </summary>
+        [StringLength(1000, ErrorMessage = "Comment cannot be longer than 1000 characters.")]
+        public string? Comment { get; set; }
+
+        /// <summary>
+        /// Indicates whether the review has been edited.
+        /// </summary>
+        [Column(TypeName = "bit")]
+        public bool IsEdited { get; set; } = false;
+
+        /// <summary>
+        /// The date and time when the review was posted.
+        /// </summary>
+        [DataType(DataType.DateTime)]
+        public DateTime PostedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// The date and time when the review was last updated.
+        /// </summary>
+        [DataType(DataType.DateTime)]
+        public DateTime? UpdatedAt { get; set; } = null;
+
+        /// <summary>
+        /// Navigation property to the user who posted the review.
+        /// </summary>
+        [ForeignKey("UserId")]
+        public User? User { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation property to the application this review belongs to.
+        /// </summary>
+        [ForeignKey("AppId")]
+        public App App { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation property to the abuse report associated with this review.
+        /// </summary>
+        public ICollection<AbuseReport> AbuseReports { get; set; } = new List<AbuseReport>();
+
+    }
+}
+
+--- END: ./src/Contracts/Models/Review.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/Role.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a role in the system.
+    /// A role defines a set of permissions and can be assigned to users.
+    /// </summary>
+    public class Role
+    {
+        /// <summary>
+        /// The unique identifier for the role.
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The name of the role.
+        /// </summary>
+        [Required]
+        [StringLength(50, ErrorMessage = "Role name cannot be longer than 50 characters.")]
+        public string Name { get; set; } = null!;
+
+        public ICollection<UserRole> UsersOfRole { get; set; } = null!;
+    }
+}
+
+--- END: ./src/Contracts/Models/Role.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/SystemLog.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a system log entry for tracking user actions.
+    /// </summary>
+    public class SystemLog
+    {
+        /// <summary>
+        /// Unique identifier for the system log entry.
+        /// </summary>
+        public long Id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the user associated with this log entry.
+        /// </summary>
+        public Guid? UserId { get; set; }
+
+        /// <summary>
+        /// The action performed by the user, such as "Login", "Purchase", etc.
+        /// </summary>
+        [Required]
+        [StringLength(100, ErrorMessage = "Action cannot be longer than 100 characters.")]
+        public string Action { get; set; } = null!;
+
+        /// <summary>
+        /// The details of the action performed, if applicable.
+        /// </summary>
+        [StringLength(1000, ErrorMessage = "Details cannot be longer than 1000 characters.")]
+        public string? Details { get; set; }
+
+        /// <summary>
+        /// The IP address of the user when the action was performed.
+        /// </summary>
+        [StringLength(45, ErrorMessage = "IP address cannot be longer than 45 characters.")]
+        public string? IpAddress { get; set; }
+
+        /// <summary>
+        /// The timestamp when the action was performed.
+        /// This is set to the current UTC time when the log entry is created.
+        /// </summary>
+        public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Navigation property to the user associated with this log entry.
+        /// </summary>
+        [ForeignKey("UserId")]
+        public User? User { get; set; }
+    }
+}
+
+--- END: ./src/Contracts/Models/SystemLog.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/Transaction.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents the status of a transaction.
+    /// </summary>
+    public enum TransactionStatus
+    {
+        Pending,
+        Completed,
+        Failed
+    }
+    public class Transaction
+    {
+        /// <summary>
+        /// The unique identifier for the transaction.
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the purchase associated with this transaction.
+        /// </summary>
+        public Guid PurchaseId { get; set; }
+
+        /// <summary>
+        /// The amount of the transaction.
+        /// </summary>
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal Amount { get; set; }
+
+        /// <summary>
+        /// The payment provider used for the transaction (e.g., PayPal, Stripe).
+        /// </summary>
+        [Required]
+        public string PaymentProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The unique identifier for the payment transaction from the payment provider.
+        /// </summary>
+        [Required]
+        public string PaymentId { get; set; } = null!;
+
+        /// <summary>
+        /// The status of the transaction.
+        /// </summary>
+        public TransactionStatus Status { get; set; } = TransactionStatus.Pending;
+
+        /// <summary>
+        /// The date and time when the transaction was created.
+        /// This is set to the current UTC time when the transaction is created.
+        /// </summary>
+        public DateTime TransactionDate { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Navigation property to the purchase associated with this transaction.
+        /// </summary>
+        [ForeignKey("PurchaseId")]
+        public Purchase Purchase { get; set; } = null!;
+    }
+}
+
+--- END: ./src/Contracts/Models/Transaction.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/User.cs ---
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a user in the system.
+    /// </summary>
+    public class User
+    {
+        /// <summary>
+        /// The unique identifier for the user.
+        /// </summary>
+        [Required]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// The email address of the user.
+        /// This is required and must be a valid email format.
+        /// </summary>
+        [Required]
+        [EmailAddress]
+        [StringLength(256, ErrorMessage = "Email cannot be longer than 256 characters.")]
+        public string Email { get; set; } = null!;
+
+        /// <summary>
+        /// The optional username chosen by the user.
+        /// This can be used for display purposes.
+        /// </summary>
+        [StringLength(100, ErrorMessage = "Username cannot be longer than 100 characters.")]
+        public string? Username { get; set; }
+
+        /// <summary>
+        /// An optional biography or description of the user.
+        /// </summary>
+
+        [StringLength(500, ErrorMessage = "Bio cannot be longer than 500 characters.")]
+        [DataType(DataType.MultilineText)]
+        public string? Bio { get; set; }
+
+        /// <summary>
+        /// An optional URL to the user's avatar image.
+        /// </summary>
+
+        [Url(ErrorMessage = "Invalid URL format for AvatarUrl.")]
+        [StringLength(500, ErrorMessage = "Avatar URL cannot be longer than 500 characters.")]
+        public string? AvatarUrl { get; set; }
+
+        /// <summary>
+        /// The date and time when the user was created.
+        /// This is automatically set to the current UTC time when the user is created.
+        /// </summary>
+
+        [Required]
+        [DataType(DataType.DateTime)]
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// The date and time when the user was last updated.
+        /// </summary>
+
+        [DataType(DataType.DateTime)]
+        public DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// A list of roles assigned to the user.
+        /// </summary>
+        public ICollection<UserRole> Roles { get; set; } = new List<UserRole>();
+
+        /// <summary>
+        /// Navigation property to the user's credential.
+        /// </summary>
+        public Credential Credential { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation property to the developer profile associated with this user.
+        /// </summary>
+        public Developer? Developer { get; set; }
+
+        /// <summary>
+        /// A list of reviews written by the user.
+        /// </summary>
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+
+        /// <summary>
+        /// A collection of all the abuse reports this user has FILED.
+        /// This corresponds to the "Reporter" relationship.
+        /// </summary>
+        public ICollection<AbuseReport> FiledAbuseReports { get; set; } = new List<AbuseReport>();
+
+        /// <summary>
+        /// A collection of all the abuse reports FILED AGAINST this user.
+        /// This corresponds to the "ReportedUser" relationship.
+        /// </summary>
+        public ICollection<AbuseReport> AbuseReportsAgainstUser { get; set; } = new List<AbuseReport>();
+
+        /// <summary>
+        /// A collection of all purchases made by the user.
+        /// </summary>
+        public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
+
+    }
+}
+
+--- END: ./src/Contracts/Models/User.cs ---
+
+
+--- BEGIN: ./src/Contracts/Models/UserRole.cs ---
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectZenith.Contracts.Models
+{
+    /// <summary>
+    /// Represents a user role in the system.
+    /// A user role defines the association between a user and a role, allowing for role-based
+    /// </summary>
+    public class UserRole
+    {
+        /// <summary>
+        /// The unique identifier for the user.
+        /// </summary>
+        [Key, Column(Order = 1)]
+        public Guid UserId { get; set; }
+
+        /// <summary>
+        /// Navigation property to the user associated with this role.
+        /// </summary>
+        public User User { get; set; } = null!;
+
+        /// <summary>
+        /// The unique identifier for the role.
+        /// </summary>
+        [Key, Column(Order = 2)]
+        public Guid RoleId { get; set; }
+
+        /// <summary>
+        /// Navigation property to the role associated with this user.
+        /// </summary>
+        public Role Role { get; set; } = null!;
+    }
+}
+
+--- END: ./src/Contracts/Models/UserRole.cs ---
+
+
+--- BEGIN: ./src/Contracts/ProjectZenith.Contracts.csproj ---
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	
+
+</Project>
+
+--- END: ./src/Contracts/ProjectZenith.Contracts.csproj ---
+
+
+--- BEGIN: ./src/Kafka.Consumer/appsettings.Development.json ---
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  }
+}
+
+--- END: ./src/Kafka.Consumer/appsettings.Development.json ---
+
+
+--- BEGIN: ./src/Kafka.Consumer/appsettings.json ---
+{
+  "ConnectionStrings": {
+    "WriteDb": "Server=localhost,1401;Database=ProjectZenithWriteDb;User Id=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=True;",
+    "ReadDb": "Server=localhost,1402;Database=ProjectZenithReadDb;User Id=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=True;"
+  },
+  "Kafka": {
+    "Brokers": [
+      "localhost:9093"
+    ]
+  },
+  "Redis": {
+    "ConnectionString": ""
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+--- END: ./src/Kafka.Consumer/appsettings.json ---
+
+
+--- BEGIN: ./src/Kafka.Consumer/Program.cs ---
+using ProjectZenith.Contracts.Configuration;
+using ProjectZenith.Kafka.Consumer;
+
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var host = Host.CreateDefaultBuilder(args)
+            .ConfigureServices((hostContext, services) =>
+            {
+                IConfiguration configuration = hostContext.Configuration;
+
+                // --- Register Your Options Classes ---
+
+                services.Configure<KafkaOptions>(configuration.GetSection("Kafka"));
+                services.Configure<RedisOptions>(configuration.GetSection("Redis"));
+
+                // --- THIS IS THE CORRECTED PART ---
+                // This is now simpler, more consistent, and less error-prone.
+                // It looks for the "ReadDb" key inside the "ConnectionStrings" section.
+                services.Configure<DatabaseOptions>(options =>
+                {
+                    options.ConnectionString = configuration.GetConnectionString("ReadDb")
+                        ?? throw new InvalidOperationException("CRITICAL ERROR: Connection string 'ReadDb' not found. Have you set it using 'dotnet user-secrets set' for the Kafka.Consumer project?");
+                });
+
+                // --- Register Your Worker Service ---
+                services.AddHostedService<Worker>();
+            })
+            .Build();
+
+        await host.RunAsync();
+    }
+}
+--- END: ./src/Kafka.Consumer/Program.cs ---
+
+
+--- BEGIN: ./src/Kafka.Consumer/ProjectZenith.Kafka.Consumer.csproj ---
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ProjectZenith.Kafka.Consumer-a7ccde7b-deb4-4183-9853-7e3678fd0efa</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\ProjectZenith.Contracts.csproj" />
+  </ItemGroup>
+</Project>
+
+--- END: ./src/Kafka.Consumer/ProjectZenith.Kafka.Consumer.csproj ---
+
+
+--- BEGIN: ./src/Kafka.Consumer/Properties/launchSettings.json ---
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "ProjectZenith.Kafka.Consumer": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+--- END: ./src/Kafka.Consumer/Properties/launchSettings.json ---
+
+
+--- BEGIN: ./src/Kafka.Consumer/Worker.cs ---
+namespace ProjectZenith.Kafka.Consumer;
+
+public class Worker : BackgroundService
+{
+    private readonly ILogger<Worker> _logger;
+
+    public Worker(ILogger<Worker> logger)
+    {
+        _logger = logger;
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            Console.WriteLine("Kafka Consumer running...");
+
+            if (_logger.IsEnabled(LogLevel.Information))
+            {
+                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+            }
+            await Task.Delay(1000, stoppingToken);
+        }
+    }
+}
+
+--- END: ./src/Kafka.Consumer/Worker.cs ---
+
+
+--- BEGIN: ./src/Web.Admin/appsettings.Development.json ---
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}
+
+--- END: ./src/Web.Admin/appsettings.Development.json ---
+
+
+--- BEGIN: ./src/Web.Admin/appsettings.json ---
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+
+--- END: ./src/Web.Admin/appsettings.json ---
+
+
+--- BEGIN: ./src/Web.Admin/Controllers/HomeController.cs ---
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using ProjectZenith.Web.Admin.Models;
+
+namespace ProjectZenith.Web.Admin.Controllers;
+
+public class HomeController : Controller
+{
+    private readonly ILogger<HomeController> _logger;
+
+    public HomeController(ILogger<HomeController> logger)
+    {
+        _logger = logger;
+    }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+}
+
+--- END: ./src/Web.Admin/Controllers/HomeController.cs ---
+
+
+--- BEGIN: ./src/Web.Admin/Models/ErrorViewModel.cs ---
+namespace ProjectZenith.Web.Admin.Models;
+
+public class ErrorViewModel
+{
+    public string? RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+}
+
+--- END: ./src/Web.Admin/Models/ErrorViewModel.cs ---
+
+
+--- BEGIN: ./src/Web.Admin/Program.cs ---
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapStaticAssets();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}")
+    .WithStaticAssets();
+
+
+app.Run();
+
+--- END: ./src/Web.Admin/Program.cs ---
+
+
+--- BEGIN: ./src/Web.Admin/ProjectZenith.Web.Admin.csproj ---
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\ProjectZenith.Contracts.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>
+
+--- END: ./src/Web.Admin/ProjectZenith.Web.Admin.csproj ---
+
+
+--- BEGIN: ./src/Web.Admin/Properties/launchSettings.json ---
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5072",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7146;http://localhost:5072",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+--- END: ./src/Web.Admin/Properties/launchSettings.json ---
+
+

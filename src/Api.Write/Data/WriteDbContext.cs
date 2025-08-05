@@ -96,6 +96,16 @@ namespace ProjectZenith.Api.Write.Data
                 entity.ToTable("Reviews");
                 entity.HasIndex(r => new { r.AppId, r.UserId }).IsUnique();
                 entity.ToTable(tb => tb.HasCheckConstraint("CK_Reviews_Rating", "[Rating] >= 1 AND [Rating] <= 5"));
+
+                entity.HasOne(r => r.App)
+                      .WithMany(a => a.Reviews)
+                      .HasForeignKey(r => r.AppId)
+                      .OnDelete(DeleteBehavior.Cascade); // Cascade delete reviews when an App is deleted
+
+                entity.HasOne(r => r.User)
+                      .WithMany(u => u.Reviews)
+                      .HasForeignKey(r => r.UserId)
+                      .OnDelete(DeleteBehavior.Restrict); // Set UserId to null if User is deleted
             });
 
             modelBuilder.Entity<Purchase>(entity =>
@@ -105,6 +115,19 @@ namespace ProjectZenith.Api.Write.Data
                 entity.Property(p => p.Price).HasColumnType("decimal(18, 2)");
                 entity.Property(p => p.Status).HasConversion<string>().HasMaxLength(50);
                 entity.ToTable(tb => tb.HasCheckConstraint("CK_Purchases_Status", "[Status] IN ('Pending', 'Completed', 'Refunded')"));
+
+                // If a User is deleted, DO NOT automatically delete their purchases.
+                // This preserves the financial audit trail.
+                entity.HasOne(p => p.User)
+                      .WithMany(u => u.Purchases)
+                      .HasForeignKey(p => p.UserId)
+                      .OnDelete(DeleteBehavior.Restrict); // CHANGE FROM CASCADE (default) TO RESTRICT
+
+                // Also, if an App is deleted, we should preserve the purchase history.
+                entity.HasOne(p => p.App)
+                      .WithMany() // App might not have a direct navigation back to Purchases
+                      .HasForeignKey(p => p.AppId)
+                      .OnDelete(DeleteBehavior.Restrict); // CHANGE FROM CASCADE TO RESTRICT
             });
 
             modelBuilder.Entity<Transaction>(entity =>
@@ -130,6 +153,18 @@ namespace ProjectZenith.Api.Write.Data
                 entity.Property(ar => ar.Status).HasConversion<string>().HasMaxLength(50);
                 entity.ToTable(tb => tb.HasCheckConstraint("CK_AbuseReports_Status", "[Status] IN ('New', 'UnderReview', 'Resolved')"));
                 entity.ToTable(tb => tb.HasCheckConstraint("CK_AbuseReports_HasTarget", "[ReviewId] IS NOT NULL OR [AppId] IS NOT NULL OR [UserId] IS NOT NULL"));
+
+                entity.HasOne(ar => ar.Reporter) // Each AbuseReport has one Reporter...
+                    .WithMany(u => u.FiledAbuseReports) // ...and a User can file many reports.
+                    .HasForeignKey(ar => ar.ReporterId) // The link is via the ReporterId foreign key.
+                    .OnDelete(DeleteBehavior.Restrict); // Prevent a user from being deleted if they have filed reports.
+
+                // Configure the "Reported User" relationship
+                entity.HasOne(ar => ar.ReportedUser) // Each AbuseReport has one (or zero) ReportedUser...
+                    .WithMany(u => u.AbuseReportsAgainstUser) // ...and a User can have many reports against them.
+                    .HasForeignKey(ar => ar.UserId) // The link is via the UserId foreign key.
+                    .IsRequired(false) // This foreign key is optional/nullable.
+                    .OnDelete(DeleteBehavior.Restrict); // Prevent a user from being deleted if they are the subject of a report.
             });
 
             modelBuilder.Entity<ModerationAction>(entity =>
@@ -138,7 +173,6 @@ namespace ProjectZenith.Api.Write.Data
                 entity.Property(ma => ma.Status).HasConversion<string>().HasMaxLength(50);
                 entity.Property(ma => ma.TargetType).HasConversion<string>().HasMaxLength(50);
                 entity.ToTable(tb => tb.HasCheckConstraint("CK_ModerationActions_Status", "[Status] IN ('Pending', 'Completed', 'Reversed')"));
-                entity.ToTable(tb => tb.HasCheckConstraint("CK_ModerationActions_TargetType", "[TargetType] IN ('App', 'User', 'Review', 'AbuseReport')"));
             });
 
             // === Relationship Configurations (It's often clearer to group these) ===

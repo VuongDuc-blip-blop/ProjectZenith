@@ -48,7 +48,7 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
 
         [Url(ErrorMessage = "Invalid URL format for AvatarUrl.")]
-        [StringLength(2000, ErrorMessage = "Avatar URL cannot be longer than 200 characters.")]
+        [StringLength(500, ErrorMessage = "Avatar URL cannot be longer than 500 characters.")]
         public string? AvatarUrl { get; set; }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// A list of reviews written by the user.
         /// </summary>
-        public List<Review> Reviews { get; set; } = new List<Review>();
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
 
         /// <summary>
         /// A collection of all the abuse reports this user has FILED.

@@ -21,7 +21,7 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// The unique identifier for the user associated with this log entry.
         /// </summary>
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
 
         /// <summary>
         /// The action performed by the user, such as "Login", "Purchase", etc.
@@ -52,6 +52,6 @@ namespace ProjectZenith.Contracts.Models
         /// Navigation property to the user associated with this log entry.
         /// </summary>
         [ForeignKey("UserId")]
-        public User User { get; set; } = null!;
+        public User? User { get; set; }
     }
 }

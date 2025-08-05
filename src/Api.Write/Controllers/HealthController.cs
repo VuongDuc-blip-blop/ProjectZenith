@@ -1,30 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// src/Api.Write/Controllers/HealthController.cs
+using Microsoft.AspNetCore.Mvc;
 
-namespace ProjectZenith.Api.Write.Controllers
+namespace ProjectZenith.Api.Write.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class HealthController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HealthController : ControllerBase
+    private readonly ConfigService _configService;
+
+    public HealthController(ConfigService configService)
     {
-        private readonly ConfigService _configService;
+        _configService = configService;
+    }
 
-        public HealthController(ConfigService configService)
+    /// <summary>
+    /// Returns a simple health check response.
+    /// </summary>
+    /// <returns>A string indicating the service is healthy.</returns>
+    [HttpGet]
+    public IActionResult Get()
+    {
+        return Ok(new
         {
-            _configService = configService;
-        }
-
-        /// <summary>
-        /// Returns a simple health check response.
-        /// </summary>
-        /// <returns>A string indicating the service is healthy.</returns>
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok(new
-            {
-                Status = "Healthy",
-                Configuration = _configService.GetConfigSummary()
-            });
-        }
+            Status = "Healthy",
+            Configuration = _configService.GetConfigSummary()
+        });
     }
 }

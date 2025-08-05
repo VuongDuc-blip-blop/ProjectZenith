@@ -1,6 +1,12 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Api.Write.Infrastructure.Messaging;
+using ProjectZenith.Api.Write.Services.Commands.UserDomain;
+using ProjectZenith.Api.Write.Services.Security;
+using ProjectZenith.Api.Write.Validation.User;
 using ProjectZenith.Contracts.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,8 +37,27 @@ builder.Services.AddDbContext<WriteDbContext>(options =>
         b => b.MigrationsAssembly("ProjectZenith.Api.Write")
     );
 });
+builder.Services.AddSingleton<IEventPublisher, KafkaEventPublisher>();
+
+builder.Services.AddScoped<RegisterUserCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
+builder.Services.AddScoped<IPasswordService, PasswordService>();
 
 var app = builder.Build();
+//using (var scope = app.Services.CreateScope())
+//{
+//    var dbContext = scope.ServiceProvider.GetRequiredService<WriteDbContext>();
+//    // Ensure the database is created and apply any pending migrations.
+//    try
+//    {
+//        dbContext.Database.Migrate();
+//    }
+//    catch (Exception ex)
+//    {
+//        Console.WriteLine($"Migration failed: {ex.Message}");
+//        throw;
+//    }
+//}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

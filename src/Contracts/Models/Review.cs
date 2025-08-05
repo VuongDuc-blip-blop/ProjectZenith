@@ -21,7 +21,7 @@ namespace ProjectZenith.Contracts.Models
         /// <summary>
         /// The unique identifier for the user who posted the review.
         /// </summary>
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
 
         /// <summary>
         /// The unique identifier for the application this review belongs to.
@@ -63,7 +63,7 @@ namespace ProjectZenith.Contracts.Models
         /// Navigation property to the user who posted the review.
         /// </summary>
         [ForeignKey("UserId")]
-        public User User { get; set; } = null!;
+        public User? User { get; set; } = null!;
 
         /// <summary>
         /// Navigation property to the application this review belongs to.
