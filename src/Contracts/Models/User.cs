@@ -29,6 +29,12 @@ namespace ProjectZenith.Contracts.Models
         public string Email { get; set; } = null!;
 
         /// <summary>
+        /// Indicates whether the user's email has been verified.
+        /// </summary>
+        [Required]
+        public bool IsEmailVerified { get; set; } = false;
+
+        /// <summary>
         /// The optional username chosen by the user.
         /// This can be used for display purposes.
         /// </summary>

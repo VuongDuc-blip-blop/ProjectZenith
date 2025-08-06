@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.DataProtection;
 using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Api.Write.Services.Email;
 using ProjectZenith.Api.Write.Services.Security;
 using ProjectZenith.Contracts.Commands;
 using ProjectZenith.Contracts.Events;
@@ -14,14 +16,18 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
         private readonly IEventPublisher _eventPublisher;
         private readonly IValidator<RegisterUserCommand> _validator;
         private readonly IPasswordService _passwordService;
+        private readonly ITimeLimitedDataProtector _dataProtector;
+        private readonly IEmailService _emailService;
 
         public RegisterUserCommandHandler(
-            WriteDbContext dbContext, IEventPublisher eventPublisher, IValidator<RegisterUserCommand> validator, IPasswordService passwordService)
+            WriteDbContext dbContext, IEventPublisher eventPublisher, IValidator<RegisterUserCommand> validator, IPasswordService passwordService, IDataProtectionProvider dataProtectionProvider, IEmailService emailService)
         {
             _dbContext = dbContext;
             _eventPublisher = eventPublisher;
             _validator = validator;
             _passwordService = passwordService;
+            _emailService = emailService;
+            _dataProtector = dataProtectionProvider.CreateProtector("EmailVerification").ToTimeLimitedDataProtector();
         }
 
         public async Task<UserRegisteredEvent> HandleAsync(RegisterUserCommand command, CancellationToken cancellationToken)
@@ -39,7 +45,8 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
                 Id = userId,
                 Email = command.Email,
                 Username = command.Username,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                IsEmailVerified = false, // Initially set to false
             };
 
             //Create credential entity
@@ -66,9 +73,13 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
                 await _dbContext.UserRoles.AddAsync(userRole, cancellationToken);
                 // Commit the transaction
                 await _dbContext.SaveChangesAsync(cancellationToken);
+
+                var token = _dataProtector.Protect(userId.ToString(), TimeSpan.FromHours(24));
+                await _emailService.SendVerificationEmailAsync(user.Email, token, cancellationToken);
+
                 await transaction.CommitAsync(cancellationToken);
             }
-            catch
+            catch(Exception ex)
             {
                 // Rollback the transaction in case of an error
                 await transaction.RollbackAsync(cancellationToken);

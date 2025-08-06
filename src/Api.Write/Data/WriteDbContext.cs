@@ -33,6 +33,8 @@ namespace ProjectZenith.Api.Write.Data
             // --- User ---
             modelBuilder.Entity<User>(e =>
             {
+                e.Property(u => u.IsEmailVerified).HasDefaultValue(false);
+
                 e.HasIndex(u => u.Email).IsUnique();
                 e.HasIndex(u => u.Username).IsUnique();
 

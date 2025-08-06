@@ -27,12 +27,17 @@ namespace ProjectZenith.Api.Write.Validation.User
             //Rule 3: Username must be at most 100 characters long and can be null.
             RuleFor(x => x.Username)
                 .MaximumLength(100).WithMessage("Username cannot exceed 100 characters.")
-                .When(x => x.Username != null);
+                .When(x => x.Username != null)
+                .MustAsync(BeUniqueUsername).WithMessage("Username already exists.");
         }
 
         public async Task<bool> BeUniqueEmail(string email, CancellationToken cancellationToken)
         {
             return !await _context.Users.AnyAsync(u => u.Email == email, cancellationToken);
+        }
+        public async Task<bool> BeUniqueUsername(string username, CancellationToken cancellationToken)
+        {
+            return !await _context.Users.AnyAsync(u => u.Username == username, cancellationToken);
         }
     }
 }

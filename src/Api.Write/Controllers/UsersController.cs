@@ -10,10 +10,12 @@ namespace ProjectZenith.Api.Write.Controllers
     public class UsersController : ControllerBase
     {
         private readonly RegisterUserCommandHandler _registerHandler;
+        private readonly VerifyEmailCommandHandler _verifyEmailHandler;
 
-        public UsersController(RegisterUserCommandHandler registerHandler)
+        public UsersController(RegisterUserCommandHandler registerHandler, VerifyEmailCommandHandler verifyEmailHandler)
         {
             _registerHandler = registerHandler;
+            _verifyEmailHandler = verifyEmailHandler;
         }
 
         /// <summary>
@@ -44,10 +46,53 @@ namespace ProjectZenith.Api.Write.Controllers
                     userEvent.Email,
                 });
             }
-            catch (ValidationException ex) when (ex.Message.Contains("Email already exists"))
+            catch (ValidationException ex) when (ex.Message.Contains("Email already exists") || ex.Message.Contains("Username already exists"))
             {
                 return Conflict(new { Message = ex.Message });
             }
+        }
+
+
+        [HttpPost("verify")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status410Gone)]
+        public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailCommand command, CancellationToken cancellationToken)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var userEvent = await _verifyEmailHandler.Handle(command, cancellationToken);
+                return Ok(new
+                {
+                    userEvent.UserId,
+                    userEvent.Email,
+                    userEvent.VerifiedAt
+                });
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+            catch (InvalidOperationException ex) when (ex.Message.Contains("Invalid or expired token"))
+            {
+                throw;
+                return StatusCode(StatusCodes.Status410Gone, new { Message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (not shown here for brevity)
+                return StatusCode(StatusCodes.Status500InternalServerError, new { Message = ex.Message });
+            }
+
         }
     }
 }

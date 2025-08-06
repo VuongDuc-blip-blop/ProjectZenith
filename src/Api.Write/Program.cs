@@ -1,10 +1,12 @@
 using FluentValidation;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
 using ProjectZenith.Api.Write.Infrastructure.Messaging;
 using ProjectZenith.Api.Write.Services.Commands.UserDomain;
+using ProjectZenith.Api.Write.Services.Email;
 using ProjectZenith.Api.Write.Services.Security;
 using ProjectZenith.Api.Write.Validation.User;
 using ProjectZenith.Contracts.Configuration;
@@ -16,6 +18,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "DataProtectionKeys")))
+    .SetDefaultKeyLifetime(TimeSpan.FromDays(90));
+
 
 // 1. Configure DatabaseOptions to use the "ReadDb" connection string from User Secrets.
 // We are using the simple .Configure<T>() method which is perfect when you only need one
@@ -42,6 +49,10 @@ builder.Services.AddSingleton<IEventPublisher, KafkaEventPublisher>();
 builder.Services.AddScoped<RegisterUserCommandHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
 builder.Services.AddScoped<IPasswordService, PasswordService>();
+
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<VerifyEmailCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<VerifyEmailCommandValidator>();
 
 var app = builder.Build();
 //using (var scope = app.Services.CreateScope())
