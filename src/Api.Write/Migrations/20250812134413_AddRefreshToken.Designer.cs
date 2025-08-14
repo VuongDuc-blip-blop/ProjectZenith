@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectZenith.Api.Write.Data;
 
@@ -11,9 +12,11 @@ using ProjectZenith.Api.Write.Data;
 namespace ProjectZenith.Api.Write.Migrations
 {
     [DbContext(typeof(WriteDbContext))]
-    partial class WriteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250812134413_AddRefreshToken")]
+    partial class AddRefreshToken
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -202,6 +205,13 @@ namespace ProjectZenith.Api.Write.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<DateTime?>("RefreshTokenExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RefreshTokenHash")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
                     b.HasKey("UserId");
 
                     b.ToTable("Credentials");
@@ -350,38 +360,6 @@ namespace ProjectZenith.Api.Write.Migrations
                         {
                             t.HasCheckConstraint("CK_Purchases_Status", "[Status] IN ('Pending', 'Completed', 'Refunded')");
                         });
-                });
-
-            modelBuilder.Entity("ProjectZenith.Contracts.Models.RefreshToken", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeviceInfo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RefreshTokenExpiresAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RefreshTokenHash")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RefreshTokenHash")
-                        .IsUnique();
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("RefreshTokens", (string)null);
                 });
 
             modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
@@ -564,12 +542,6 @@ namespace ProjectZenith.Api.Write.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -729,17 +701,6 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ProjectZenith.Contracts.Models.RefreshToken", b =>
-                {
-                    b.HasOne("ProjectZenith.Contracts.Models.User", "User")
-                        .WithMany("RefreshTokens")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("ProjectZenith.Contracts.Models.Review", b =>
                 {
                     b.HasOne("ProjectZenith.Contracts.Models.App", "App")
@@ -839,8 +800,6 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Navigation("FiledAbuseReports");
 
                     b.Navigation("Purchases");
-
-                    b.Navigation("RefreshTokens");
 
                     b.Navigation("Reviews");
 

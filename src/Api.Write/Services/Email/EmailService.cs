@@ -16,5 +16,11 @@
             _logger.LogInformation("Sending verification email to {Email} with link: {Link}", email, verificationLink);
             await Task.CompletedTask; // Simulate async email sending
         }
+
+        public async Task SendResetPasswordEmailAsync(string email,string resetUrl,CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("Sending reset password email to {Email} with url: {Link}", email, resetUrl);
+            await Task.CompletedTask;
+        }
     }
 }

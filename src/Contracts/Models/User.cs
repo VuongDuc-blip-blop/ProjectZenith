@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -74,6 +68,9 @@ namespace ProjectZenith.Contracts.Models
         [DataType(DataType.DateTime)]
         public DateTime? UpdatedAt { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; } = null!;
+
         /// <summary>
         /// A list of roles assigned to the user.
         /// </summary>
@@ -110,6 +107,8 @@ namespace ProjectZenith.Contracts.Models
         /// A collection of all purchases made by the user.
         /// </summary>
         public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
+
+        public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 
     }
 }

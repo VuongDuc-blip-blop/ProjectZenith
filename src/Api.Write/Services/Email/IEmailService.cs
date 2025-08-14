@@ -9,5 +9,7 @@
         /// <param name="token">The verification token.</param>
         /// <param name="cancellationToken">Token to cancel the operation.</param>
         Task SendVerificationEmailAsync(string email, string token, CancellationToken cancellationToken);
+
+        Task SendResetPasswordEmailAsync(string email, string resetUrl, CancellationToken cancellationToken);
     }
 }

@@ -1,7 +1,9 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
 using ProjectZenith.Api.Write.Infrastructure.Messaging;
@@ -10,6 +12,7 @@ using ProjectZenith.Api.Write.Services.Email;
 using ProjectZenith.Api.Write.Services.Security;
 using ProjectZenith.Api.Write.Validation.User;
 using ProjectZenith.Contracts.Configuration;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,32 @@ builder.Services.AddDataProtection()
     .SetDefaultKeyLifetime(TimeSpan.FromDays(90));
 
 
+
+builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka"));
+builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
+
+// Configure JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    var jwtOptions = builder.Configuration.GetSection("Jwt").Get<JwtOptions>();
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtOptions.Issuer,
+        ValidAudience = jwtOptions.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Key))
+    };
+});
+
+
 // 1. Configure DatabaseOptions to use the "ReadDb" connection string from User Secrets.
 // We are using the simple .Configure<T>() method which is perfect when you only need one
 // instance of a particular options type.
@@ -33,8 +62,7 @@ builder.Services.Configure<DatabaseOptions>(options =>
         ?? throw new InvalidOperationException("CRITICAL ERROR: Connection string 'WriteDb' not found. Have you set it using 'dotnet user-secrets set' for this project?");
 });
 
-builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka"));
-builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
+
 
 builder.Services.AddSingleton<ConfigService>();
 builder.Services.AddDbContext<WriteDbContext>(options =>
@@ -53,6 +81,28 @@ builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<VerifyEmailCommandHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<VerifyEmailCommandValidator>();
+
+builder.Services.AddScoped<LoginCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<LoginCommandValidator>();
+
+builder.Services.AddScoped<RefreshTokenCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<RefreshTokenCommandValidator>();
+
+builder.Services.AddScoped<LogoutCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<LogoutCommandValidator>();
+
+builder.Services.AddScoped<RevokeAllSessionsCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<RevokeAllSessionsCommandValidator>();
+
+builder.Services.AddScoped<RequestPasswordResetCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<RequestPasswordResetValidator>();
+
+builder.Services.AddScoped<ResetPasswordCommandHandler>();
+builder.Services.AddValidatorsFromAssemblyContaining<ResetPasswordCommandValidator>();
+
+builder.Services.AddScoped<UpdateUserProfileCommandHandler>();
+builder.Services.AddScoped<UpdateUserAvatarService>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserProfileCommandValidator>();
 
 var app = builder.Build();
 //using (var scope = app.Services.CreateScope())

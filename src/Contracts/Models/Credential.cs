@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -32,6 +27,7 @@ namespace ProjectZenith.Contracts.Models
         /// This is automatically set to the current UTC time when the credential is created.
         /// </summary>
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
 
         /// <summary>
         /// Navigation property to the user associated with this credential.

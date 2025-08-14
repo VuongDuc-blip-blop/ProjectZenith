@@ -2,7 +2,7 @@
 
 namespace ProjectZenith.Contracts.Commands
 {
-    public class RegisterUserCommand
+    public record RegisterUserCommand
     {
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid email format.")]

@@ -21,6 +21,7 @@ namespace ProjectZenith.Api.Write.Data
         public DbSet<Payout> Payouts { get; set; } = null!;
         public DbSet<ModerationAction> ModerationActions { get; set; } = null!;
         public DbSet<SystemLog> SystemLogs { get; set; } = null!;
+        public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
         public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options) { }
 
@@ -176,6 +177,31 @@ namespace ProjectZenith.Api.Write.Data
                 entity.Property(ma => ma.TargetType).HasConversion<string>().HasMaxLength(50);
                 entity.ToTable(tb => tb.HasCheckConstraint("CK_ModerationActions_Status", "[Status] IN ('Pending', 'Completed', 'Reversed')"));
             });
+
+            modelBuilder.Entity<Credential>(e =>
+            {
+                e.HasKey(c => c.UserId);
+                e.Property(c => c.PasswordHash).IsRequired();
+                e.Property(c => c.CreatedAt).IsRequired();
+                e.HasOne(c => c.User).WithOne(u => u.Credential).HasForeignKey<Credential>(c => c.UserId);
+            });
+
+            modelBuilder.Entity<RefreshToken>(entity =>
+            {
+                entity.ToTable("RefreshTokens");
+                entity.HasKey(rt => rt.Id);
+
+                // Create an index on the RefreshTokenHash for fast lookups
+                entity.HasIndex(rt => rt.RefreshTokenHash).IsUnique();
+
+                // Define the one-to-many relationship back to the User
+                entity.HasOne(rt => rt.User)
+                    .WithMany(u => u.RefreshTokens) // This links to the collection on the User model
+                    .HasForeignKey(rt => rt.UserId)
+                    .OnDelete(DeleteBehavior.Cascade); // If a User is deleted, all their sessions are deleted.
+            });
+
+
 
             // === Relationship Configurations (It's often clearer to group these) ===
 
