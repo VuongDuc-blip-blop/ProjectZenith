@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProjectZenith.Api.Write.Services.Commands.UserDomain;
-using ProjectZenith.Contracts.Commands;
+using ProjectZenith.Contracts.Commands.User;
 using System.Security.Claims;
 
 namespace ProjectZenith.Api.Write.Controllers
@@ -12,39 +12,10 @@ namespace ProjectZenith.Api.Write.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly RegisterUserCommandHandler _registerHandler;
-        private readonly VerifyEmailCommandHandler _verifyEmailHandler;
-        private readonly LoginCommandHandler _loginCommandHandler;
-        private readonly RefreshTokenCommandHandler _refreshTokenHandler;
-        private readonly LogoutCommandHandler _logoutHandler;
-        private readonly RevokeAllSessionsCommandHandler _revokeAllSessionsHandler;
-        private readonly RequestPasswordResetCommandHandler _requestPasswordResetHandler;
-        private readonly ResetPasswordCommandHandler _resetPasswordHandler;
-        private readonly UpdateUserProfileCommandHandler _updateUserProfileHandler;
-        private readonly UpdateUserAvatarService _updateUserAvatarService;
-
-        public UsersController(
-            RegisterUserCommandHandler registerHandler,
-            VerifyEmailCommandHandler verifyEmailHandler,
-            LoginCommandHandler loginCommandHandler,
-            RefreshTokenCommandHandler refreshTokenCommandHandler,
-            LogoutCommandHandler logoutHandler,
-            RevokeAllSessionsCommandHandler revokeAllSessionsHandler,
-            RequestPasswordResetCommandHandler requestPasswordResetHandler,
-            ResetPasswordCommandHandler resetPasswordHandler,
-            UpdateUserProfileCommandHandler updateUserProfileHandler,
-            UpdateUserAvatarService updateUserAvatarService)
+        private readonly IMediator _mediator;
+        public UsersController(IMediator mediator)
         {
-            _registerHandler = registerHandler;
-            _verifyEmailHandler = verifyEmailHandler;
-            _loginCommandHandler = loginCommandHandler;
-            _refreshTokenHandler = refreshTokenCommandHandler;
-            _logoutHandler = logoutHandler;
-            _revokeAllSessionsHandler = revokeAllSessionsHandler;
-            _requestPasswordResetHandler = requestPasswordResetHandler;
-            _resetPasswordHandler = resetPasswordHandler;
-            _updateUserProfileHandler = updateUserProfileHandler;
-            _updateUserAvatarService = updateUserAvatarService;
+            _mediator = mediator;
         }
 
         /// <summary>
@@ -68,11 +39,11 @@ namespace ProjectZenith.Api.Write.Controllers
             }
             try
             {
-                var userEvent = await _registerHandler.HandleAsync(command, cancellationToken);
-                return CreatedAtAction(nameof(Register), new { userId = userEvent.UserId }, new
+                var registerResult = _mediator.Send(command, cancellationToken);
+                return CreatedAtAction(nameof(Register), new { userId = registerResult.Result.UserId }, new
                 {
-                    userEvent.UserId,
-                    userEvent.Email,
+                    registerResult.Result.UserId,
+                    registerResult.Result.Email,
                 });
             }
             catch (ValidationException ex) when (ex.Message.Contains("Email already exists") || ex.Message.Contains("Username already exists"))
@@ -95,7 +66,7 @@ namespace ProjectZenith.Api.Write.Controllers
 
             try
             {
-                var userEvent = await _verifyEmailHandler.Handle(command, cancellationToken);
+                var userEvent = await _mediator.Send(command, cancellationToken);
                 return Ok(new
                 {
                     userEvent.UserId,
@@ -135,15 +106,8 @@ namespace ProjectZenith.Api.Write.Controllers
 
             try
             {
-                var (token, refreshTokenId, refreshToken, userEvent) = await _loginCommandHandler.HandleAsync(command, cancellationToken);
-                return Ok(new
-                {
-                    Token = token,
-                    RefreshTokenId = refreshTokenId,
-                    RefreshTokenHash = refreshToken,
-                    userEvent.UserId,
-                    userEvent.Email
-                });
+                var loginResult = await _mediator.Send(command, cancellationToken);
+                return Ok(loginResult);
             }
             catch (ValidationException ex)
             {
@@ -168,15 +132,8 @@ namespace ProjectZenith.Api.Write.Controllers
 
             try
             {
-                var (token, newRefreshTokenId, newRefreshToken, userEvent) = await _refreshTokenHandler.HandleAsync(command, cancellationToken);
-                return Ok(new
-                {
-                    Token = token,
-                    RefreshTokenId = newRefreshTokenId,
-                    RefreshToken = newRefreshToken,
-                    userEvent.UserId,
-                    userEvent.Email
-                });
+                var refreshTokenResult = await _mediator.Send(command, cancellationToken);
+                return Ok(refreshTokenResult);
             }
             catch (ValidationException ex)
             {
@@ -205,7 +162,7 @@ namespace ProjectZenith.Api.Write.Controllers
         {
             try
             {
-                await _logoutHandler.HandleAsync(command, User, cancellationToken);
+                await _mediator.Send(command, cancellationToken);
                 return NoContent();
             }
             catch (ValidationException ex)
@@ -247,7 +204,7 @@ namespace ProjectZenith.Api.Write.Controllers
 
             try
             {
-                await _revokeAllSessionsHandler.HandleAsync(command, User, cancellationToken);
+                await _mediator.Send(command, cancellationToken);
                 return NoContent();
             }
             catch (ValidationException ex)
@@ -281,7 +238,7 @@ namespace ProjectZenith.Api.Write.Controllers
         {
             try
             {
-                await _requestPasswordResetHandler.HandleAsync(command, cancellationToken);
+                await _mediator.Send(command, cancellationToken);
                 return NoContent();
             }
             catch (ValidationException ex)
@@ -307,7 +264,7 @@ namespace ProjectZenith.Api.Write.Controllers
         {
             try
             {
-                await _resetPasswordHandler.HandleAsync(command, cancellationToken);
+                await _mediator.Send(command, cancellationToken);
                 return Ok(new { Message = "Password reset successfully." });
             }
             catch (ValidationException ex)
@@ -354,13 +311,12 @@ namespace ProjectZenith.Api.Write.Controllers
 
             try
             {
-                var updatedEvent = await _updateUserProfileHandler.HandleAsync(command, User, cancellationToken);
+                await _mediator.Send(command, cancellationToken);
                 return Ok(new
                 {
-                    updatedEvent.UserId,
-                    updatedEvent.Email,
-                    updatedEvent.UserName,
-                    updatedEvent.Bio
+                    command.UserId,
+                    command.DisplayName,
+                    command.Bio
                 });
             }
             catch (ValidationException ex)
@@ -406,10 +362,14 @@ namespace ProjectZenith.Api.Write.Controllers
             {
                 return Unauthorized(new { Message = "Invalid user ID in token." });
             }
-
+            var command = new UpdateUserAvatarCommand
+            {
+                UserId = userId,
+                file = file
+            };
             try
             {
-                var updatedEvent = await _updateUserAvatarService.HandleAsync(userId, file, cancellationToken);
+                var updatedEvent = await _mediator.Send(command, cancellationToken);
                 return Ok(new { updatedEvent.UserId, updatedEvent.Email, updatedEvent.AvatarUrl });
             }
             catch (ArgumentException ex)
@@ -425,5 +385,8 @@ namespace ProjectZenith.Api.Write.Controllers
                 return Conflict(new { Message = "Avatar update failed due to concurrent modification." });
             }
         }
+
+
+
     }
 }

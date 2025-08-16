@@ -10,6 +10,7 @@ using ProjectZenith.Api.Write.Infrastructure.Messaging;
 using ProjectZenith.Api.Write.Services.Commands.UserDomain;
 using ProjectZenith.Api.Write.Services.Email;
 using ProjectZenith.Api.Write.Services.Security;
+using ProjectZenith.Api.Write.Validation.Developer;
 using ProjectZenith.Api.Write.Validation.User;
 using ProjectZenith.Contracts.Configuration;
 using System.Text;
@@ -26,11 +27,14 @@ builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "DataProtectionKeys")))
     .SetDefaultKeyLifetime(TimeSpan.FromDays(90));
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka"));
 builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
+builder.Services.Configure<DeveloperOptions>(builder.Configuration.GetSection("Developer"));
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(options =>
@@ -74,7 +78,6 @@ builder.Services.AddDbContext<WriteDbContext>(options =>
 });
 builder.Services.AddSingleton<IEventPublisher, KafkaEventPublisher>();
 
-builder.Services.AddScoped<RegisterUserCommandHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
 builder.Services.AddScoped<IPasswordService, PasswordService>();
 
@@ -82,13 +85,10 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<VerifyEmailCommandHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<VerifyEmailCommandValidator>();
 
-builder.Services.AddScoped<LoginCommandHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<LoginCommandValidator>();
 
-builder.Services.AddScoped<RefreshTokenCommandHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<RefreshTokenCommandValidator>();
 
-builder.Services.AddScoped<LogoutCommandHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<LogoutCommandValidator>();
 
 builder.Services.AddScoped<RevokeAllSessionsCommandHandler>();
@@ -103,6 +103,8 @@ builder.Services.AddValidatorsFromAssemblyContaining<ResetPasswordCommandValidat
 builder.Services.AddScoped<UpdateUserProfileCommandHandler>();
 builder.Services.AddScoped<UpdateUserAvatarService>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserProfileCommandValidator>();
+
+builder.Services.AddValidatorsFromAssemblyContaining<RequestDeveloperStatusCommandValidator>();
 
 var app = builder.Build();
 //using (var scope = app.Services.CreateScope())

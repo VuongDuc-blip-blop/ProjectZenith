@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjectZenith.Contracts.Events;
+using ProjectZenith.Contracts.Events.User;
 
 namespace ProjectZenith.Contracts.Models
 {

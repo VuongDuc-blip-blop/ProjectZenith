@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using ProjectZenith.Api.Write.Data;
-using ProjectZenith.Contracts.Commands;
+using ProjectZenith.Contracts.Commands.User;
 
 namespace ProjectZenith.Api.Write.Validation.User
 {
