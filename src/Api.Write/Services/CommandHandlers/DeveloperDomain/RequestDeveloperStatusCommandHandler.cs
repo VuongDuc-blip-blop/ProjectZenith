@@ -2,35 +2,40 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Api.Write.Infrastructure.Messaging;
+using ProjectZenith.Api.Write.Services.Security;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Configuration;
+using ProjectZenith.Contracts.DTOs.User;
 using ProjectZenith.Contracts.Events.User;
 using ProjectZenith.Contracts.Models;
 
 namespace ProjectZenith.Api.Write.Services.CommandHandlers.DeveloperDomain
 {
-    public class RequestDeveloperStatusCommandHandler : IRequestHandler<RequestDeveloperStatusCommand>
+    public class RequestDeveloperStatusCommandHandler : IRequestHandler<RequestDeveloperStatusCommand, LoginResponseDTO>
     {
         private readonly WriteDbContext _dbContext;
         private readonly IEventPublisher _eventPublisher;
         private readonly IValidator<RequestDeveloperStatusCommand> _validator;
         private readonly DeveloperOptions _developerOptions;
+        private readonly ITokenService _tokenService;
 
         public RequestDeveloperStatusCommandHandler(
             WriteDbContext dbContext,
             IEventPublisher eventPublisher,
             IValidator<RequestDeveloperStatusCommand> validator,
-            IOptions<DeveloperOptions> developerOptions)
+            IOptions<DeveloperOptions> developerOptions,
+            ITokenService tokenService)
         {
             _dbContext = dbContext;
             _eventPublisher = eventPublisher;
             _validator = validator;
             _developerOptions = developerOptions.Value;
+            _tokenService = tokenService;
         }
 
-        public async Task Handle(RequestDeveloperStatusCommand command, CancellationToken cancellationToken)
+        public async Task<LoginResponseDTO> Handle(RequestDeveloperStatusCommand command, CancellationToken cancellationToken)
         {
             // 1. Validate command (assuming validator is run by a pipeline or called here)
             await _validator.ValidateAndThrowAsync(command, cancellationToken);
@@ -84,15 +89,36 @@ namespace ProjectZenith.Api.Write.Services.CommandHandlers.DeveloperDomain
             };
             await _eventPublisher.PublishAsync("developer-events", requestedEvent, cancellationToken);
 
-            if (developerRole != null)
+
+
+            // Generate and return new tokens if auto-approved ---
+            if (_developerOptions.ApprovalPolicy == "Auto")
             {
-                var approvedEvent = new DeveloperStatusApprovedEvent
+                if (developerRole != null)
                 {
-                    UserId = command.UserId,
-                    ApprovedAt = DateTime.UtcNow,
-                };
-                await _eventPublisher.PublishAsync("developer-events", approvedEvent, cancellationToken);
+                    var approvedEvent = new DeveloperStatusApprovedEvent
+                    {
+                        UserId = command.UserId,
+                        ApprovedAt = DateTime.UtcNow,
+                    };
+                    await _eventPublisher.PublishAsync("developer-events", approvedEvent, cancellationToken);
+                }
+
+                // Fetch the user again WITH THEIR ROLES to build the new token claims
+                var userWithNewRoles = await _dbContext.Users
+                    .Include(u => u.Roles)
+                    .ThenInclude(ur => ur.Role)
+                    .AsNoTracking() // Read-only operation
+                    .SingleAsync(u => u.Id == command.UserId, cancellationToken);
+
+                // Call the shared token service to generate a fresh set of tokens
+                // The 'deviceInfo' can be null as this is a server-initiated refresh
+                return await _tokenService.GenerateTokenAsync(userWithNewRoles, null, cancellationToken);
             }
+
+            // If the policy is "Admin", the process ends here for the user.
+            // We return null to indicate no new tokens were issued.
+            return null;
         }
     }
 }

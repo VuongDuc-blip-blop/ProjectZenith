@@ -1,4 +1,4 @@
-﻿namespace ProjectZenith.Api.Write.Abstraction
+﻿namespace ProjectZenith.Api.Write.Infrastructure.Messaging
 {
     public interface IEventPublisher
     {

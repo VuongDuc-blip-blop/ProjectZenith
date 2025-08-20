@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Api.Write.Infrastructure.Messaging;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Events.User;
 using ProjectZenith.Contracts.Models;

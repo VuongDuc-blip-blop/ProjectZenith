@@ -1,5 +1,4 @@
-﻿using ProjectZenith.Api.Write.Abstraction;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace ProjectZenith.Api.Write.Infrastructure.Messaging
 {

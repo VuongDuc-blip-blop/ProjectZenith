@@ -2,18 +2,14 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Api.Write.Infrastructure.Messaging;
 using ProjectZenith.Api.Write.Services.Security;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Configuration;
 using ProjectZenith.Contracts.DTOs.User;
 using ProjectZenith.Contracts.Events.User;
 using ProjectZenith.Contracts.Models;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
 {
     public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponseDTO>
@@ -23,14 +19,22 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
         private readonly IEventPublisher _eventPublisher;
         private readonly JwtOptions _jwtOptions;
         private readonly IValidator<LoginCommand> _validator;
+        private readonly ITokenService _tokenService;
 
-        public LoginCommandHandler(WriteDbContext dbContext, IPasswordService passwordService, IEventPublisher eventPublisher, IOptions<JwtOptions> jwtOptions, IValidator<LoginCommand> validator)
+        public LoginCommandHandler(
+            WriteDbContext dbContext,
+            IPasswordService passwordService,
+            IEventPublisher eventPublisher,
+            IOptions<JwtOptions> jwtOptions,
+            IValidator<LoginCommand> validator,
+            ITokenService tokenService)
         {
             _dbContext = dbContext;
             _passwordService = passwordService;
             _eventPublisher = eventPublisher;
             _jwtOptions = jwtOptions.Value;
             _validator = validator;
+            _tokenService = tokenService;
         }
 
         public async Task<LoginResponseDTO> Handle(LoginCommand command, CancellationToken cancellationToken)
@@ -72,38 +76,9 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
                 throw new InvalidOperationException("Invalid email or password.");
             }
 
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Sub,user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email,user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
-            };
-            claims.AddRange(user.Roles.Select(r => new Claim(ClaimTypes.Role, r.Role.Name)));
+            var LoginResult = await _tokenService.GenerateTokenAsync(user, command.DeviceInfo, cancellationToken);
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Key));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken(
-                issuer: _jwtOptions.Issuer,
-                audience: _jwtOptions.Audience,
-                claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(_jwtOptions.ExpiryMinutes),
-                signingCredentials: creds);
 
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-            //Generate and store the refresh token
-            var refreshToken = Guid.NewGuid().ToString();
-            var refreshTokenId = Guid.NewGuid();
-            var refreshTokenHash = _passwordService.HashPassword(refreshToken);
-            var refreshTokenEntry = new RefreshToken
-            {
-                Id = refreshTokenId,
-                UserId = user.Id,
-                RefreshTokenHash = refreshTokenHash,
-                RefreshTokenExpiresAt = DateTime.UtcNow.AddDays(7),
-                DeviceInfo = command.DeviceInfo, // Optional, from client
-                CreatedAt = DateTime.UtcNow
-            };
             var userEvent = new UserLoggedInEvent
             {
                 UserId = user.Id,
@@ -114,7 +89,6 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
             await using var transaction = await _dbContext.Database.BeginTransactionAsync();
             try
             {
-                _dbContext.RefreshTokens.Add(refreshTokenEntry);
                 _dbContext.SystemLogs.Add(new SystemLog
                 {
                     UserId = user.Id,
@@ -135,13 +109,8 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
                 throw;
             }
 
-            LoginResponseDTO loginResponseDTO = new LoginResponseDTO
-            {
-                AccessToken = tokenString,
-                RefreshTokenId = refreshTokenId,
-                RefreshToken = refreshToken,
-            };
-            return loginResponseDTO;
+
+            return LoginResult;
 
         }
     }

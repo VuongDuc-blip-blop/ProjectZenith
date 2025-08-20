@@ -2,8 +2,8 @@
 using MediatR;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
-using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Api.Write.Infrastructure.Messaging;
 using ProjectZenith.Api.Write.Services.Security;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Events.User;

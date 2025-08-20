@@ -2,18 +2,14 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
+using ProjectZenith.Api.Write.Infrastructure.Messaging;
 using ProjectZenith.Api.Write.Services.Security;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Configuration;
 using ProjectZenith.Contracts.DTOs.User;
 using ProjectZenith.Contracts.Events.User;
 using ProjectZenith.Contracts.Models;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
 {
@@ -24,14 +20,22 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
         private readonly IEventPublisher _eventPublisher;
         private readonly IValidator<RefreshTokenCommand> _validator;
         private readonly JwtOptions _jwtOptions;
+        private readonly ITokenService _tokenService;
 
-        public RefreshTokenCommandHandler(WriteDbContext dbContext, IPasswordService passwordService, IEventPublisher eventPublisher, IValidator<RefreshTokenCommand> validator, IOptions<JwtOptions> jwtOptions)
+        public RefreshTokenCommandHandler(
+            WriteDbContext dbContext,
+            IPasswordService passwordService,
+            IEventPublisher eventPublisher,
+            IValidator<RefreshTokenCommand> validator,
+            IOptions<JwtOptions> jwtOptions,
+            ITokenService tokenService)
         {
             _dbContext = dbContext;
             _passwordService = passwordService;
             _eventPublisher = eventPublisher;
             _validator = validator;
             _jwtOptions = jwtOptions.Value;
+            _tokenService = tokenService;
         }
 
         public async Task<RefreshTokenResponseDTO> Handle(RefreshTokenCommand command, CancellationToken cancellationToken)
@@ -73,38 +77,7 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
                 throw new InvalidOperationException("Email is not verified");
             }
 
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
-            claims.AddRange(user.Roles.Select(r => new Claim(ClaimTypes.Role, r.Role.Name)));
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Key));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken(
-                issuer: _jwtOptions.Issuer,
-                audience: _jwtOptions.Audience,
-                claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(_jwtOptions.ExpiryMinutes),
-                signingCredentials: creds);
-
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-            // Rotate refresh token
-            var newRefreshToken = Guid.NewGuid().ToString();
-            var newRefreshTokenId = Guid.NewGuid();
-            var newRefreshTokenHash = _passwordService.HashPassword(newRefreshToken);
-            var newRefreshTokenEntry = new RefreshToken
-            {
-                Id = newRefreshTokenId,
-                UserId = user.Id,
-                RefreshTokenHash = newRefreshTokenHash,
-                RefreshTokenExpiresAt = DateTime.UtcNow.AddDays(7),
-                DeviceInfo = refreshToken.DeviceInfo, // Retain device info
-                CreatedAt = DateTime.UtcNow
-            };
+            var genaratedRefreshToken = await _tokenService.GenerateTokenAsync(user, deviceInfo: string.Empty, cancellationToken);
 
             var userEvent = new UserSessionRefreshedEvent
             {
@@ -118,7 +91,6 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
             try
             {
                 _dbContext.RefreshTokens.Remove(refreshToken);
-                _dbContext.RefreshTokens.Add(newRefreshTokenEntry);
                 _dbContext.SystemLogs.Add(new SystemLog
                 {
                     UserId = user.Id,
@@ -147,9 +119,9 @@ namespace ProjectZenith.Api.Write.Services.Commands.UserDomain
 
             RefreshTokenResponseDTO refreshTokenResult = new RefreshTokenResponseDTO
             {
-                AccessToken = tokenString,
-                NewRefreshTokenId = newRefreshTokenId,
-                NewRefreshToken = newRefreshToken,
+                AccessToken = genaratedRefreshToken.AccessToken,
+                NewRefreshTokenId = genaratedRefreshToken.RefreshTokenId,
+                NewRefreshToken = genaratedRefreshToken.RefreshToken,
             };
 
             return refreshTokenResult;

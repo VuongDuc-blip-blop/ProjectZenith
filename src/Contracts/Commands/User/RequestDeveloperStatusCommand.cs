@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using ProjectZenith.Contracts.DTOs.User;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProjectZenith.Contracts.Commands.User
 {
-    public record RequestDeveloperStatusCommand :IRequest
+    public record RequestDeveloperStatusCommand : IRequest<LoginResponseDTO>
     {
         public Guid UserId;
 

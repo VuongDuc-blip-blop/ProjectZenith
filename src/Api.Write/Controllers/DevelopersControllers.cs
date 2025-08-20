@@ -9,10 +9,10 @@ namespace ProjectZenith.Api.Write.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class DeveloperControllers : ControllerBase
+    public class DevelopersControllers : ControllerBase
     {
         private IMediator _mediator;
-        public DeveloperControllers(IMediator mediator)
+        public DevelopersControllers(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -33,9 +33,18 @@ namespace ProjectZenith.Api.Write.Controllers
             }
 
 
-            await _mediator.Send(command, cancellationToken);
+            var response = await _mediator.Send(command, cancellationToken);
+            if (response != null)
+            {
+                // Auto-approval succeeded. Return the new tokens to the client.
+                return Ok(response);
+            }
+            else
+            {
+                // Manual approval required. The request has been accepted for processing.
+                return Accepted();
+            }
 
-            return NoContent();
         }
     }
 }

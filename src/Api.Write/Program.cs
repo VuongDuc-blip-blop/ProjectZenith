@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using ProjectZenith.Api.Write.Abstraction;
 using ProjectZenith.Api.Write.Data;
 using ProjectZenith.Api.Write.Infrastructure.Messaging;
 using ProjectZenith.Api.Write.Services.Commands.UserDomain;
 using ProjectZenith.Api.Write.Services.Email;
 using ProjectZenith.Api.Write.Services.Security;
+using ProjectZenith.Api.Write.Validation.App;
 using ProjectZenith.Api.Write.Validation.Developer;
 using ProjectZenith.Api.Write.Validation.User;
 using ProjectZenith.Contracts.Configuration;
@@ -105,6 +105,9 @@ builder.Services.AddScoped<UpdateUserAvatarService>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserProfileCommandValidator>();
 
 builder.Services.AddValidatorsFromAssemblyContaining<RequestDeveloperStatusCommandValidator>();
+
+builder.Services.AddScoped<IFileSignatureValidator, FileSignatureValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<SubmitAppCommandValidator>();
 
 var app = builder.Build();
 //using (var scope = app.Services.CreateScope())
