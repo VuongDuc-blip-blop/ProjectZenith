@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -36,5 +31,10 @@ namespace ProjectZenith.Contracts.Models
         /// The date and time when the file was created.
         /// </summary>
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// The AppVersion this file belong to
+        /// </summary>
+        public AppVersion Version { get; set; } = null!;
     }
 }

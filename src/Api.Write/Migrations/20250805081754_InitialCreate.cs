@@ -229,7 +229,6 @@ namespace ProjectZenith.Api.Write.Migrations
                     AppId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VersionNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Changelog = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: true),
-                    FiledId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FileId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },

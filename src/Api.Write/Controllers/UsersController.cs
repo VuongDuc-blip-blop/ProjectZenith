@@ -39,11 +39,11 @@ namespace ProjectZenith.Api.Write.Controllers
             }
             try
             {
-                var registerResult = _mediator.Send(command, cancellationToken);
-                return CreatedAtAction(nameof(Register), new { userId = registerResult.Result.UserId }, new
+                var registerResult = await _mediator.Send(command, cancellationToken);
+                return CreatedAtAction(nameof(Register), new { userId = registerResult.UserId }, new
                 {
-                    registerResult.Result.UserId,
-                    registerResult.Result.Email,
+                    registerResult.UserId,
+                    registerResult.Email,
                 });
             }
             catch (ValidationException ex) when (ex.Message.Contains("Email already exists") || ex.Message.Contains("Username already exists"))

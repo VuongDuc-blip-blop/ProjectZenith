@@ -1,25 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using ProjectZenith.Contracts.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjectZenith.Contracts.Events.User;
 
 namespace ProjectZenith.Contracts.Models
 {
-    /// <summary>
-    /// Represent the status of an application.
-    /// </summary>
-    public enum Status
-    {
-        Draft,
-        Pending,
-        Published,
-        Rejected,
-        Banned
-    }
+
 
     /// <summary>
     /// Represents an application in the system.
@@ -68,11 +52,12 @@ namespace ProjectZenith.Contracts.Models
         [Range(0, double.MaxValue, ErrorMessage = "Price must be a non-negative value.")]
         public decimal Price { get; set; }
 
+
         /// <summary>
         /// The application's status.
         /// </summary>
         [Required]
-        public Status Status { get; set; } = Status.Draft;
+        public AppStatus AppStatus { get; set; } = AppStatus.Active;
 
         /// <summary>
         /// The date and time when the application was created.
@@ -105,5 +90,15 @@ namespace ProjectZenith.Contracts.Models
         /// A list of reviews associated with the application.
         /// </summary>
         public ICollection<Review> Reviews { get; set; } = new List<Review>();
+
+        /// <summary>
+        /// A list of screenshots associated with the application.
+        /// </summary>
+        public ICollection<AppScreenshot> Screenshots { get; set; } = new List<AppScreenshot>();
+
+        /// <summary>
+        /// A list of tags associated with the application.
+        /// </summary>
+        public ICollection<AppTag> AppTags { get; set; } = new List<AppTag>();
     }
 }

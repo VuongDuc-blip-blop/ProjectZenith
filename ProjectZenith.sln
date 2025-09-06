@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Admin", "Web.Admin", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectZenith.Web.Admin", "src\Web.Admin\ProjectZenith.Web.Admin.csproj", "{62118847-AE91-43E8-955B-56873E4DDCD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScan.Functions", "src\FileScan.Functions\FileScan.Functions.csproj", "{0129FA94-2868-4EE6-8253-F9CDF356883A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,18 @@ Global
 		{62118847-AE91-43E8-955B-56873E4DDCD9}.Release|x64.Build.0 = Release|Any CPU
 		{62118847-AE91-43E8-955B-56873E4DDCD9}.Release|x86.ActiveCfg = Release|Any CPU
 		{62118847-AE91-43E8-955B-56873E4DDCD9}.Release|x86.Build.0 = Release|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Debug|x64.Build.0 = Debug|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Debug|x86.Build.0 = Debug|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Release|x64.ActiveCfg = Release|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Release|x64.Build.0 = Release|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Release|x86.ActiveCfg = Release|Any CPU
+		{0129FA94-2868-4EE6-8253-F9CDF356883A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

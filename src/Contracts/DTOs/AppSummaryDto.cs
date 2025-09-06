@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using ProjectZenith.Contracts.Events.User;
+﻿using ProjectZenith.Contracts.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjectZenith.Contracts.DTOs
 {

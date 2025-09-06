@@ -7,10 +7,9 @@ namespace ProjectZenith.Contracts.Configuration
     /// </summary>
     public class KafkaOptions
     {
-        /// <summary>
-        /// The Kafka brokers address.
-        /// </summary>
-        [Required]
-        public List<string> Brokers { get; set; } = new List<string>();
+        [Required(AllowEmptyStrings = false)]
+        public string BootstrapServers { get; set; } = "localhost:9093";
+
+        public const string SectionName = "Kafka";
     }
 }

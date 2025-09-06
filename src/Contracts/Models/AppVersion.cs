@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ProjectZenith.Contracts.Enums;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -32,11 +33,23 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         [StringLength(2000, ErrorMessage = "Changelog cannot be longer than 2000 characters.")]
         public string? Changelog { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The status of this version.
+        /// </summary>
+        public Status Status { get; set; } = Status.PendingValidation;
+
+        /// <summary>
+        /// The reason for the application's current status.
+        /// </summary>
+        [StringLength(500, ErrorMessage = "Status reason cannot be longer than 500 characters.")]
+        public string? StatusReason { get; set; }
+
         /// <summary>
         /// The unique identifier for the field this version belongs to.
         /// </summary>
         [Required]
-        public Guid FiledId { get; set; }
+        public Guid FileId { get; set; }
 
         /// <summary>
         /// The date and time when this version was created.

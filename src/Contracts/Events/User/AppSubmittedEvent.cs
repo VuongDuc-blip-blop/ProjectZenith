@@ -1,17 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using ProjectZenith.Contracts.Enums;
 
 namespace ProjectZenith.Contracts.Events.User;
 
 
-/// <summary>
-/// Represents the platform on which an application runs.
-/// This will likely be moved to its own file later (e.g., Enums/Platform.cs).
-/// </summary>
-public enum Platform
-{
-  Android,
-  Windows
-}
+
 
 /// <summary>
 /// Published when a developer successfully submits a new application for review.

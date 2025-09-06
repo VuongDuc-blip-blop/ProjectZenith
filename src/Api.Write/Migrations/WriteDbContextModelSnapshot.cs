@@ -77,6 +77,11 @@ namespace ProjectZenith.Api.Write.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("AppStatus")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -104,11 +109,6 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -118,7 +118,7 @@ namespace ProjectZenith.Api.Write.Migrations
 
                     b.ToTable("Apps", null, t =>
                         {
-                            t.HasCheckConstraint("CK_Apps_Status", "[Status] IN ('Draft', 'Pending', 'Published', 'Rejected', 'Banned')");
+                            t.HasCheckConstraint("CK_Apps_AppStatus", "[AppStatus] IN ('Active', 'Delisted')");
                         });
                 });
 
@@ -152,6 +152,56 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.ToTable("AppFiles", (string)null);
                 });
 
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppScreenshot", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Checksum")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UploadedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppId");
+
+                    b.ToTable("AppScreenshots");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppTag", b =>
+                {
+                    b.Property<Guid>("AppId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TagId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AppId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("AppTags");
+                });
+
             modelBuilder.Entity("ProjectZenith.Contracts.Models.AppVersion", b =>
                 {
                     b.Property<Guid>("Id")
@@ -171,8 +221,12 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<Guid>("FileId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("FiledId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StatusReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("VersionNumber")
                         .IsRequired()
@@ -181,12 +235,16 @@ namespace ProjectZenith.Api.Write.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FileId");
+                    b.HasIndex("FileId")
+                        .IsUnique();
 
                     b.HasIndex("AppId", "VersionNumber")
                         .IsUnique();
 
-                    b.ToTable("AppVersions", (string)null);
+                    b.ToTable("AppVersions", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_AppVersions_Status", "[Status] IN ('Draft', 'ValidationFailed', 'PendingApproval', 'PendingValidation', 'Published', 'Rejected','Superseded', 'Banned')");
+                        });
                 });
 
             modelBuilder.Entity("ProjectZenith.Contracts.Models.Credential", b =>
@@ -496,6 +554,25 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.ToTable("SystemLogs");
                 });
 
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Tag", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Tags");
+                });
+
             modelBuilder.Entity("ProjectZenith.Contracts.Models.Transaction", b =>
                 {
                     b.Property<Guid>("Id")
@@ -647,6 +724,36 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Navigation("Developer");
                 });
 
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppScreenshot", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("Screenshots")
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("App");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppTag", b =>
+                {
+                    b.HasOne("ProjectZenith.Contracts.Models.App", "App")
+                        .WithMany("AppTags")
+                        .HasForeignKey("AppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectZenith.Contracts.Models.Tag", "Tag")
+                        .WithMany("AppTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("App");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("ProjectZenith.Contracts.Models.AppVersion", b =>
                 {
                     b.HasOne("ProjectZenith.Contracts.Models.App", "App")
@@ -656,8 +763,8 @@ namespace ProjectZenith.Api.Write.Migrations
                         .IsRequired();
 
                     b.HasOne("ProjectZenith.Contracts.Models.AppFile", "File")
-                        .WithMany()
-                        .HasForeignKey("FileId")
+                        .WithOne("Version")
+                        .HasForeignKey("ProjectZenith.Contracts.Models.AppVersion", "FileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -802,9 +909,19 @@ namespace ProjectZenith.Api.Write.Migrations
                 {
                     b.Navigation("AbuseReports");
 
+                    b.Navigation("AppTags");
+
                     b.Navigation("Reviews");
 
+                    b.Navigation("Screenshots");
+
                     b.Navigation("Versions");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.AppFile", b =>
+                {
+                    b.Navigation("Version")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ProjectZenith.Contracts.Models.Developer", b =>
@@ -825,6 +942,11 @@ namespace ProjectZenith.Api.Write.Migrations
             modelBuilder.Entity("ProjectZenith.Contracts.Models.Role", b =>
                 {
                     b.Navigation("UsersOfRole");
+                });
+
+            modelBuilder.Entity("ProjectZenith.Contracts.Models.Tag", b =>
+                {
+                    b.Navigation("AppTags");
                 });
 
             modelBuilder.Entity("ProjectZenith.Contracts.Models.User", b =>

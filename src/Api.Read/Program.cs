@@ -65,7 +65,7 @@ public class ConfigService
     public string GetConfigSummary()
     {
         return $"Database Connection: {_dbOptions.ConnectionString}, " +
-               $"Kafka Brokers: {string.Join(", ", _kafkaOptions.Brokers)}, " +
+               $"Kafka Brokers: {string.Join(", ", _kafkaOptions.BootstrapServers)}, " +
                $"Redis Connection: {_redisOptions.ConnectionString}";
     }
 }

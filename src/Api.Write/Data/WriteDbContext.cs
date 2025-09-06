@@ -23,6 +23,11 @@ namespace ProjectZenith.Api.Write.Data
         public DbSet<SystemLog> SystemLogs { get; set; } = null!;
         public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
+        public DbSet<AppScreenshot> AppScreenshots { get; set; } = null!;
+        public DbSet<Tag> Tags { get; set; } = null!;
+        public DbSet<AppTag> AppTags { get; set; } = null!;
+
+
         public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -75,17 +80,18 @@ namespace ProjectZenith.Api.Write.Data
                 entity.Property(a => a.Price).HasColumnType("decimal(18, 2)");
 
                 // Configure the enum-to-string conversion for the Status property
-                entity.Property(a => a.Status).HasConversion<string>().HasMaxLength(50);
+                entity.Property(a => a.AppStatus).HasConversion<string>().HasMaxLength(50);
 
-                // --- NEW, CORRECT SYNTAX FOR CHECK CONSTRAINT ---
-                // Apply the constraint to the table itself
-                entity.ToTable(tb => tb.HasCheckConstraint("CK_Apps_Status", "[Status] IN ('Draft', 'Pending', 'Published', 'Rejected', 'Banned')"));
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_Apps_AppStatus", "[AppStatus] IN ('Active', 'Delisted')"));
             });
-
             modelBuilder.Entity<AppVersion>(entity =>
             {
                 entity.ToTable("AppVersions");
                 entity.HasIndex(v => new { v.AppId, v.VersionNumber }).IsUnique();
+
+                // --- NEW, CORRECT SYNTAX FOR CHECK CONSTRAINT ---
+                // Apply the constraint to the table itself
+                entity.ToTable(tb => tb.HasCheckConstraint("CK_AppVersions_Status", "[Status] IN ('Draft', 'ValidationFailed', 'PendingApproval', 'PendingValidation', 'Published', 'Rejected','Superseded', 'Banned')"));
             });
 
             modelBuilder.Entity<AppFile>(entity =>
@@ -93,6 +99,12 @@ namespace ProjectZenith.Api.Write.Data
                 entity.ToTable("AppFiles");
                 entity.HasIndex(f => f.Checksum).IsUnique();
             });
+
+            modelBuilder.Entity<AppVersion>()
+            .HasOne(v => v.File)
+            .WithOne(f => f.Version)
+            .HasForeignKey<AppVersion>(v => v.FileId);
+
 
             modelBuilder.Entity<Review>(entity =>
             {
@@ -222,7 +234,6 @@ namespace ProjectZenith.Api.Write.Data
                 .HasOne(sl => sl.User).WithMany().HasForeignKey(sl => sl.UserId).OnDelete(DeleteBehavior.SetNull);
 
             // --- Many-to-Many 
-            // --- ADD THIS BLOCK INSTEAD ---
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.ToTable("UserRoles");
@@ -242,6 +253,33 @@ namespace ProjectZenith.Api.Write.Data
                     .HasForeignKey(ur => ur.RoleId)
                     .OnDelete(DeleteBehavior.Cascade); // Or Restrict
             });
+
+
+
+            modelBuilder.Entity<App>()
+                .HasMany(a => a.Screenshots)
+                .WithOne(s => s.App)
+                .HasForeignKey(s => s.AppId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<App>()
+                .HasMany(a => a.AppTags)
+                .WithOne(at => at.App)
+                .HasForeignKey(at => at.AppId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Tag>()
+                .HasMany(t => t.AppTags)
+                .WithOne(at => at.Tag)
+                .HasForeignKey(at => at.TagId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AppTag>()
+                .HasKey(at => new { at.AppId, at.TagId });
+
+            modelBuilder.Entity<Tag>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
         }
     }
 }
