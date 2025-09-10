@@ -1,5 +1,7 @@
 ﻿using ProjectZenith.Contracts.Enums;
+using ProjectZenith.Contracts.Interfaces;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -8,7 +10,7 @@ namespace ProjectZenith.Contracts.Models
     /// <summary>
     /// Represents an application in the system.
     /// </summary>
-    public class App
+    public class App : ISoftDeletable
     {
         /// <summary>
         /// The unique identifier for the application.
@@ -72,6 +74,22 @@ namespace ProjectZenith.Contracts.Models
         public DateTime? UpdatedAt { get; set; }
 
         /// <summary>
+        /// Indicates whether the application has been soft deleted.
+        /// </summary>
+        public bool IsDeleted { get; set; } = false;
+
+        /// <summary>
+        /// The date and time when the application was soft deleted.
+        /// This is null if the application has not been deleted.
+        /// </summary>
+        public DateTime? DeletedAt { get; set; }
+
+        public int RatingCount { get; set; } = 0;
+        public long RatingSum { get; set; } = 0;
+        [Column(TypeName = "decimal(3,2)")]
+        public decimal AverageRating { get; set; } = 0;
+
+        /// <summary>
         /// The app's developer.
         /// </summary>
         public Developer Developer { get; set; } = null!;
@@ -90,6 +108,11 @@ namespace ProjectZenith.Contracts.Models
         /// A list of reviews associated with the application.
         /// </summary>
         public ICollection<Review> Reviews { get; set; } = new List<Review>();
+
+        /// <summary>
+        /// A list of purchases associated with the application.
+        /// </summary>
+        public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
 
         /// <summary>
         /// A list of screenshots associated with the application.

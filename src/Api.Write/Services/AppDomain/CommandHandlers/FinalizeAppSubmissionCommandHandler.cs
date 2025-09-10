@@ -188,7 +188,7 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
 
                 try
                 {
-                    var appEvent = new AppSubmittedEvent
+                    var @event = new AppSubmittedEvent
                     {
                         AppId = app.Id,
                         DeveloperId = command.DeveloperId,
@@ -200,7 +200,8 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
                         Version = command.VersionNumber,
                         SubmittedAt = DateTime.Now,
                     };
-                    await _eventPublisher.PublishAsync(KafkaTopics.AppEvents, appEvent, cancellationToken);
+                    var appIdKey = @event.AppId.ToString();
+                    await _eventPublisher.PublishAsync(KafkaTopics.Apps, appIdKey, @event, cancellationToken);
                 }
                 catch (Exception ex)
                 {

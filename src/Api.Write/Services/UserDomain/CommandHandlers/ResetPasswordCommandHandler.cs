@@ -3,13 +3,13 @@ using MediatR;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using ProjectZenith.Api.Write.Data;
-using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Security;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Events.User;
+using ProjectZenith.Contracts.Infrastructure;
+using ProjectZenith.Contracts.Infrastructure.Messaging;
 using ProjectZenith.Contracts.Models;
 using System.Security.Cryptography;
-using ProjectZenith.Contracts.Infrastructure.Messaging;
 
 namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
 {
@@ -84,13 +84,15 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
                 // 4. Publish the completion event.
-                var userEvent = new PasswordResetCompletedEvent
+                var @event = new PasswordResetCompletedEvent
                 {
                     UserId = user.Id,
                     Email = user.Email,
                     ResetAt = DateTime.UtcNow
                 };
-                await _eventPublisher.PublishAsync(KafkaTopics.UserEvents, userEvent, cancellationToken);
+
+                var userIdKey = @event.UserId.ToString();
+                await _eventPublisher.PublishAsync(KafkaTopics.Users, userIdKey, @event, cancellationToken);
 
                 await transaction.CommitAsync(cancellationToken);
             }

@@ -2,12 +2,12 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ProjectZenith.Api.Write.Data;
-using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Events.User;
+using ProjectZenith.Contracts.Infrastructure;
+using ProjectZenith.Contracts.Infrastructure.Messaging;
 using ProjectZenith.Contracts.Models;
 using System.Security.Claims;
-using ProjectZenith.Contracts.Infrastructure.Messaging;
 
 namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
 {
@@ -79,13 +79,16 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                 });
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
-                var userEvent = new UserAllSessionsRevokedEvent
+                var @event = new UserAllSessionsRevokedEvent
                 {
                     UserId = user.Id,
                     Email = user.Email,
                     RevokedAt = DateTime.UtcNow
                 };
-                await _eventPublisher.PublishAsync(KafkaTopics.UserEvents, userEvent, cancellationToken);
+                // Publish event
+                var userIdKey = @event.UserId.ToString();
+
+                await _eventPublisher.PublishAsync(KafkaTopics.Users, userIdKey, @event, cancellationToken);
 
                 await transaction.CommitAsync(cancellationToken);
             }

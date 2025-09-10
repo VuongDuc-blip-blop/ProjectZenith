@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -75,7 +74,7 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
                 await _appStatusService.UpdateAppStatusAsync(command.AppId, cancellationToken);
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
-                var unpublishVersionEvent = new AppVersionUnpublishedEvent
+                var @event = new AppVersionUnpublishedEvent
                 {
                     AppId = command.AppId,
                     VersionId = command.VersionId,
@@ -84,11 +83,8 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
                     UnpublishedAt = DateTime.UtcNow
                 };
 
-                await _eventPublisher.PublishAsync(
-                    KafkaTopics.AppVersionUnpublishedEvents,
-                    JsonSerializer.Serialize(unpublishVersionEvent),
-                    cancellationToken
-                );
+                var appIdKey = @event.AppId.ToString();
+                await _eventPublisher.PublishAsync(KafkaTopics.Apps, appIdKey, @event, cancellationToken);
 
                 await transaction.CommitAsync(cancellationToken);
                 return Unit.Value;

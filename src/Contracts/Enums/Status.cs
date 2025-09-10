@@ -12,6 +12,7 @@
         Published,
         Rejected,
         Superseded,
+        Archived,
         Banned
     }
 }

@@ -3,13 +3,12 @@
     public interface IEventPublisher
     {
         /// <summary>
-        /// Publishes an event to a specified topic asynchronously.
+        /// Publishes an event to a specified topic using a key for partitioning.
         /// </summary>
-        /// <typeparam name="T">The type of the event object.</typeparam>
         /// <param name="topic">The name of the topic to publish to.</param>
-        /// <param name="message">The event object to publish.</param>
-        /// <param name="cancellationToken">A token to cancel the operation.</param>
-        /// <returns>A task that represents the asynchronous publish operation.</returns>
-        Task PublishAsync<T>(string topic, T message, CancellationToken cancellationToken = default);
+        /// <param name="key">The key used for partitioning. All messages with the same key will go to the same partition, ensuring order.</param>
+        /// <param name="eventData">The event object to be serialized and published.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        Task PublishAsync<T>(string topic, string key, T eventData, CancellationToken cancellationToken = default) where T : class;
     }
 }

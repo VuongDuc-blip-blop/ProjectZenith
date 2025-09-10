@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -33,8 +34,14 @@ namespace ProjectZenith.Contracts.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         /// <summary>
+        /// The unique identifier of the AppVersion this file belongs to.
+        /// </summary>
+        public Guid VersionId { get; set; }
+
+        /// <summary>
         /// The AppVersion this file belong to
         /// </summary>
+        [ForeignKey("VersionId")]
         public AppVersion Version { get; set; } = null!;
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectZenith.Contracts.Interfaces;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -17,7 +18,7 @@ namespace ProjectZenith.Contracts.Models
         Completed,
         Failed
     }
-    public class Transaction
+    public class Transaction : ISoftDeletable
     {
         /// <summary>
         /// The unique identifier for the transaction.
@@ -58,6 +59,16 @@ namespace ProjectZenith.Contracts.Models
         /// This is set to the current UTC time when the transaction is created.
         /// </summary>
         public DateTime TransactionDate { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Indicates whether the transaction has been soft deleted.
+        /// </summary>
+        public bool IsDeleted { get; set; } = false;
+
+        /// <summary>
+        /// The date and time when the transaction was soft deleted, if applicable.
+        /// </summary>
+        public DateTime? DeletedAt { get; set; }
 
         /// <summary>
         /// Navigation property to the purchase associated with this transaction.

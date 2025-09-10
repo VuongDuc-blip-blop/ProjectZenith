@@ -40,9 +40,15 @@ var host = new HostBuilder()
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
-        // VirusTotal option
+        // Kafka option
         services.AddOptions<KafkaOptions>()
             .Bind(context.Configuration.GetSection(KafkaOptions.SectionName))
+            .ValidateDataAnnotations()
+            .ValidateOnStart();
+
+        // Azure Storage Queue option
+        services.AddOptions<AzureStorageQueueOptions>()
+            .Bind(context.Configuration.GetSection(AzureStorageQueueOptions.SectionName))
             .ValidateDataAnnotations()
             .ValidateOnStart();
 

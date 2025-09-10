@@ -6,18 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectZenith.Contracts.Enums;
 
 namespace ProjectZenith.Contracts.Models
 {
-    /// <summary>
-    /// Represents the status of an abuse report.
-    /// </summary>
-    public enum AbuseReportStatus
-    {
-        New,
-        UnderReview,
-        Resolved,
-    }
+
 
     /// <summary>
     /// Represents an abuse report in the system.

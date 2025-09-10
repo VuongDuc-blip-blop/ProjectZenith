@@ -83,7 +83,7 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
             // Get the user's email for the log/event.
             var userEmail = userPrincipal.FindFirstValue(ClaimTypes.Email) ?? "N/A";
 
-            var userEvent = new UserLoggedOutEvent
+            var @event = new UserLoggedOutEvent
             {
                 UserId = authenticatedUserId,
                 Email = userEmail,
@@ -119,7 +119,10 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                     _dbContext.SystemLogs.Add(log);
 
                     await _dbContext.SaveChangesAsync(cancellationToken);
-                    await _eventPublisher.PublishAsync(KafkaTopics.UserEvents, userEvent, cancellationToken);
+
+                    var userIdKey = @event.UserId.ToString();
+                    await _eventPublisher.PublishAsync(KafkaTopics.Users, userIdKey, @event, cancellationToken);
+
                     await transaction.CommitAsync(cancellationToken);
                 }
                 catch (Exception)

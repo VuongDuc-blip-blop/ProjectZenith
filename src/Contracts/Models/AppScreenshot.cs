@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ProjectZenith.Contracts.Enums;
+using ProjectZenith.Contracts.Interfaces;
 
 namespace ProjectZenith.Contracts.Models
 {
     /// <summary>
     /// Represents a screenshot associated with an application.
     /// </summary>
-    public class AppScreenshot
+    public class AppScreenshot : ISoftDeletable
     {
         /// <summary>
         /// The unique identifier for the screenshot.
@@ -51,6 +52,17 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         [Required]
         public DateTime UploadedAt { get; set; }
+
+        /// <summary>
+        /// Indicates whether the screenshot has been soft deleted.
+        /// </summary>
+        public bool IsDeleted { get; set; } = false;
+
+        /// <summary>
+        /// Timestamp when the screenshot was soft deleted.
+        /// </summary>
+        public DateTime? DeletedAt { get; set; }
+
         // Navigation property
         public App App { get; set; }
     }

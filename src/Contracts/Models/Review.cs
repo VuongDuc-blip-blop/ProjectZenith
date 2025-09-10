@@ -5,13 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectZenith.Contracts.Interfaces;
 
 namespace ProjectZenith.Contracts.Models
 {
     /// <summary>
     /// Represents a review for an application made by a user.
     /// </summary>
-    public class Review
+    public class Review : ISoftDeletable
     {
         /// <summary>
         /// The unique identifier for the review.
@@ -46,6 +47,27 @@ namespace ProjectZenith.Contracts.Models
         /// </summary>
         [Column(TypeName = "bit")]
         public bool IsEdited { get; set; } = false;
+
+        /// <summary>
+        /// The optional reply from the developer to the review.
+        /// </summary>
+        [StringLength(1000, ErrorMessage = "Developer reply cannot be longer than 1000 characters.")]
+        public string? DeveloperReply { get; set; }
+
+        /// <summary>
+        /// The date and time when the developer replied to the review.
+        /// </summary>
+        public DateTime? DeveloperRepliedAt { get; set; }
+
+        /// <summary>
+        /// Indicates whether the review has been soft deleted.
+        /// </summary>
+        public bool IsDeleted { get; set; } = false;
+
+        /// <summary>
+        /// Timestamp when the review was soft deleted.
+        /// </summary>
+        public DateTime? DeletedAt { get; set; }
 
         /// <summary>
         /// The date and time when the review was posted.

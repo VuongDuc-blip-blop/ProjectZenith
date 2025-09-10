@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectZenith.Contracts.Interfaces;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -21,7 +22,7 @@ namespace ProjectZenith.Contracts.Models
     /// <summary>
     /// Represents a purchase made by a user for an application.
     /// </summary>
-    public class Purchase
+    public class Purchase : ISoftDeletable
     {
         /// <summary>
         /// The unique identifier for the purchase.
@@ -58,6 +59,16 @@ namespace ProjectZenith.Contracts.Models
         /// This is set to the current UTC time when the purchase is created.
         /// </summary>
         public DateTime PurchaseDate { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Indicates whether the purchase has been soft deleted.
+        /// </summary>
+        public bool IsDeleted { get; set; } = false;
+
+        /// <summary>
+        /// Timestamp when the purchase was soft deleted.
+        /// </summary>
+        public DateTime? DeletedAt { get; set; }
 
         /// <summary>
         /// Navigation property to the user who made the purchase.

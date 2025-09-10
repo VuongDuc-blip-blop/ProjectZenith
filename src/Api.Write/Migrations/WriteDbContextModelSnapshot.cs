@@ -82,12 +82,18 @@ namespace ProjectZenith.Api.Write.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<decimal>("AverageRating")
+                        .HasColumnType("decimal(3,2)");
+
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -97,6 +103,9 @@ namespace ProjectZenith.Api.Write.Migrations
 
                     b.Property<Guid>("DeveloperId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -108,6 +117,12 @@ namespace ProjectZenith.Api.Write.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
+
+                    b.Property<int>("RatingCount")
+                        .HasColumnType("int");
+
+                    b.Property<long>("RatingSum")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -144,6 +159,9 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<long>("Size")
                         .HasColumnType("bigint");
 
+                    b.Property<Guid>("VersionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Checksum")
@@ -165,6 +183,12 @@ namespace ProjectZenith.Api.Write.Migrations
                         .IsRequired()
                         .HasMaxLength(64)
                         .HasColumnType("nvarchar(64)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Path")
                         .IsRequired()
@@ -195,6 +219,12 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<Guid>("TagId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.HasKey("AppId", "TagId");
 
                     b.HasIndex("TagId");
@@ -218,8 +248,14 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("FileId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -280,6 +316,17 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int>("PayoutStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StripeAccountId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("UserId");
 
@@ -383,6 +430,12 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<Guid>("AppId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
@@ -454,6 +507,19 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Property<string>("Comment")
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeveloperRepliedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeveloperReply")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsEdited")
                         .HasColumnType("bit");
@@ -581,6 +647,12 @@ namespace ProjectZenith.Api.Write.Migrations
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("PaymentId")
                         .IsRequired()
@@ -820,7 +892,7 @@ namespace ProjectZenith.Api.Write.Migrations
             modelBuilder.Entity("ProjectZenith.Contracts.Models.Purchase", b =>
                 {
                     b.HasOne("ProjectZenith.Contracts.Models.App", "App")
-                        .WithMany()
+                        .WithMany("Purchases")
                         .HasForeignKey("AppId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -910,6 +982,8 @@ namespace ProjectZenith.Api.Write.Migrations
                     b.Navigation("AbuseReports");
 
                     b.Navigation("AppTags");
+
+                    b.Navigation("Purchases");
 
                     b.Navigation("Reviews");
 

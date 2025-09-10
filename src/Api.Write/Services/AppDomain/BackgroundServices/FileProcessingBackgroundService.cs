@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ProjectZenith.Api.Write.Data;
 using ProjectZenith.Contracts.Commands.App;
+using ProjectZenith.Contracts.Commands.Purchase;
 using ProjectZenith.Contracts.Configuration;
 using ProjectZenith.Contracts.Events.App;
+using ProjectZenith.Contracts.Events.Purchase;
 using ProjectZenith.Contracts.Infrastructure.Messaging;
 using System.Text.Json;
 namespace ProjectZenith.Api.Write.Services.AppDomain.BackgroundServices
@@ -38,7 +40,7 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.BackgroundServices
                 };
 
                 using var consumer = new ConsumerBuilder<Ignore, string>(config).Build();
-                consumer.Subscribe(new[] { KafkaTopics.AppFileResultEvents, KafkaTopics.ScreenshotResultEvents });
+                consumer.Subscribe(new[] { KafkaTopics.AppFileProcessingResults, KafkaTopics.ScreenshotProcessingResults });
 
                 try
                 {
@@ -86,7 +88,7 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.BackgroundServices
 
             var message = consumeResult.Message.Value;
 
-            if (topic == KafkaTopics.AppFileResultEvents)
+            if (topic == KafkaTopics.AppFileProcessingResults)
             {
                 if (JsonSerializer.Deserialize<AppFileValidatedEvent>(message) is { } validatedEvent)
                 {
@@ -116,7 +118,7 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.BackgroundServices
                     await mediator.Send(command, cancellationToken);
                 }
             }
-            else if (topic == KafkaTopics.ScreenshotResultEvents)
+            else if (topic == KafkaTopics.ScreenshotProcessingResults)
             {
                 if (JsonSerializer.Deserialize<ScreenshotProcessedEvent>(message) is { } processedEvent)
                 {
@@ -126,6 +128,21 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.BackgroundServices
                         processedEvent.BlobName,
                         processedEvent.Checksum
                     );
+                    await mediator.Send(command, cancellationToken);
+                }
+            }
+            else if (topic == KafkaTopics.Purchases)
+            {
+                if (JsonSerializer.Deserialize<PurchaseCompletedEvent>(message) is { } purchasedEvent)
+                {
+                    var command = new SchedulePayoutCommand(
+                        purchasedEvent.DeveloperId,
+                        purchasedEvent.PurchaseId,
+                        purchasedEvent.Price * 0.7m, // Assuming a 70% payout rate, 30% platform fee
+                        "Stripe",
+                        purchasedEvent.PaymentId
+                    );
+
                     await mediator.Send(command, cancellationToken);
                 }
             }

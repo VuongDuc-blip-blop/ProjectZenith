@@ -10,7 +10,6 @@ using ProjectZenith.Contracts.Enums;
 using ProjectZenith.Contracts.Events.App;
 using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Contracts.Infrastructure.Messaging;
-using System.Text.Json;
 
 namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
 {
@@ -98,7 +97,7 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
 
                 try
                 {
-                    var appApprovedEvent = new AppVersionApprovedEvent
+                    var @event = new AppVersionApprovedEvent
                     {
                         AppId = app.Id,
                         VersionId = version.Id,
@@ -107,8 +106,9 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
                         VersionNumber = version.VersionNumber,
                         ApprovedAt = DateTime.UtcNow
                     };
-                    var messageContent = JsonSerializer.Serialize(appApprovedEvent);
-                    await _eventPublisher.PublishAsync(KafkaTopics.AppApprovedEvents, messageContent, cancellationToken);
+
+                    var appIdKey = @event.AppId.ToString();
+                    await _eventPublisher.PublishAsync(KafkaTopics.Apps, appIdKey, @event, cancellationToken);
                 }
                 catch (Exception ex)
                 {

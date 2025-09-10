@@ -164,7 +164,7 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
                     await _queueService.SendMessageAsync(_blobStorageOptions.ScreenshotQueue, screenshotBlobName, cancellationToken);
                 }
 
-                var appNewVersionEvent = new AppVersionSubmittedEvent
+                var @event = new AppVersionSubmittedEvent
                 {
                     AppId = command.AppId,
                     VersionId = newVersion.Id,
@@ -172,7 +172,8 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.CommandHandlers
                     VersionNumber = command.VersionNumber,
                     SubmittedAt = DateTime.UtcNow
                 };
-                await _eventPublisher.PublishAsync(KafkaTopics.AppNewVersionSubmittedEvents, appNewVersionEvent, cancellationToken);
+                var appIdKey = @event.AppId.ToString();
+                await _eventPublisher.PublishAsync(KafkaTopics.Apps, appIdKey, @event, cancellationToken);
 
                 return newVersion.Id;
             }

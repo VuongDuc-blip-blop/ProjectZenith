@@ -80,7 +80,7 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
             var LoginResult = await _tokenService.GenerateTokenAsync(user, command.DeviceInfo, cancellationToken);
 
 
-            var userEvent = new UserLoggedInEvent
+            var @event = new UserLoggedInEvent
             {
                 UserId = user.Id,
                 Email = user.Email,
@@ -100,7 +100,8 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
 
-                await _eventPublisher.PublishAsync(KafkaTopics.UserEvents, userEvent, cancellationToken);
+                var userIdKey = @event.UserId.ToString();
+                await _eventPublisher.PublishAsync(KafkaTopics.Users, userIdKey, @event, cancellationToken);
 
                 await transaction.CommitAsync(cancellationToken);
             }

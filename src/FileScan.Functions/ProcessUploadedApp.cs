@@ -3,16 +3,12 @@
 
 using FileScan.Functions.Services.VirusTotal;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ProjectZenith.Api.Write.Data;
 using ProjectZenith.Contracts.Configuration;
-using ProjectZenith.Contracts.Enums;
 using ProjectZenith.Contracts.Events.App;
 using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Contracts.Infrastructure.Messaging;
-using ProjectZenith.Contracts.Models;
 using ProjectZenith.Contracts.Validation;
 using System.Security.Cryptography;
 using static FileScan.Functions.Services.VirusTotal.IVirusScanService;
@@ -139,7 +135,7 @@ namespace FileScan.Functions
                     finalBlobName,
                     cancellationToken);
 
-                var validatedEvent = new AppFileValidatedEvent
+                var @event = new AppFileValidatedEvent
                 {
                     BlobName = blobName,
                     FinalPath = finalBlobName,
@@ -147,7 +143,8 @@ namespace FileScan.Functions
                     AppFileId = appFileId,
                     Checksum = computedChecksum
                 };
-                await _eventPublisher.PublishAsync(KafkaTopics.AppFileResultEvents, validatedEvent, cancellationToken);
+                var appIdKey = @event.AppId.ToString();
+                await _eventPublisher.PublishAsync(KafkaTopics.Apps, appIdKey, @event, cancellationToken);
 
                 _logger.LogInformation("App file '{BlobName}' validated and moved to '{FinalPath}'.", blobName, finalBlobName);
 
@@ -164,7 +161,7 @@ namespace FileScan.Functions
         // --- CHANGE ---: Helper method to reduce code duplication for failure cases.
         private async Task PublishValidationFailedEventAsync(string blobName, Guid appId, Guid appFileId, string reason, string rejectedBlobPath, CancellationToken cancellationToken)
         {
-            var failedEvent = new AppFileValidationFailedEvent
+            var @event = new AppFileValidationFailedEvent
             {
                 BlobName = blobName,
                 AppId = appId,
@@ -172,7 +169,8 @@ namespace FileScan.Functions
                 Reason = reason,
                 RejectedPath = rejectedBlobPath
             };
-            await _eventPublisher.PublishAsync(KafkaTopics.AppFileResultEvents, failedEvent, cancellationToken);
+            var appIdKey = @event.AppId.ToString();
+            await _eventPublisher.PublishAsync(KafkaTopics.Apps, appIdKey, @event, cancellationToken);
 
             await _blobStorageService.MoveAsync(_blobStorageOptions.QuarantineContainerName, blobName, _blobStorageOptions.RejectedContainerName, rejectedBlobPath, cancellationToken);
             _logger.LogWarning("Validation failed for app file '{BlobName}'. Reason: {Reason}", blobName, reason);

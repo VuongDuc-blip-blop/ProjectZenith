@@ -82,13 +82,14 @@ namespace ProjectZenith.Api.Write.Services.DeveloperDomain.CommandHandlers
             await _dbContext.SaveChangesAsync(cancellationToken);
 
             // 6. Publish the correct event(s).
-            var requestedEvent = new DeveloperStatusRequestedEvent
+            var developerRequestedEvent = new DeveloperStatusRequestedEvent
             {
                 UserId = command.UserId,
                 Description = command.Description,
                 ContactEmail = command.ContactEmail
             };
-            await _eventPublisher.PublishAsync("developer-events", requestedEvent, cancellationToken);
+            var userIdKey = developerRequestedEvent.UserId.ToString();
+            await _eventPublisher.PublishAsync(KafkaTopics.Apps, userIdKey, developerRequestedEvent, cancellationToken);
 
 
 
@@ -97,12 +98,13 @@ namespace ProjectZenith.Api.Write.Services.DeveloperDomain.CommandHandlers
             {
                 if (developerRole != null)
                 {
-                    var approvedEvent = new DeveloperStatusApprovedEvent
+                    var developerApprovedEvent = new DeveloperStatusApprovedEvent
                     {
                         UserId = command.UserId,
                         ApprovedAt = DateTime.UtcNow,
                     };
-                    await _eventPublisher.PublishAsync(KafkaTopics.DeveloperEvents, approvedEvent, cancellationToken);
+                    var devIdKey = developerApprovedEvent.UserId.ToString();
+                    await _eventPublisher.PublishAsync(KafkaTopics.Developers, devIdKey, developerApprovedEvent, cancellationToken);
                 }
 
                 // Fetch the user again WITH THEIR ROLES to build the new token claims

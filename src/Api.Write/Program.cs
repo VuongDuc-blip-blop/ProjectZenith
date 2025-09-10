@@ -1,16 +1,20 @@
 using Azure.Storage.Queues;
 using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ProjectZenith.Api.Write.Behaviors;
 using ProjectZenith.Api.Write.Data;
 using ProjectZenith.Api.Write.Services.AppDomain.BackgroundServices;
 using ProjectZenith.Api.Write.Services.AppDomain.DomainServices;
 using ProjectZenith.Api.Write.Services.AppDomain.Validators;
 using ProjectZenith.Api.Write.Services.DeveloperDomain.Validators;
+using ProjectZenith.Api.Write.Services.PurchaseDomain.BackgroundServices;
+using ProjectZenith.Api.Write.Services.PurchaseDomain.Validators;
 using ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers;
 using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Email;
 using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Security;
@@ -19,7 +23,10 @@ using ProjectZenith.Contracts.Configuration;
 using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Contracts.Infrastructure.MessageQueue;
 using ProjectZenith.Contracts.Validation;
+using Stripe;
+using System.Security.Claims;
 using System.Text;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,15 +70,42 @@ builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "DataProtectionKeys")))
     .SetDefaultKeyLifetime(TimeSpan.FromDays(90));
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+
+    cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+});
 
 builder.Services.AddHttpContextAccessor();
+
+
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddPolicy("ReviewActionsPolicy", httpContext =>
+    {
+        // Get UserId from claims to apply rate limiting per user
+        var userId = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        return RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: userId ?? httpContext.Request.Host.ToString(), // Use UserId or fallback to host
+            factory: _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 1, // Just 1 request
+                Window = TimeSpan.FromSeconds(10) // In a 10-second window
+            });
+    });
+    // Return 429 Too Many Requests when rate limit is exceeded
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
 
 builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka"));
 builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 builder.Services.Configure<DeveloperOptions>(builder.Configuration.GetSection("Developer"));
 builder.Services.Configure<BlobStorageOptions>(builder.Configuration.GetSection("BlobStorage"));
+builder.Services.Configure<AzureStorageQueueOptions>(builder.Configuration.GetSection("Queue"));
+
 
 
 // Configure JWT Authentication
@@ -120,7 +154,7 @@ builder.Services.AddSingleton<IEventPublisher, KafkaEventPublisher>();
 
 builder.Services.AddScoped<IPasswordService, PasswordService>();
 
-builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ITokenService, ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Security.TokenService>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 
@@ -133,13 +167,17 @@ builder.Services.AddScoped<IBlobStorageService>(sp =>
     return new BlobStorageService(accountName, logger);
 });
 
-// Register QueueServiceClient as singleton
-builder.Services.AddSingleton(new QueueServiceClient(
-    builder.Configuration.GetConnectionString("BlobStorage")));
+builder.Services.AddSingleton<QueueServiceClient>(sp =>
+{
+    var options = sp.GetRequiredService<IOptions<BlobStorageOptions>>().Value;
+    var uri = new Uri($"https://{options.AccountName}.queue.core.windows.net");
+    return new QueueServiceClient(uri, new Azure.Identity.EnvironmentCredential());
+});
+
 
 // Register Queue service
 builder.Services.AddSingleton<IQueueService, AzureQueueService>();
-builder.Services.AddSingleton<IAppStatusService, AppStatusService>();
+builder.Services.AddScoped<IAppStatusService, AppStatusService>();
 
 
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
@@ -182,12 +220,39 @@ builder.Services.AddSingleton<MarkScreenshotProcessedCommandValidator>();
 builder.Services.AddSingleton<MarkVersionAsPendingApprovalCommandValidator>();
 builder.Services.AddSingleton<RejectVersionCommandValidator>();
 builder.Services.AddSingleton<UnpublishVersionCommandValidator>();
+builder.Services.AddSingleton<SetAppPriceCommandValidator>();
+builder.Services.AddSingleton<CreatePurchaseCommandValidator>();
+builder.Services.AddSingleton<SchedulePayoutCommandValidator>();
+builder.Services.AddSingleton<ProcessSinglePayoutCommandValidator>();
+builder.Services.AddSingleton<CreateStripeConnectOnboardingLinkCommandValidator>();
+builder.Services.AddSingleton<ProcessStripeAccountUpdateCommandValidator>();
+builder.Services.AddSingleton<ReconcilePayoutStatusCommandValidator>();
+builder.Services.AddSingleton<DeleteAppCommandValidator>();
+builder.Services.AddSingleton<SubmitReviewCommandValidator>();
+builder.Services.AddSingleton<SubmitReviewReplyCommandValidator>();
+builder.Services.AddSingleton<UpdateReviewCommandValidator>();
+builder.Services.AddSingleton<DeleteReviewCommandValidator>();
+builder.Services.AddSingleton<RecalculateAppRatingCommandValidator>();
 
 
 builder.Services.AddHostedService<FileProcessingBackgroundService>();
+builder.Services.AddHostedService<PayoutProcessingBackgroundService>();
+builder.Services.AddHostedService<ReviewProcessingBackgroundService>();
+
+builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection(StripeOptions.SectionName));
+builder.Services.AddSingleton<PaymentIntentService>();
+builder.Services.AddSingleton<TransferService>();
+builder.Services.AddSingleton<AccountService>();
+builder.Services.AddSingleton<AccountLinkService>();
+
+
 
 
 var app = builder.Build();
+
+var stripeOptions = app.Services.GetRequiredService<IOptions<StripeOptions>>().Value;
+StripeConfiguration.ApiKey = stripeOptions.SecretKey;
+
 //using (var scope = app.Services.CreateScope())
 //{
 //    var dbContext = scope.ServiceProvider.GetRequiredService<WriteDbContext>();

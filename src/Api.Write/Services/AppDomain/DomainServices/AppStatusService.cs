@@ -24,7 +24,9 @@ namespace ProjectZenith.Api.Write.Services.AppDomain.DomainServices
 
             var hasPublishedVersion = app.Versions.Any(v => v.Status == Status.Published);
 
-            var newStatus = hasPublishedVersion ? AppStatus.Active : AppStatus.Delisted;
+            var hasValidPrice = app.Price > 0;
+
+            var newStatus = (hasPublishedVersion && hasValidPrice) ? AppStatus.Active : AppStatus.Delisted;
 
             if (app.AppStatus != newStatus)
             {

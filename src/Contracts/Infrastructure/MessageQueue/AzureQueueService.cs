@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
 
 namespace ProjectZenith.Contracts.Infrastructure.MessageQueue
 {
@@ -34,6 +35,42 @@ namespace ProjectZenith.Contracts.Infrastructure.MessageQueue
             // Send message (explicit Base64 encoding for safety)
             var messageBytes = Encoding.UTF8.GetBytes(messageContent);
             await queueClient.SendMessageAsync(Convert.ToBase64String(messageBytes), cancellationToken);
+        }
+
+        public async Task<QueueMessageWrapper?> ReceiveMessageAsync(string queueName, CancellationToken cancellationToken)
+        {
+            var queueClient = _queueServiceClient.GetQueueClient(queueName);
+
+            if (!await queueClient.ExistsAsync(cancellationToken))
+            {
+                return null; // Queue does not exist
+            }
+
+            QueueMessage receivedMessage = await queueClient.ReceiveMessageAsync(cancellationToken: cancellationToken);
+
+            if (receivedMessage == null)
+            {
+                return null; // No messages available
+            }
+
+            return new QueueMessageWrapper(receivedMessage);
+        }
+
+        public async Task DeleteMessageAsync(string queueName, QueueMessageWrapper message, CancellationToken cancellationToken)
+        {
+            if (message == null || message.OriginalMessage is not QueueMessage originalMessage)
+            {
+                throw new ArgumentException("Invalid message wrapper provided for deletion.", nameof(message));
+            }
+
+            var queueClient = _queueServiceClient.GetQueueClient(queueName);
+
+            if (!await queueClient.ExistsAsync(cancellationToken))
+            {
+                throw new InvalidOperationException($"Queue '{queueName}' does not exist.");
+            }
+
+            await queueClient.DeleteMessageAsync(originalMessage.MessageId, originalMessage.PopReceipt, cancellationToken);
         }
     }
 }

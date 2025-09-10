@@ -1,15 +1,15 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ProjectZenith.Api.Write.Data;
-using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Events.User;
+using ProjectZenith.Contracts.Infrastructure;
+using ProjectZenith.Contracts.Infrastructure.Messaging;
 using ProjectZenith.Contracts.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Formats.Png;
-using ProjectZenith.Contracts.Infrastructure.Messaging;
 
 namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
 {
@@ -118,18 +118,21 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                     throw new InvalidOperationException("Avatar update failed due to concurrent modification.");
                 }
 
-                var userEvent = new UserAvatarUpdatedEvent
+                var @event = new UserAvatarUpdatedEvent
                 {
                     UserId = user.Id,
                     Email = user.Email,
                     AvatarUrl = avatarUrl,
                     UpdatedAt = DateTime.UtcNow
                 };
-                await _eventPublisher.PublishAsync(KafkaTopics.UserEvents, userEvent, cancellationToken);
+                // Publish event
+                var userIdKey = @event.UserId.ToString();
+
+                await _eventPublisher.PublishAsync(KafkaTopics.Users, userIdKey, @event, cancellationToken);
 
                 await transaction.CommitAsync(cancellationToken);
 
-                return userEvent;
+                return @event;
             }
             catch
             {

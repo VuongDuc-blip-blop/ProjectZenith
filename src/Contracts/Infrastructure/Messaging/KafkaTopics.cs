@@ -2,14 +2,17 @@
 {
     public static class KafkaTopics
     {
-        public const string UserEvents = "user-events";
-        public const string DeveloperEvents = "developer-events";
-        public const string AppEvents = "app-events";
-        public const string AppFileResultEvents = "appfile-result-events";
-        public const string ScreenshotResultEvents = "screenshot-result-events";
-        public const string AppApprovedEvents = "app-approved-events";
-        public const string AppNewVersionSubmittedEvents = "app-newversion-submitted-events";
-        public const string AppVersionUnpublishedEvents = "app-version-unpublished-events";
+        public const string Users = "users";
+        public const string Developers = "developers";
+        public const string Apps = "apps";
+        public const string Purchases = "purchases";
+        public const string Payouts = "payouts";
+        public const string Reviews = "reviews";
+
+        // Topics for processing file results
+        // Keep them separate because they may have different processing logic or consumers
+        public const string AppFileProcessingResults = "app-file-processing-results";
+        public const string ScreenshotProcessingResults = "screenshot-processing-results";
 
     }
 }

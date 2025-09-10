@@ -2,7 +2,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using ProjectZenith.Contracts.Commands.App;
+using ProjectZenith.Contracts.Exceptions.App;
 using System.Security.Claims;
 
 namespace ProjectZenith.Api.Write.Controllers
@@ -79,7 +81,66 @@ namespace ProjectZenith.Api.Write.Controllers
             return Accepted(new { VersionId = versionId });
         }
 
+        [HttpPut("{appId}/price")]
+        public async Task<IActionResult> SetAppPrice(
+        Guid appId,
+        [FromBody] SetAppPriceRequest request,
+        CancellationToken cancellationToken)
+        {
+            var developerIdClaim = User.FindFirst("sub")?.Value
+                ?? throw new UnauthorizedAccessException("Developer ID not found in token.");
+
+            if (!Guid.TryParse(developerIdClaim, out var developerId))
+                throw new InvalidOperationException("Invalid Developer ID format in token.");
+
+            var command = new SetAppPriceCommand(developerId, appId, request.Price);
+            await _mediator.Send(command, cancellationToken);
+            return NoContent();
+        }
+
+        [HttpDelete("{appId}")]
+        public async Task<IActionResult> DeleteApp(Guid appId, CancellationToken cancellationToken)
+        {
+            var developerIdClaim = User.FindFirst("sub")?.Value
+                ?? throw new UnauthorizedAccessException("Developer ID not found in token.");
+
+            if (!Guid.TryParse(developerIdClaim, out var developerId))
+                throw new InvalidOperationException("Invalid Developer ID format in token.");
+
+            var command = new DeleteAppCommand(developerId, appId);
+            await _mediator.Send(command, cancellationToken);
+            return NoContent();
+        }
+
+        [HttpPost("{appId}/reviews")]
+        [EnableRateLimiting("ReviewActionsPolicy")] // Apply rate limiting to this endpoint
+        public async Task<IActionResult> SubmitReview(
+       Guid appId,
+       [FromBody] SubmitReviewRequest request,
+       CancellationToken cancellationToken)
+        {
+            var userIdClaim = User.FindFirst("sub")?.Value
+                ?? throw new UnauthorizedAccessException("User ID not found in token.");
+
+            if (!Guid.TryParse(userIdClaim, out var userId))
+                throw new InvalidOperationException("Invalid User ID format in token.");
+
+            var command = new SubmitReviewCommand(userId, appId, request.Rating, request.Comment);
+            try
+            {
+                await _mediator.Send(command, cancellationToken);
+                return NoContent();
+            }
+            catch (DuplicateReviewException ex)
+            {
+                return Conflict(new { Message = ex.Message });
+            }
+        }
+
+
     }
+
+    public record SubmitReviewRequest(int Rating, string? Comment);
     public record SubmitNewVersionRequest(
     Guid SubmissionId,
     string VersionNumber,
@@ -89,4 +150,6 @@ namespace ProjectZenith.Api.Write.Controllers
     long MainAppFileSize,
     IReadOnlyList<ScreenshotInfo> Screenshots,
     IReadOnlyList<string> Tags);
+
+    public record SetAppPriceRequest(decimal Price);
 }

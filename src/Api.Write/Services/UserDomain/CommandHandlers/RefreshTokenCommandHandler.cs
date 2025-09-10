@@ -3,14 +3,14 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ProjectZenith.Api.Write.Data;
-using ProjectZenith.Contracts.Infrastructure;
+using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Security;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.Configuration;
 using ProjectZenith.Contracts.DTOs.User;
 using ProjectZenith.Contracts.Events.User;
-using ProjectZenith.Contracts.Models;
+using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Contracts.Infrastructure.Messaging;
-using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Security;
+using ProjectZenith.Contracts.Models;
 
 namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
 {
@@ -80,7 +80,7 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
 
             var genaratedRefreshToken = await _tokenService.GenerateTokenAsync(user, deviceInfo: string.Empty, cancellationToken);
 
-            var userEvent = new UserSessionRefreshedEvent
+            var @event = new UserSessionRefreshedEvent
             {
                 UserId = user.Id,
                 Email = user.Email,
@@ -103,7 +103,9 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
                 // Publish event
-                await _eventPublisher.PublishAsync(KafkaTopics.UserEvents, userEvent, cancellationToken);
+                var userIdKey = @event.UserId.ToString();
+
+                await _eventPublisher.PublishAsync(KafkaTopics.Users, userIdKey, @event, cancellationToken);
 
                 await transaction.CommitAsync(cancellationToken);
             }

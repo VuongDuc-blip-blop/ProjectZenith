@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProjectZenith.Contracts.Interfaces;
 using ProjectZenith.Contracts.Models;
+using System.Linq.Expressions;
 
 namespace ProjectZenith.Api.Write.Data
 {
@@ -100,10 +102,19 @@ namespace ProjectZenith.Api.Write.Data
                 entity.HasIndex(f => f.Checksum).IsUnique();
             });
 
-            modelBuilder.Entity<AppVersion>()
-            .HasOne(v => v.File)
-            .WithOne(f => f.Version)
-            .HasForeignKey<AppVersion>(v => v.FileId);
+            modelBuilder.Entity<AppVersion>(entity =>
+            {
+                entity.HasOne(v => v.File)
+                      .WithOne(f => f.Version)
+                      .HasForeignKey<AppVersion>(v => v.FileId)
+                      .OnDelete(DeleteBehavior.Cascade); // Cascade delete AppVersion when AppFile is deleted
+
+                entity.HasOne(v => v.App)
+                      .WithMany(a => a.Versions)
+                      .HasForeignKey(v => v.AppId)
+                      .OnDelete(DeleteBehavior.Cascade); // Cascade delete versions when an App is deleted
+            });
+
 
 
             modelBuilder.Entity<Review>(entity =>
@@ -115,7 +126,7 @@ namespace ProjectZenith.Api.Write.Data
                 entity.HasOne(r => r.App)
                       .WithMany(a => a.Reviews)
                       .HasForeignKey(r => r.AppId)
-                      .OnDelete(DeleteBehavior.Cascade); // Cascade delete reviews when an App is deleted
+                      .OnDelete(DeleteBehavior.Restrict); // Cascade delete reviews when an App is deleted
 
                 entity.HasOne(r => r.User)
                       .WithMany(u => u.Reviews)
@@ -140,7 +151,7 @@ namespace ProjectZenith.Api.Write.Data
 
                 // Also, if an App is deleted, we should preserve the purchase history.
                 entity.HasOne(p => p.App)
-                      .WithMany() // App might not have a direct navigation back to Purchases
+                      .WithMany(u => u.Purchases) // App might not have a direct navigation back to Purchases
                       .HasForeignKey(p => p.AppId)
                       .OnDelete(DeleteBehavior.Restrict); // CHANGE FROM CASCADE TO RESTRICT
             });
@@ -280,6 +291,27 @@ namespace ProjectZenith.Api.Write.Data
             modelBuilder.Entity<Tag>()
                 .HasIndex(t => t.Name)
                 .IsUnique();
+
+            // Apply Global Query Filters for ISoftDeletable entities
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                if (typeof(ISoftDeletable).IsAssignableFrom(entityType.ClrType))
+                {
+                    modelBuilder.Entity(entityType.ClrType)
+                        .HasQueryFilter(ConvertToDeleteFilter(entityType.ClrType));
+                }
+            }
+
         }
+
+        private static LambdaExpression ConvertToDeleteFilter(Type type)
+        {
+            var parameter = Expression.Parameter(type, "e");
+            var property = Expression.Property(parameter, nameof(ISoftDeletable.IsDeleted));
+            var constant = Expression.Constant(false);
+            var equality = Expression.Equal(property, constant);
+            return Expression.Lambda(equality, parameter);
+        }
+
     }
 }

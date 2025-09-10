@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ProjectZenith.Contracts.Enums;
+using ProjectZenith.Contracts.Interfaces;
 
 namespace ProjectZenith.Contracts.Models
 {
@@ -7,7 +8,7 @@ namespace ProjectZenith.Contracts.Models
     /// <summary>
     /// Represents a version of an application.
     /// </summary>
-    public class AppVersion
+    public class AppVersion : ISoftDeletable
     {
         /// <summary>
         /// The unique identifier for the version.
@@ -58,12 +59,23 @@ namespace ProjectZenith.Contracts.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         /// <summary>
+        /// Indicates whether the version has been soft deleted.
+        /// </summary>
+        public bool IsDeleted { get; set; } = false;
+
+        /// <summary>
+        /// The date and time when the version was soft deleted.
+        /// This is null if the version has not been deleted.
+        /// </summary>
+        public DateTime? DeletedAt { get; set; }
+
+        /// <summary>
         /// the application this version belongs to.
         /// </summary>
         public App App { get; set; } = null!;
 
         /// <summary>
-        /// The file associated with this version.
+        /// the app file associated with this version.
         /// </summary>
         public AppFile File { get; set; } = null!;
     }

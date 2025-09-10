@@ -28,3 +28,6 @@ bld/
 
 # Docker related artifacts
 docker-compose.override.yml
+
+# ASP.NET Core Data Protection Keys
+DataProtectionKeys/

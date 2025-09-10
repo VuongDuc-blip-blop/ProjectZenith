@@ -1,6 +1,3 @@
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using Azure.Storage.Queues.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -12,6 +9,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.Processing;
+using System.Security.Cryptography;
 
 namespace FileScan.Functions;
 
@@ -107,7 +105,7 @@ public class ProcessScreenshot
             };
             await _blobStorageService.SetBlobTagsAsync(_blobStorageOptions.QuarantineContainerName, blobName, tags, cancellationToken);
 
-            var processedEvent = new ScreenshotProcessedEvent
+            var @event = new ScreenshotProcessedEvent
             {
                 BlobName = blobName,
                 AppId = appId,
@@ -115,7 +113,10 @@ public class ProcessScreenshot
                 Checksum = computedChecksum
             };
 
-            await _eventPublisher.PublishAsync(KafkaTopics.ScreenshotResultEvents, processedEvent, cancellationToken);
+            var appIdKey = @event.AppId.ToString();
+            await _eventPublisher.PublishAsync(KafkaTopics.ScreenshotProcessingResults, appIdKey, @event, cancellationToken);
+            await _blobStorageService.MoveAsync(_blobStorageOptions.QuarantineContainerName, blobName, _blobStorageOptions.ValidatedContainerName, blobName, cancellationToken);
+
             _logger.LogInformation("Screenshot '{BlobName}' processed successfully at {ContainerName}.", blobName, _blobStorageOptions.QuarantineContainerName);
 
         }

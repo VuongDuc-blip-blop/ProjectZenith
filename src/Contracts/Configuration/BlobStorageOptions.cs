@@ -24,6 +24,10 @@ namespace ProjectZenith.Contracts.Configuration
         [Required(AllowEmptyStrings = false)]
         public string RejectedContainerName { get; set; } = string.Empty;
 
+
+        [Required(AllowEmptyStrings = false)]
+        public string ArchivedContainerName { get; set; } = "archived";
+
         public string EventQueue { get; set; } = "app-events";
         public string AppFileQueue { get; set; } = "app-files-pending-validation";
         public string ScreenshotQueue { get; set; } = "screenshots-pending-validation";

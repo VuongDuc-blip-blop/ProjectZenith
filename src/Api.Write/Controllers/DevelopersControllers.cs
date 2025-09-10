@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProjectZenith.Contracts.Commands.Developer;
 using ProjectZenith.Contracts.Commands.User;
 using System.Security.Claims;
 
@@ -46,5 +47,40 @@ namespace ProjectZenith.Api.Write.Controllers
             }
 
         }
+
+        [HttpPost("payout-onboarding-link")]
+        public async Task<IActionResult> CreatePayoutOnboardingLink(
+        [FromBody] CreateStripeConnectOnboardingLinkRequest request,
+        CancellationToken cancellationToken)
+        {
+            var developerIdClaim = User.FindFirst("sub")?.Value
+                ?? throw new UnauthorizedAccessException("Developer ID not found in token.");
+
+            if (!Guid.TryParse(developerIdClaim, out var developerId))
+                throw new InvalidOperationException("Invalid Developer ID format in token.");
+
+            var command = new CreateStripeConnectOnboardingLinkCommand(
+                developerId,
+                request.ReturnUrl,
+                request.RefreshUrl);
+
+            var onboardingUrl = await _mediator.Send(command, cancellationToken);
+            return Ok(new { OnboardingUrl = onboardingUrl });
+        }
+
+        [HttpPost("reconcile-payout-status")]
+        public async Task<IActionResult> ReconcilePayoutStatus(CancellationToken cancellationToken)
+        {
+            var developerIdClaim = User.FindFirst("sub")?.Value
+                ?? throw new UnauthorizedAccessException("Developer ID not found in token.");
+
+            if (!Guid.TryParse(developerIdClaim, out var developerId))
+                throw new InvalidOperationException("Invalid Developer ID format in token.");
+
+            var command = new ReconcilePayoutStatusCommand(developerId);
+            await _mediator.Send(command, cancellationToken);
+            return NoContent();
+        }
     }
+    public record CreateStripeConnectOnboardingLinkRequest(string ReturnUrl, string RefreshUrl);
 }

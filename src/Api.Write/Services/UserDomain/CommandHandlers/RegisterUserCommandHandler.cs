@@ -2,14 +2,14 @@
 using MediatR;
 using Microsoft.AspNetCore.DataProtection;
 using ProjectZenith.Api.Write.Data;
-using ProjectZenith.Contracts.Infrastructure;
+using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Email;
 using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Security;
 using ProjectZenith.Contracts.Commands.User;
 using ProjectZenith.Contracts.DTOs.User;
 using ProjectZenith.Contracts.Events.User;
-using ProjectZenith.Contracts.Models;
+using ProjectZenith.Contracts.Infrastructure;
 using ProjectZenith.Contracts.Infrastructure.Messaging;
-using ProjectZenith.Api.Write.Services.UserDomain.DomainServices.Email;
+using ProjectZenith.Contracts.Models;
 
 namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
 {
@@ -89,7 +89,7 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                 throw;
             }
 
-            var userEvent = new UserRegisteredEvent
+            var @event = new UserRegisteredEvent
             {
                 UserId = user.Id,
                 Email = user.Email,
@@ -97,7 +97,8 @@ namespace ProjectZenith.Api.Write.Services.UserDomain.CommandHandlers
                 RegisteredAt = DateTime.UtcNow
             };
             // Publish an event after successful registration
-            await _eventPublisher.PublishAsync(KafkaTopics.UserEvents, userEvent);
+            var userIdKey = @event.UserId.ToString();
+            await _eventPublisher.PublishAsync(KafkaTopics.Users, userIdKey, @event, cancellationToken);
 
             RegisterResponseDTO registerResult = new RegisterResponseDTO
             {
